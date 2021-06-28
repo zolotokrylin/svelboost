@@ -20,12 +20,10 @@
             value: "dark",
         },
     });
-
 </script>
 
 <script lang="ts">
     import { writable } from "svelte/store";
 
     $: theme = $store?.backgrounds?.value || "dark";
-
 </script>

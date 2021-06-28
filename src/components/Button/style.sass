@@ -15,15 +15,15 @@
     img,
     span[role="img"]
         position: relative
-        width: 18px
-        height: 18px
+        margin-right: 8px
+        width: 15px
+        height: 15px
         vertical-align: top
         display: inline-block
 
-        &:not(:only-child)
-            margin-right: 8px
-            width: 15px
-            height: 15px
+    :global(svg)
+        width: 100%
+        height: 100%
 
     :global(svg path)
         fill: currentColor
@@ -49,9 +49,19 @@
         @include var(background-color, 'secondary-accent')
 
     &--alternate
+        border-radius: 12px
         @include var(color, 'f1')
-        @include property(border, 1px, solid, 'l6')
         @include var(background-color, 'l1')
+
+        &::after
+            position: absolute
+            content: ''
+            width: 100%
+            height: 100%
+            border-radius: 12px
+            left: 0
+            top: 0
+            @include property(border, 1px, solid, 'l6')
 
     &--primary,
     &--secondary,
