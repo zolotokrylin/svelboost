@@ -1,0 +1,70 @@
+@import "../common-styles/utils"
+
+.btn
+    position: relative
+    display: inline-flex
+    cursor: pointer
+    border: 0
+    background-color: transparent
+    border-radius: $block-radius
+    @include cta-font()
+
+    &:is(a)
+        text-decoration: none
+
+    img,
+    span[role="img"]
+        position: relative
+        width: 18px
+        height: 18px
+        vertical-align: top
+        display: inline-block
+
+        &:not(:only-child)
+            margin-right: 8px
+            width: 15px
+            height: 15px
+
+    :global(svg path)
+        fill: currentColor
+
+    &--default
+        padding: 15px
+
+        &:not(&--alternate)
+            padding: 16px
+
+    &--small
+        padding: 7px 9px
+
+        &:not(&--alternate)
+            padding: 8px 10px
+
+    &--primary
+        @include var(color, 'l1')
+        @include var(background-color, 'primary-accent')
+
+    &--secondary
+        @include var(color, 'l1')
+        @include var(background-color, 'secondary-accent')
+
+    &--alternate
+        @include var(color, 'f1')
+        @include property(border, 1px, solid, 'l6')
+        @include var(background-color, 'l1')
+
+    &--primary,
+    &--secondary,
+    &--alternate
+        transition: filter 0.3s ease-in-out
+        border-radius: 12px
+        filter: brightness(1)
+
+        &:not(:disabled)
+            &.active,
+            &:hover,
+            &:focus
+                filter: brightness(1.5)
+
+        &:not(:disabled):active
+            filter: brightness(.85)

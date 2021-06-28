@@ -1,0 +1,49 @@
+@use "sass:math"
+@use '_variables'
+
+@function getColumnWidth($columns, $base: 12)
+	@return percentage($columns / $base)
+
+@function toRem($px)
+	@return math.div($px, $base-font) * 1rem
+
+@function getColumnWidth($columns, $base: 12)
+	@return percentage($columns / $base)
+
+@function toRgba($color)
+	@return red($color), green($color), blue($color)
+
+@function get-var($key)
+	@return var(--#{$key}, map_get($light-colors, $key))
+
+@function parseShadow($shadow, $withVariables: false)
+	$shadow-string: ""
+
+	@each $key, $value in $shadow
+		@if map_has_key($shadow, "percent")
+			@if $key == "offset"
+				$shadow-string: $shadow-string + #{$value} + ' '
+
+			@if $key == "key"
+				@if $withVariables
+					$shadow-string: $shadow-string + #{rgba(var(--#{$value}--rgb, map-get($light-colors, $value) ), map_get($shadow, "percent"))} + ' '
+				@else
+					$shadow-string: $shadow-string + #{rgba(map-get($light-colors, $value), map_get($shadow, "percent"))} + ' '
+
+			@if $key == "property"
+				$shadow-string: $shadow-string + #{$value}
+
+			@else
+			@if $key == "offset"
+				$shadow-string: $shadow-string + #{$value} + ' '
+
+			@if $key == "key"
+				@if $withVariables
+					$shadow-string: $shadow-string + #{var(--#{$value}, map-get($light-colors, $value) )} + ' '
+				@else
+					$shadow-string: $shadow-string + #{map-get($light-colors, $value)} + ' '
+
+			@if $key == "property"
+				$shadow-string: $shadow-string + #{$value}
+
+	@return $shadow-string

@@ -1,0 +1,24 @@
+mixin content
+    +if('icon')
+        span(role="img") {@html icon}
+        +elseif('imageSrc')
+            img(loading="lazy" src="{imageSrc}" alt="{imageAlt}")
+    +if('label')
+        | {label}
+
++if('href')
+    a(
+        class!="{['btn', typeClass, sizeClass].join(' ')}"
+        disabled="{disabled}"
+        href="{href}"
+        rel="{rel}"
+    )
+        +content
+    +else()
+        button(
+            class!="{['btn', typeClass, sizeClass].join(' ')}"
+            disabled="{disabled}"
+            type="{btnType}"
+            on:click="{onClick}"
+        )
+            +content

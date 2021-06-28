@@ -1,0 +1,62 @@
+@mixin font-details($size, $weight, $lineHeight: 1)
+	font-size: $size
+	font-weight: $weight
+	line-height: $lineHeight
+
+@mixin clear-fix()
+	&:before, &:after
+		display: table
+		content: ''
+
+	&:after
+		clear: both
+
+@mixin breakpoint($breakpoint)
+	@media #{$breakpoint}
+		@content
+
+@mixin focus-outline()
+	&:focus
+		outline: 0
+
+@mixin var($property: color, $key, $alphaPercent: 1, $rest : null)
+	@if $alphaPercent != 1
+		#{$property}: rgba(map_get($light-colors, $key), $alphaPercent) $rest
+		#{$property}: rgba(var(--#{$key}--rgb, map_get($light-colors, $key)), $alphaPercent) $rest
+	@else
+		#{$property}: map_get($light-colors, $key) $rest
+		#{$property}: var(--#{$key}, map_get($light-colors, $key)) $rest
+
+@mixin boxShadow($key, $offset, $alphaPercent: 1, $setProperty: null)
+	@if $alphaPercent != 1
+		box-shadow: $offset rgba( map-get($light-colors, $key), $alphaPercent) $setProperty
+		box-shadow: $offset rgba( var(--#{$key}--rgb, map-get($light-colors, $key) ), $alphaPercent) $setProperty
+	@else
+		box-shadow: $offset map-get($light-colors, $key) $setProperty
+		box-shadow: $offset var(--#{$key}, map-get($light-colors, $key) ) $setProperty
+
+@mixin boxShadowV2($shadows)
+	$shadow-string: ""
+	$shadow-string-with-var: ""
+
+	@each $order, $shadow in $shadows
+		$shadow-string: $shadow-string + #{parseShadow($shadow)} + ', '
+		$shadow-string-with-var: $shadow-string-with-var + #{parseShadow($shadow, true)} + ', '
+
+		box-shadow: #{str-slice($shadow-string, 1, -3)}
+		box-shadow: #{str-slice($shadow-string-with-var, 1, -3)}
+
+@mixin createVariables($theme)
+	@if($theme == "dark")
+		@each $key, $value in $dark-colors
+			--#{$key}: #{$value}
+			--#{$key}--rgb: #{toRgba($value)}
+	@else
+		@each $key, $value in $light-colors
+			--#{$key}: #{$value}
+			--#{$key}--rgb: #{toRgba($value)}
+
+@mixin property($property, $width, $style, $colorKey, $alphaPercent: 1)
+	#{$property}-width: #{$width}
+	#{$property}-style: #{$style}
+	@include var(#{$property}-color, $colorKey, $alphaPercent)

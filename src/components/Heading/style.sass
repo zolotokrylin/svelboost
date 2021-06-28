@@ -1,0 +1,36 @@
+@import "../common-styles/utils"
+
+h1
+    @include font-details(toRem(40px),500, 1)
+
+h2
+    @include font-details(toRem(32px),500, 1)
+
+h3
+    @include font-details(toRem(28px),500, 1)
+
+h4
+    @include font-details(toRem(24px),500, 1)
+
+h5
+    @include font-details(toRem(20px),500, 1)
+
+h6
+    @include font-details(toRem(16px),500, 1)
+
+a
+    text-decoration: none
+
+.heading
+    @include var(color, 'f1')
+    margin: 0
+
+    &--isHoverable
+        cursor: pointer
+        transition: color .3s ease-in-out
+
+        &:hover
+            @include var(color,'primary-accent')
+
+    &--isDisplay
+        font-size: 40px
