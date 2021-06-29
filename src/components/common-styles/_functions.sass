@@ -2,13 +2,10 @@
 @use '_variables'
 
 @function getColumnWidth($columns, $base: 12)
-	@return percentage($columns / $base)
+	@return percentage(math.div($columns, $base))
 
 @function toRem($px)
 	@return math.div($px, $base-font) * 1rem
-
-@function getColumnWidth($columns, $base: 12)
-	@return percentage($columns / $base)
 
 @function toRgba($color)
 	@return red($color), green($color), blue($color)
