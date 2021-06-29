@@ -35,13 +35,13 @@ module.exports = {
 		chunkFilename: '[name].[id].js'
 	},
 	module: {
-			rules: [
-				{
-					test: /\.ts$/,
-					loader: 'ts-loader',
-					exclude: /node_modules/
-				},
-				{
+		rules: [
+			{
+				test: /\.ts$/,
+				loader: 'ts-loader',
+				exclude: /node_modules/
+			},
+			{
 				test: /\.svelte$/,
 				use: {
 					loader: 'svelte-loader',
