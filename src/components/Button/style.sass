@@ -25,6 +25,7 @@
     :global(svg)
         width: 100%
         height: 100%
+        vertical-align: top
 
     :global(svg path)
         fill: currentColor
@@ -62,6 +63,8 @@
         border-radius: 12px
         filter: brightness(1)
 
+    &--primary,
+    &--secondary
         &:not(:disabled)
             &.active,
             &:hover,
@@ -70,3 +73,13 @@
 
         &:not(:disabled):active
             filter: brightness(.85)
+
+    &--alternate
+        &:not(:disabled)
+            &.active,
+            &:hover,
+            &:focus
+                filter: brightness(.95)
+
+        &:not(:disabled):active
+            filter: brightness(.9)

@@ -76,6 +76,25 @@
     }}
 />
 
+<Story
+    name="SmallWithIcon"
+    args={{
+        size: "small",
+        icon: `${HomeIcon}`,
+        label: "small button with icon",
+    }}
+/>
+
+<Story
+    name="SmallWithImage"
+    args={{
+        size: "small",
+        imageSrc: "https://holdex.io/common/metamask.svg",
+        imageAlt: "metamask",
+        label: "small button with image",
+    }}
+/>
+
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
     import Button from "./index.svelte";
