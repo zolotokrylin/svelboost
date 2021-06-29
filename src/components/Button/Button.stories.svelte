@@ -31,7 +31,7 @@
 <Story
     name="Primary"
     args={{
-        label: "Button",
+        label: "Primary Button",
     }}
 />
 
@@ -39,7 +39,7 @@
     name="Secondary"
     args={{
         type: "secondary",
-        label: "Button",
+        label: "Secondary Button",
     }}
 />
 
@@ -47,7 +47,7 @@
     name="Alternate"
     args={{
         type: "alternate",
-        label: "Button",
+        label: "Alternate Button",
     }}
 />
 
@@ -72,7 +72,7 @@
     name="Small"
     args={{
         size: "small",
-        label: "Button with image",
+        label: "Small button",
     }}
 />
 

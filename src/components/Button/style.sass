@@ -3,6 +3,7 @@
 .btn
     position: relative
     display: inline-flex
+    align-items: center
     cursor: pointer
     border: 0
     background-color: transparent
@@ -52,16 +53,7 @@
         border-radius: 12px
         @include var(color, 'f1')
         @include var(background-color, 'l1')
-
-        &::after
-            position: absolute
-            content: ''
-            width: 100%
-            height: 100%
-            border-radius: 12px
-            left: 0
-            top: 0
-            @include property(border, 1px, solid, 'l6')
+        @include property(border, 1px, solid, 'l6')
 
     &--primary,
     &--secondary,
