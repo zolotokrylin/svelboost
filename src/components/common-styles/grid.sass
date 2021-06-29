@@ -1,11 +1,13 @@
+@use "sass:math"
+
 .container
     position: relative
     display: block
     max-width: 1200px
     width: 100%
     margin: 0 auto
-    padding-right: $gutter / 2
-    padding-left: $gutter / 2
+    padding-right: math.div($gutter, 2)
+    padding-left: math.div($gutter, 2)
 
     @include breakpoint($small)
         max-width: 670px
@@ -13,8 +15,8 @@
 .row
     position: relative
     display: block
-    margin-right: -#{$gutter / 2}
-    margin-left: -#{$gutter / 2}
+    margin-right: -#{math.div($gutter, 2)}
+    margin-left: -#{math.div($gutter, 2)}
 
     &:not(.flex)
         @include clear-fix()
@@ -23,8 +25,8 @@
     position: relative
     min-height: 1px
     float: left
-    padding-right: $gutter / 2
-    padding-left: $gutter / 2
+    padding-right: math.div($gutter, 2)
+    padding-left: math.div($gutter, 2)
 
 $list: xs, sm, md, lg
 $breakpoints: ( xs: "min-width:320px", sm: "min-width:768px", md: "min-width:992px", lg: "min-width:1200px")
@@ -34,8 +36,8 @@ $breakpoints: ( xs: "min-width:320px", sm: "min-width:768px", md: "min-width:992
         @media (map_get($breakpoints,$item))
             .#{$item}-#{$i}
                 position: relative
-                padding-right: $gutter / 2
-                padding-left: $gutter / 2
+                padding-right: math.div($gutter, 2)
+                padding-left: math.div($gutter, 2)
                 width: getColumnWidth($i)
 
             .left-#{$item}-#{$i}
