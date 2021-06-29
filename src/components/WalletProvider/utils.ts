@@ -1,0 +1,1 @@
+export const signatureMessage = `Welcome to Amplify: %nonce%`;
