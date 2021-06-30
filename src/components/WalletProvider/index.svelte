@@ -1,33 +1,9 @@
-<slot />
-
-<script context="module">
-    export const errorCodes = {
-        PROVIDER_LOCKED: "provider-locked",
-        PROVIDER_MISSING: "provider-missing",
-        WRONG_CHAIN: "wrong-chain",
-        PERMISSIONS_DENIED: "permission-denied",
-        SIGNATURE_DENIED: "signature-denied",
-    };
-
-    export const STATUS = {
-        DISCONNECTED: 1,
-        ACTIVE: 2,
-        CONNECTING: 3,
-    };
-
-    export const CHAINS = {
-        MAIN: 1,
-        RINKEBY: 4,
-        MATIC: 137,
-    };
-</script>
-
 <script>
     import Web3 from "web3";
     import { setContext, onMount } from "svelte";
     import { writable } from "svelte/store";
     import { isMobile } from "@walletconnect/utils/dist/cjs";
-    import { signatureMessage } from "./utils";
+    import { signatureMessage, CHAINS, STATUS, errorCodes } from "./utils";
 
     let instance;
 
@@ -205,3 +181,5 @@
         statuses: STATUS,
     });
 </script>
+
+<slot />

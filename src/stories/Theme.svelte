@@ -1,19 +1,3 @@
-<style lang="sass" global>
-    @import "src/components/common-styles/utils"
-
-    .main
-        padding: 30px
-        @include createVariables('light')
-        @include var(background-color, 'l1')
-
-        &.dark
-            @include createVariables('dark')
-</style>
-
-<div class="main {theme}">
-    <slot />
-</div>
-
 <script context="module">
     export const store = writable({
         backgrounds: {
@@ -27,3 +11,28 @@
 
     $: theme = $store?.backgrounds?.value || "dark";
 </script>
+
+<svelte:head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+</svelte:head>
+
+<div class="main {theme}">
+    <slot />
+</div>
+
+<style lang="sass" global>
+    @import "src/components/common-styles/common"
+
+    .main
+        padding: 30px
+        @include createVariables('light')
+        @include var(background-color, 'l1')
+
+        &.dark
+            @include createVariables('dark')
+</style>

@@ -20,7 +20,7 @@ const preprocess = {
 
 module.exports = {
 	entry: {
-		'build/bundle': ['./src/main.ts']
+		bundle: ['./src/main.ts']
 	},
 	resolve: {
 		alias: {
@@ -46,9 +46,6 @@ module.exports = {
 				use: {
 					loader: 'svelte-loader',
 					options: {
-						compilerOptions: {
-							dev: !prod
-						},
 						emitCss: prod,
 						hotReload: !prod,
 						preprocess: sveltePreprocess(preprocess)
@@ -61,13 +58,6 @@ module.exports = {
 					MiniCssExtractPlugin.loader,
 					'css-loader'
 				]
-			},
-			{
-				// required to prevent errors from Svelte on Webpack 5+
-				test: /node_modules\/svelte\/.*\.mjs$/,
-				resolve: {
-					fullySpecified: false
-				}
 			}
 		]
 	},
@@ -78,7 +68,4 @@ module.exports = {
 		})
 	],
 	devtool: prod ? false : 'source-map',
-	devServer: {
-		hot: true
-	}
 };

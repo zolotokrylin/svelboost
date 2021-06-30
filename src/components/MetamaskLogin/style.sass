@@ -1,0 +1,49 @@
+@import "../common-styles/utils"
+
+.icon
+    position: relative
+    display: block
+    margin: 0 auto 1.5rem
+    width: 72px
+    height: 72px
+    border-radius: 50%
+    @include property(border, 1px, solid, 'l4')
+    @include var(background-color, 'l1')
+
+    :global(.circle-wrapper)
+        position: absolute
+        left: 0
+        top: 0
+
+    &::before
+        position: absolute
+        content: ''
+        width: 40px
+        height: 40px
+        left: 14px
+        top: 14px
+        background: no-repeat center
+        background-size: contain
+        background-image: url('https://cdn.iconscout.com/icon/free/png-512/metamask-2728406-2261817.png')
+
+.portal-wrapper
+    text-align: center
+    max-width: 350px
+    padding: 1.5rem 1.5rem .875rem
+
+    :global(.title)
+        margin-bottom: .8rem
+
+.description
+    position: relative
+    margin: 0 auto 1.5rem
+    @include var(color, 'f2')
+    @include footnote-font()
+
+.btns
+    position: relative
+    display: flex
+    justify-content: center
+
+.btns :global(.btn)
+    margin: .625rem
