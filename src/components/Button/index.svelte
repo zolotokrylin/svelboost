@@ -1,9 +1,3 @@
-<style lang="sass" src="./style.sass">
-
-</style>
-
-<template lang="pug" src="./template.pug" />
-
 <script lang="ts">
     enum Size {
         LARGE = "large",
@@ -35,3 +29,9 @@
     $: sizeClass = `btn--${size}`;
     $: btnType = isSubmitBtn ? "submit" : "button";
 </script>
+
+<template lang="pug" src="./template.pug" />
+
+<style lang="sass" src="./style.sass">
+
+</style>
