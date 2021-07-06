@@ -46,7 +46,7 @@ mixin permission-denied
         class="title text-error"
         level="{3}"
     ) Authorization failed
-    p.description Holdex needs access to your wallet, please login and authorize MetaMask to continue.
+    p.description {appName}  needs access to your wallet, please login and authorize MetaMask to continue.
     .btns
         Button(
             type="alternate"
@@ -65,7 +65,7 @@ mixin signature-denied
         class="title text-error"
         level="{3}"
     ) Signature failed
-    p.description Holdex needs access to your wallet, please login and authorize MetaMask to continue.
+    p.description {appName} needs access to your wallet, please login and authorize MetaMask to continue.
     .btns
         Button(
             type="alternate"
@@ -90,14 +90,13 @@ mixin loading-state
         class="title"
         level="{3}"
     ) MetaMask
-    p.description Holdex needs access to your wallet, please login and authorize MetaMask to continue.
+    p.description {appName} needs access to your wallet, please login and authorize MetaMask to continue.
     .btns
         Button(
             type="alternate"
             label="Dismiss"
             onClick="{onDismiss}"
         )
-
 
 .portal-wrapper
     +if('error === errorCodes.PROVIDER_MISSING')

@@ -6,6 +6,9 @@
 <Meta
     title="Example/MetamaskPopup"
     component={MetamaskLogin}
+    args={{
+        appName: "Holdex",
+    }}
     argTypes={{
         label: { control: "text" },
         init: { action: "init" },
@@ -23,6 +26,7 @@
                 ],
             },
         },
+        appName: { control: "text" },
     }}
 />
 

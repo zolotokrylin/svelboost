@@ -10,6 +10,7 @@
     export let onDismiss: () => void;
 
     export let error: string;
+    export let appName: string;
 </script>
 
 <template lang="pug" src="./template.pug" />
