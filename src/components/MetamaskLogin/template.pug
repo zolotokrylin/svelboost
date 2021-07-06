@@ -10,7 +10,7 @@ mixin metamask-missing
         Button(
             type="alternate"
             label="Refresh"
-            onClick="{onDismiss}"
+            onClick="{reload}"
         )
         Button(
             label="Install Metamask"
@@ -23,20 +23,14 @@ mixin wrong-chain
     Heading(
         class="title text-error"
         level="{3}"
-    ) Wrong Ethereum network
+    ) Wrong network
     p.description 
         | Please change your network to the Ethereum {' '}
         b main {' '}
-        | network.
+        | network and refresh the page.
     .btns
         Button(
-            type="alternate"
-            label="Dismiss"
-            onClick="{onDismiss}"
-        )
-        Button(
             label="Try again"
-            rel="_blank"
             onClick="{init}"
         )
 
@@ -49,13 +43,7 @@ mixin permission-denied
     p.description {appName}  needs access to your wallet, please login and authorize MetaMask to continue.
     .btns
         Button(
-            type="alternate"
-            label="Dismiss"
-            onClick="{onDismiss}"
-        )
-        Button(
             label="Try again"
-            rel="_blank"
             onClick="{init}"
         )
 
@@ -68,13 +56,7 @@ mixin signature-denied
     p.description {appName} needs access to your wallet, please login and authorize MetaMask to continue.
     .btns
         Button(
-            type="alternate"
-            label="Dismiss"
-            onClick="{onDismiss}"
-        )
-        Button(
             label="Try again"
-            rel="_blank"
             onClick="{connect}"
         )
 

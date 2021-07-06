@@ -11,6 +11,8 @@
 
     export let error: string;
     export let appName: string;
+
+    let reload = () => window.location.reload();
 </script>
 
 <template lang="pug" src="./template.pug" />
