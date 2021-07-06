@@ -32,6 +32,9 @@
 <style lang="sass" global>
     @import "src/components/common-styles/common"
 
+    *
+        font-family: Inter
+
     .main
         padding: 30px
         @include createVariables('light')
