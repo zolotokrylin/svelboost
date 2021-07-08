@@ -9,7 +9,7 @@ import MetamaskPopup from './components/MetamaskLogin/index.svelte';
 
 export {
     Button,
-    Icon
+    Icon,
     Heading,
     NavItem,
     CircularLoading,
