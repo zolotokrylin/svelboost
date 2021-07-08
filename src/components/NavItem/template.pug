@@ -1,0 +1,13 @@
+a.nav-item(
+    href="{href}"
+    class="{className}"
+    class:nav-item-active="{active}"
+)
+    +if('icon')
+        Icon(
+            icon="{icon}" 
+            width="{15}" 
+            height="{15}" 
+            colorInherit
+        )
+    span { label }
