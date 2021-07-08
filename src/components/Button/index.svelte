@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Icon from "../Icon/index.svelte";
+
     enum Size {
         LARGE = "large",
         DEFAULT = "default",
@@ -16,7 +18,7 @@
     export let rel: string;
     export let onClick: () => void;
 
-    export let icon: string = undefined;
+    export let icon: any = undefined;
     export let imageSrc: string = undefined;
     export let imageAlt: string = undefined;
 

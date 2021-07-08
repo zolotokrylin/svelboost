@@ -19,7 +19,7 @@ declare const propDef: {
         href?: string;
         label: string;
         rel?: string;
-        icon?: string;
+        icon?: any;
         imageSrc?: string;
         imageAlt?: string;
         disabled: boolean;
@@ -27,12 +27,6 @@ declare const propDef: {
         type: Type
         size: Size;
         onClick: () => void;
-        width?: number;
-        height?: number;
-        radius?: number;
-        strokeWidth?: number;
-        strokeLimit?: string;
-        class?: string;
     };
     events?: {
         [evt: string]: CustomEvent<any>;

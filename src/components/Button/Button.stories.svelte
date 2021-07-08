@@ -1,10 +1,16 @@
+<script>
+    import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+    import Button from "./index.svelte";
+    import { home } from "../Icons/solid";
+</script>
+
 <Meta
     title="Example/Button"
     component={Button}
     argTypes={{
         label: { control: "text" },
         href: { control: "text" },
-        icon: { control: "text" },
+        icon: { control: "object" },
         imageSrc: { control: "text" },
         imageAlt: { control: "text" },
         rel: {
@@ -54,7 +60,7 @@
 <Story
     name="WithIcon"
     args={{
-        icon: `${HomeIcon}`,
+        icon: home,
         label: "Button with icon",
     }}
 />
@@ -80,7 +86,7 @@
     name="SmallWithIcon"
     args={{
         size: "small",
-        icon: `${HomeIcon}`,
+        icon: home,
         label: "small button with icon",
     }}
 />
@@ -94,9 +100,3 @@
         label: "small button with image",
     }}
 />
-
-<script>
-    import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-    import Button from "./index.svelte";
-    import { HomeIcon } from "../Icons";
-</script>
