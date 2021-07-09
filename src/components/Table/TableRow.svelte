@@ -4,9 +4,13 @@
      * TableRow class
      */
     export { className as class };
+
+    export let hoverable: boolean = false;
+
+    $: hoverableClass = hoverable ? "table-row--hoverable" : "";
 </script>
 
-<tr class="table-row {className}">
+<tr class="table-row {className} {hoverableClass}">
     <slot />
 </tr>
 

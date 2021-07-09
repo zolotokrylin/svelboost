@@ -27,7 +27,7 @@
             </TableRow>
         </TableHead>
         <TableBody>
-            <TableRow>
+            <TableRow hoverable>
                 {#each args.cells as _, i}
                     <TableCell index={i} label="cell {i}" />
                 {/each}

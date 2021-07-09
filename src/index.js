@@ -1,4 +1,5 @@
 import Button from './components/Button/index.svelte';
+import ButtonIcon from './components/ButtonIcon/index.svelte';
 import Badge from './components/Badge/index.svelte';
 import Heading from './components/Heading/index.svelte';
 import Icon from './components/Icon/index.svelte';
@@ -15,6 +16,7 @@ import { focus, resize, clickOutside, portal } from './dom-actions';
 export {
     Badge,
     Button,
+    ButtonIcon,
     Icon,
     Heading,
     NavItem,
