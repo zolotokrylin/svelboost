@@ -1,3 +1,4 @@
+import Badge from "./components/Badge/index.svelte";
 import Button from "./components/Button/index.svelte";
 import Icon from "./components/Icon/index.svelte";
 import Heading from "./components/Heading/index.svelte";
@@ -11,4 +12,4 @@ import { TableBody } from "./components/Table";
 import { TableHead } from "./components/Table";
 import { TableRow } from "./components/Table";
 import { TableCell } from "./components/Table";
-export { Button, Icon, Heading, NavItem, CircularLoading, CookieManager, WalletProvider, MetamaskPopup, Table, TableBody, TableHead, TableRow, TableCell };
+export { Badge, Button, Icon, Heading, NavItem, CircularLoading, CookieManager, WalletProvider, MetamaskPopup, Table, TableBody, TableHead, TableRow, TableCell };

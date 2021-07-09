@@ -60,3 +60,8 @@
 	#{$property}-width: #{$width}
 	#{$property}-style: #{$style}
 	@include var(#{$property}-color, $colorKey, $alphaPercent)
+
+@mixin truncate
+	text-overflow: ellipsis
+	overflow: hidden
+	white-space: nowrap
