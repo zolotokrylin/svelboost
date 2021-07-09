@@ -18,4 +18,4 @@ declare const propDef: {
 export declare type IndexProps = typeof propDef.props;
 export declare type IndexEvents = typeof propDef.events;
 export declare type IndexSlots = typeof propDef.slots;
-export {};
+export { };
