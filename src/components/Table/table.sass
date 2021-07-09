@@ -1,0 +1,21 @@
+@import "../common-styles/utils"
+
+.table
+    display: table
+    width: 100%
+    max-width: 100%
+    border-collapse: collapse
+    border-spacing: 0
+    text-indent: 0
+    background-color: transparent
+
+    &-wrapper
+        position: relative
+        display: block
+        width: 100%
+        border-radius: 10px
+        @include property(border, 1px, solid, 'l4')
+
+        &--responsive
+            overflow-x: auto
+            -webkit-overflow-scrolling: touch
