@@ -15,6 +15,8 @@
     $: withBorderClass = withBorder ? "btn-icon--withBorder" : "";
 </script>
 
+<svelte:options accessors />
+
 <template lang="pug" src="./template.pug" />
 
 <style lang="sass" src="./style.sass">
