@@ -6,7 +6,9 @@
 
     // Used for control DOM element from outside
     let ref: HTMLButtonElement;
-    export let getRef = () => ref;
+    export function getRef() {
+        return ref;
+    }
 
     export let disabled: boolean = false;
     export let withBorder: boolean = false;
