@@ -8,6 +8,9 @@ import CircularLoading from './components/CircularLoading/index.svelte';
 import CookieManager from './components/CookieManager';
 import WalletProvider from './components/WalletProvider/index.svelte';
 import MetamaskPopup from './components/MetamaskLogin/index.svelte';
+import { Selector, SelectorOptions } from './components/Selector';
+
+import { focus, resize, clickOutside, portal } from './dom-actions';
 
 export {
     Badge,
@@ -19,9 +22,12 @@ export {
     CookieManager,
     WalletProvider,
     MetamaskPopup,
+    Selector,
+    SelectorOptions,
     Table,
     TableBody,
     TableHead,
     TableRow,
-    TableCell
+    TableCell,
+    focus, resize, clickOutside, portal
 }
