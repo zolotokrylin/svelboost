@@ -5,6 +5,9 @@
     export let ref: HTMLElement;
     export let target: string;
 
+    let className: string;
+    export { className as class };
+
     export let isShown: boolean = false;
     export let toggle: (t: boolean) => void;
 
@@ -42,8 +45,6 @@
     let setStyles = (node: HTMLDivElement, props: Props) => {
         let { ref, scrollX, scrollY } = props;
         let { width, height, top, left } = ref.getBoundingClientRect();
-        node.style.position = "absolute;";
-        node.style.display = "block";
         node.style.width = `${width}px`;
         node.style.height = `${height}px`;
         node.style.left = `${scrollX + left}px`;
@@ -53,11 +54,12 @@
 
 <div
     class="selector-options-wrapper"
+    style="position:absolute;display: block;"
     use:style={{ ref, scrollX, scrollY }}
     use:portal={target}
 >
     <div
-        class="selector-options"
+        class="selector-options {className}"
         transition:fade
         class:selector-options--left-aligned={align === Alignment.LEFT}
         class:selector-options--right-aligned={align === Alignment.RIGHT}
