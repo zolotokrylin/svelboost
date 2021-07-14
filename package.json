@@ -78,6 +78,7 @@
     "chromatic": "chromatic --exit-once-uploaded"
   },
   "dependencies": {
-    "web3": "1.4.0"
+    "web3": "1.4.0",
+    "lodash-es": "4.17.15"
   }
 }

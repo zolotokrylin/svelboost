@@ -29,8 +29,7 @@
 
 			@if $key == "property"
 				$shadow-string: $shadow-string + #{$value}
-
-			@else
+		@else
 			@if $key == "offset"
 				$shadow-string: $shadow-string + #{$value} + ' '
 
@@ -42,5 +41,4 @@
 
 			@if $key == "property"
 				$shadow-string: $shadow-string + #{$value}
-
 	@return $shadow-string

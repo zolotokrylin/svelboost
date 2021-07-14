@@ -1,5 +1,5 @@
-@mixin paragraph-font
-    @include font-details(toRem(16px),400, 1.2)
+@mixin paragraph-font($lineHeight: 1.2)
+    @include font-details(toRem(16px),400, $lineHeight)
 
 @mixin cta-font
     @include font-details(toRem(14px),700, 1)
