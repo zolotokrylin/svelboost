@@ -1,0 +1,21 @@
+declare const regExp: {
+    default: RegExp;
+    slug: RegExp;
+    email: RegExp;
+    website: RegExp;
+};
+declare const isDefined: (val: any) => boolean;
+declare function minChars(errObj: Object, key: string, value: any, charsNr: number): Object;
+declare function maxChars(errObj: Object, key: string, value: any, charsNr: number): Object;
+declare function minLength(errObj: Object, key: string, value: any, lengthNr: number, message?: string): Object;
+declare function maxLength(errObj: Object, key: string, value: any, lengthNr: number, message?: string): Object;
+declare function required(errObj: Object, key: string, value: any): Object;
+declare function checkEmail(errObj: Object, key: string, value: any): Object;
+declare function checkNumber(errObj: Object, key: string, value: any): Object;
+declare function checkSimilarity(errObj: Object, key: string, value1: any, value2: any, message: string): Object;
+declare function checkDifference(errObj: Object, key: string, value1: any, value2: any, message: string): Object;
+declare function checkWebsite(errObj: Object, key: string, value: any): Object;
+declare function matchRegex(errObj: Object, key: string, value: any, regExp: RegExp, message?: string): Object;
+declare const isTrue: (errObj: Object, key: string, value: boolean, message?: string) => Object;
+declare const isGreater: (errObj: Object, key: string, value: number, greaterThan: number, message?: string) => Object;
+export { minChars, maxChars, minLength, maxLength, required, checkEmail, matchRegex, checkNumber, checkWebsite, checkDifference, checkSimilarity, isDefined, isTrue, isGreater, regExp };

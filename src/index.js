@@ -4,6 +4,7 @@ import Badge from './components/Badge/index.svelte';
 import Heading from './components/Heading/index.svelte';
 import Icon from './components/Icon/index.svelte';
 import NavItem from './components/NavItem/index.svelte';
+import { Form, Input, File, types, validator } from './components/Form';
 import { Table, TableBody, TableHead, TableRow, TableCell } from './components/Table';
 import CircularLoading from './components/CircularLoading/index.svelte';
 import CookieManager from './components/CookieManager';
@@ -31,5 +32,10 @@ export {
     TableHead,
     TableRow,
     TableCell,
+    File,
+    Form,
+    Input,
+    types,
+    validator,
     focus, resize, clickOutside, portal
 }
