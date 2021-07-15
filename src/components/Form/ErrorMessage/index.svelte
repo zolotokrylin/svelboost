@@ -6,6 +6,9 @@
 
     export let name: string;
 
+    let className: string = "";
+    export { className as class };
+
     let formTouched: Writable<Object> = getContext("formTouched");
     let formErrors: Writable<Object> = getContext("formErrors");
 
@@ -15,7 +18,9 @@
 </script>
 
 {#if hasError}
-    <span class="error-message" transition:fade|local> {error}</span>
+    <span class="error-message {className}" transition:fade|local>
+        {error}</span
+    >
 {/if}
 
 <style lang="sass" src="./style.sass">

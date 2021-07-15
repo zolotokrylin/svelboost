@@ -1,0 +1,48 @@
+Controller({...$$props} let:value let:context let:hasError let:handleDrop let:handleDragLeave let:handleDragOver let:isDragged)
+    FormGroup(class="file-field" name="{name}")
+        +if('disabled')
+            input(
+                name="{name}" 
+                id="{name}_field_input" 
+                type="file")
+            +else()
+                input(
+                    name="{name}"
+                    id="{name}_field_input"
+                    tabindex="-1"
+                    accept="{accept}"
+                    type="file"
+                    on:focus="{context.handleFocus}"
+                    on:input!="{handleDrop(getFilesFromInputEvent)}")
+        label(
+            for="{name}_field_input"
+            class="{className}"
+            class:with-error!="{!isLoading && hasError}"
+            class:disabled="{disabled}"
+            class:loading="{isLoading}"
+            class:dropped="{isDragged}"
+            class:active="{value}"
+            on:dragover|preventDefault="{handleDragOver}"
+            on:dragleave|preventDefault="{handleDragLeave}"
+            on:drop|preventDefault!="{handleDrop(getFilesFromDropEvent)}")
+            span.placeholder
+                +if('value')
+                    | {value.name}
+                    +elseif('isDragged')
+                        | Drop file here
+                    +else()
+                        | {placeholder}
+            +if('value')
+                ButtonIcon(icon="{x}" pointerNone)
+                +else()
+                    ButtonIcon(icon="{folder}" pointerNone)
+            +if('isLoading')
+                CircularLoading(
+                    width="{34}"
+                    height="{34}"
+                    radius="{15}"
+                    mode="determinate"
+                    progress="{progress}")
+            slot(value!="{value.name}")
+        +if('!isLoading')
+            ErrorMessage(class="relative" name="{name}")

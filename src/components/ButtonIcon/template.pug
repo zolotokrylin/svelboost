@@ -1,5 +1,6 @@
 button(
     bind:this="{ref}"
+    class:pointers-none="{pointerNone}"
     class!="{['btn-icon', withBorderClass, className].join(' ')}"
     disabled="{disabled}"
     on:click="{onClick}"

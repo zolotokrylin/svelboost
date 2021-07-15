@@ -21,11 +21,25 @@
 
 .circular
     position: relative
-    animation: circular-rotate 2s linear infinite
+
+    &-indeterminate
+        animation: circular-rotate 2s linear infinite
+
+        .track
+            display: none
+
+        .path
+            stroke-dasharray: 1,200
+            stroke-dashoffset: 0
+            animation: dash 2s linear infinite
+
+    &-determinate .path
+        transition: stroke-dasharray 0.3s linear
+
+.track
+    stroke-linecap: round
+    @include var(stroke, 'l6')
 
 .path
-    stroke-dasharray: 1,200
-    stroke-dashoffset: 0
-    animation: dash 2s ease-in-out infinite
     stroke-linecap: round
     @include var(stroke, 'primary-accent')

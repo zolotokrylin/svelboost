@@ -1,0 +1,46 @@
+@import "../../common-styles/utils"
+
+input
+    position: absolute
+    opacity: 0.00001
+    padding: 0
+    width: 0
+    height: 0
+    top: 0
+    left: 0
+
+label
+    position: relative
+    display: flex
+    cursor: pointer
+    justify-content: space-between
+    align-items: center
+    padding: 7px 15px
+    border-radius: 10px
+    transition: background-color .3s ease-in-out, border-color .3s ease-in-out
+    @include var(color, 'f1')
+    @include property(border, 1px, dashed, 'f4')
+    @include var(background-color, 'l1')
+
+    &.with-error
+        @include var(border-color, 'alert')
+
+    &.disabled
+        cursor: not-allowed
+
+    &:hover
+        @include var(border-color, 'f1')
+
+    &.dropped
+        @include var(border-color, 'primary-accent')
+
+    &.active
+        border-style: solid
+        @include var(border-color, 'l4')
+
+.placeholder
+    position: relative
+    width: calc(100% - 48px)
+    @include var(color, 'f1')
+    @include footnote-font()
+    @include truncate()

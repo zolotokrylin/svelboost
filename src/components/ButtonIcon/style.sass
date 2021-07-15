@@ -14,6 +14,9 @@
     @include var(color, 'f1')
     @include var(background-color, 'l1')
 
+    &.pointers-none
+        pointer-events: none
+
     &--withBorder
         padding: 7px
         @include property(border,1px, solid, 'l4')

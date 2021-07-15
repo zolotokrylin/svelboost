@@ -4,6 +4,8 @@
     export let onClick: () => void;
     export let icon: any;
 
+    export let pointerNone: boolean = false;
+
     // Used for control DOM element from outside
     let ref: HTMLButtonElement;
     export function getRef() {
