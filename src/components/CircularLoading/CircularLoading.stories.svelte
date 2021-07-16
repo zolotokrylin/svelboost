@@ -6,22 +6,19 @@
 <Meta
     title="Example/CircularLoading"
     component={CircularLoading}
-    argTypes="{{
-        width: { control: 'number' },
-        height: { control: 'number' },
-        radius: { control: 'number' },
+    argTypes={{
+        width: { control: "number" },
+        height: { control: "number" },
+        radius: { control: "number" },
         mode: {
             control: {
-                type: 'select',
-                options: ['determinate', 'indeterminate'],
+                type: "select",
+                options: ["determinate", "indeterminate"],
             },
         },
-        progress: { control: 'number' },
-        strokeWidth: { control: 'number' },
-        strokeLimit: { control: 'text' },
-    }},"
-    args={{
-        mode: "indeterminate",
+        progress: { control: "number" },
+        strokeWidth: { control: "number" },
+        strokeLimit: { control: "text" },
     }}
 />
 
@@ -31,7 +28,7 @@
     </div>
 </Template>
 
-<Story name="Default" />
+<Story name="Default" args={{ mode: "indeterminate" }} />
 
 <Story
     name="Determinate"

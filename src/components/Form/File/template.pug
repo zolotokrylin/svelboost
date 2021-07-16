@@ -32,17 +32,18 @@ Controller({...$$props} let:value let:context let:hasError let:handleDrop let:ha
                         | Drop file here
                     +else()
                         | {placeholder}
-            +if('value')
-                ButtonIcon(icon="{x}" pointerNone)
-                +else()
-                    ButtonIcon(icon="{folder}" pointerNone)
             +if('isLoading')
                 CircularLoading(
-                    width="{34}"
-                    height="{34}"
-                    radius="{15}"
+                    width="{24}"
+                    height="{24}"
+                    radius="{10}"
                     mode="determinate"
                     progress="{progress}")
+                +else
+                    +if('value')
+                        ButtonIcon(icon="{x}" pointerNone)
+                        +else()
+                            ButtonIcon(icon="{folder}" pointerNone)
             slot(value!="{value.name}")
         +if('!isLoading')
             ErrorMessage(class="relative" name="{name}")

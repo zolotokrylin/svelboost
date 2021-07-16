@@ -11,6 +11,16 @@
 
     let className: string = "";
     export { className as class };
+
+    let calculateStrokePercentage = (value: number, radius: number) => {
+        let c = Math.PI * (radius * 2);
+        let pct = ((100 - value) / 100) * c;
+
+        return {
+            "stroke-dashoffset": pct,
+            "stroke-dasharray": `${c} ${pct}`,
+        };
+    };
 </script>
 
 <svg class="circular {className} circular-{mode}" width={width} height={height}>
@@ -29,7 +39,8 @@
         cy={height / 2}
         r={radius}
         fill="none"
-        stroke-dasharray="{(progress / 100) * (width + width / 4)} 200px"
+        stroke-offset="0"
+        {...calculateStrokePercentage(progress, radius)}
         stroke-width={strokeWidth}
         stroke-miterlimit={strokeLimit}
     />
