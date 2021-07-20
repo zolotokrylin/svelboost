@@ -1,0 +1,21 @@
+@import "../../common-styles/utils"
+
+@mixin base-styles()
+    @include cta-font()
+    @include var(color, 'f4')
+
+@mixin hover-styles()
+    text-decoration: none
+    transition: color .3s ease-in-out
+
+    &:hover
+        @include var(color, 'primary-accent')
+
+.breadcrumb-item
+    position: relative
+    display: inline-block
+    @include base-styles()
+
+    &:is(a)
+        @include var(color, 'f3')
+        @include hover-styles()
