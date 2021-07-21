@@ -19,8 +19,10 @@
 
     span
         position: relative
-        display: inline-flex
+        text-align: left
+        display: inline-block
         @include cta-font(1.1)
+        @include truncate()
 
     &:hover,
     &-selected,
