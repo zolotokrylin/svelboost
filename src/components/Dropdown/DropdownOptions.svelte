@@ -53,17 +53,17 @@
 </script>
 
 <div
-    class="selector-options-wrapper"
+    class="dropdown-options-wrapper"
     style="position:absolute;display: block;"
     use:style={{ ref, scrollX, scrollY }}
     use:portal={target}
 >
     <div
-        class="selector-options {className}"
+        class="dropdown-options {className}"
         transition:fade
-        class:selector-options--left-aligned={align === Alignment.LEFT}
-        class:selector-options--right-aligned={align === Alignment.RIGHT}
-        class:selector-options--active={isShown}
+        class:dropdown-options--left-aligned={align === Alignment.LEFT}
+        class:dropdown-options--right-aligned={align === Alignment.RIGHT}
+        class:dropdown-options--active={isShown}
         use:clickOutside={onClickedOutside}
     >
         <slot />
@@ -72,6 +72,6 @@
 
 <svelte:window bind:scrollX bind:scrollY />
 
-<style lang="sass" src="./selector-options.sass">
+<style lang="sass" src="./dropdown-options.sass">
 
 </style>

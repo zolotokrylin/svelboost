@@ -1,3 +1,3 @@
 import Selector from './index.svelte';
-import SelectorOptions from './SelectorOptions.svelte';
-export { Selector, SelectorOptions };
+import SelectorOption from './Item.svelte';
+export { Selector, SelectorOption };

@@ -3,18 +3,18 @@ export default class Index extends SvelteComponentTyped<IndexProps, IndexEvents,
 }
 declare const propDef: {
     props?: {
-        value: any;
-        placeholder: string;
-        options: any[];
-        disabled?: boolean;
-        id?: string;
-        onChange?: (option: any) => void;
-        class?: string;
+        initialState?: boolean;
     };
     events?: {
         [evt: string]: CustomEvent<any>;
     };
-    slots?: {};
+    slots?: {
+        default: {
+            active: boolean;
+            update: (newState: boolean) => void;
+            toggle: () => void;
+        };
+    };
 };
 export declare type IndexProps = typeof propDef.props;
 export declare type IndexEvents = typeof propDef.events;

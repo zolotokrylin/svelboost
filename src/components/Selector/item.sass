@@ -1,8 +1,9 @@
 @import "../common-styles/utils"
 
-.nav-item
+.option
     position: relative
     display: flex
+    cursor: pointer
     align-items: center
     text-decoration: none
     justify-content: flex-start
@@ -22,9 +23,9 @@
         @include cta-font(1.1)
 
     &:hover,
-    &:active
-        @include var(color, 'primary-accent')
-
+    &-selected,
     &-active
         @include var(color, 'primary-accent')
+
+    &-selected
         @include var(background-color, 'l2')
