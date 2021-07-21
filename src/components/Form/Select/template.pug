@@ -2,7 +2,7 @@ FormGroup(class="select-field")
     Label(name="{name}" label="{label}")
     ErrorMessage(name="{name}")
     Selector(
-        class!="form-selector {hasError ? 'with-error' : ''}"
+        class!="form-selector {hasError ? 'with-error' : ''} {className}"
         id="{name}_field-input"
         value="{value}"
         options="{options}"

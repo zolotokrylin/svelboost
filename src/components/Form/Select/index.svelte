@@ -14,6 +14,9 @@
     export let options: any[];
     export let disabled: boolean = false;
 
+    let className: string = "";
+    export { className as class };
+
     let formValues: Writable<Object> = getContext("formValues");
     let formErrors: Writable<Object> = getContext("formErrors");
     let formTouched: Writable<Object> = getContext("formTouched");
