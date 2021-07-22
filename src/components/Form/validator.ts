@@ -124,4 +124,11 @@ const isGreater = (errObj: Object, key: string, value: number, greaterThan: numb
     return errObj;
 }
 
-export { minChars, maxChars, minLength, maxLength, required, checkEmail, matchRegex, checkNumber, checkWebsite, checkDifference, checkSimilarity, isDefined, isTrue, isGreater, regExp }
+const isLower = (errObj: Object, key: string, value: number, lowerThan: number, message?: string): Object => {
+    if (value < lowerThan) {
+        errObj[key] = message ? message : `Must be greater than ${lowerThan}`;
+    }
+    return errObj;
+}
+
+export { minChars, maxChars, minLength, maxLength, required, checkEmail, matchRegex, checkNumber, checkWebsite, checkDifference, checkSimilarity, isDefined, isTrue, isGreater, isLower, regExp }

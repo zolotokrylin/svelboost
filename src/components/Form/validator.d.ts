@@ -18,4 +18,5 @@ declare function checkWebsite(errObj: Object, key: string, value: any): Object;
 declare function matchRegex(errObj: Object, key: string, value: any, regExp: RegExp, message?: string): Object;
 declare const isTrue: (errObj: Object, key: string, value: boolean, message?: string) => Object;
 declare const isGreater: (errObj: Object, key: string, value: number, greaterThan: number, message?: string) => Object;
-export { minChars, maxChars, minLength, maxLength, required, checkEmail, matchRegex, checkNumber, checkWebsite, checkDifference, checkSimilarity, isDefined, isTrue, isGreater, regExp };
+declare const isLower: (errObj: Object, key: string, value: number, lowerThan: number, message?: string) => Object;
+export { minChars, maxChars, minLength, maxLength, required, checkEmail, matchRegex, checkNumber, checkWebsite, checkDifference, checkSimilarity, isDefined, isTrue, isGreater, isLower, regExp };
