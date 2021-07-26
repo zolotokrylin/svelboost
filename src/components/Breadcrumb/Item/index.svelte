@@ -3,6 +3,7 @@
         name: string;
         href?: string;
     };
+    export let withMaxWidth: boolean = false;
 </script>
 
 <template lang="pug" src="./template.pug" />

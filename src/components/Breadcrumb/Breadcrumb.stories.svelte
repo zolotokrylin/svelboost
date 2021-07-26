@@ -9,6 +9,7 @@
     argTypes={{
         class: { control: "text" },
         items: { control: "object" },
+        maxWidth: { control: "number" },
     }}
     args={{
         items: [

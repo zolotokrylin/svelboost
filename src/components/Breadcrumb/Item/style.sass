@@ -19,3 +19,6 @@
     &:is(a)
         @include var(color, 'f3')
         @include hover-styles()
+
+    &.with-max-width
+        @include truncate()
