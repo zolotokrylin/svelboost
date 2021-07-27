@@ -56,7 +56,7 @@
         return instance.eth
             .getChainId()
             .then((chainId) => {
-                setState({ chainId: parseInt(chainId, 16) });
+                setState({ chainId: parseInt(chainId) });
             })
             .catch((err) => {
                 setState({ connectionError: errorCodes.PROVIDER_LOCKED });
@@ -70,7 +70,7 @@
                 setState({ accounts })
             );
             provider.on("chainChanged", (chainId) =>
-                setState({ chainId: parseInt(chainId, 16) })
+                setState({ chainId: parseInt(chainId) })
             );
             provider.on("disconnect", (code, reason) =>
                 setState({ connectionStatus: STATUS.DISCONNECTED })
