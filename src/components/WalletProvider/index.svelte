@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
     import Web3 from "web3";
     import { setContext, onMount } from "svelte";
     import { writable } from "svelte/store";
     import { isMobile } from "@walletconnect/utils/dist/cjs";
-    import { signatureMessage, CHAINS, STATUS, errorCodes } from "./utils";
+    import { signatureMessage, STATUS, errorCodes } from "./utils";
+
+    export let chainId: string;
 
     let instance;
 
@@ -136,7 +138,7 @@
     };
 
     let requestConnection = async () => {
-        if (Object.values(CHAINS).includes($state.chainId)) {
+        if (parseInt($state.chainId) === parseInt(chainId)) {
             setState({ connectionError: "" });
             if (isMobile()) {
                 return requestAccountInfo().catch(rejectPermissionRequest);
