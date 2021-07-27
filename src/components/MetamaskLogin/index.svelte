@@ -11,6 +11,8 @@
 
     export let error: string;
     export let appName: string;
+    export let networkName: string = "main";
+    export let protocol: string = "Ethereum";
 
     let reload = () => window.location.reload();
 </script>
