@@ -5,6 +5,7 @@
     import ErrorMessage from "../ErrorMessage/index.svelte";
     import { Selector } from "../../Selector";
     import { getContext } from "svelte";
+    import { getIn } from "../../utils";
     import type { Writable } from "svelte/store";
     import type { BagState } from "../types";
 
@@ -22,9 +23,9 @@
     let formTouched: Writable<Object> = getContext("formTouched");
     let contextOptions: BagState = getContext("formOptions");
 
-    $: value = $formValues[name];
-    $: touched = $formTouched[name];
-    $: error = $formErrors[name];
+    $: value = getIn($formValues, name);
+    $: touched = getIn($formTouched, name);
+    $: error = getIn($formErrors, name);
     $: hasError = touched && error;
 
     let handleOnChange = (option: Object) => {

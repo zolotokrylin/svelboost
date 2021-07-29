@@ -2,6 +2,7 @@
     import { setContext } from "svelte";
     import { writable } from "svelte/store";
     import type { Writable } from "svelte/store";
+    import { setIn } from "../utils";
     import type { BagState, CustomMouseEvent, InputPropertyFn } from "./types";
 
     let merge = require("lodash-es/merge").default;
@@ -70,7 +71,7 @@
     }
 
     const setFieldError = (field: string, errMsg: string | undefined): void =>
-        errors.update((_er) => ({ ..._er, [field]: errMsg }));
+        errors.update((_er) => setIn(_er, field, errMsg));
     const setErrors = (fields: Object): void => errors.set(fields);
 
     let validateOnBlur = true;
@@ -79,7 +80,7 @@
         isTouched: boolean,
         shouldValidate: boolean = validateOnBlur
     ): void => {
-        touched.update((_t) => ({ ..._t, [field]: isTouched }));
+        touched.update((_t) => setIn(_t, field, isTouched));
         if (isTouched && shouldValidate) {
             handleValidate($values);
         }
@@ -96,7 +97,7 @@
         value: any,
         shouldValidate: boolean = validateOnBlur
     ): void => {
-        values.update((_v) => ({ ..._v, [field]: value }));
+        values.update((_v) => setIn(_v, field, value));
         if (shouldValidate) {
             handleValidate($values);
         }
@@ -147,7 +148,7 @@
     }
 
     function handleBlur({ target: { name } }: CustomMouseEvent): void {
-        touched.update((_t) => ({ ..._t, [name]: true }));
+        touched.update((_t) => setIn(_t, name, true));
         if (validateOnBlur) {
             handleValidate($values);
         }
@@ -155,7 +156,7 @@
 
     function handleFocus({ target: { name, value } }: CustomMouseEvent): void {
         if (value.length === 0) {
-            touched.update((_t) => ({ ..._t, [name]: undefined }));
+            touched.update((_t) => setIn(_t, name, undefined));
         }
     }
 
@@ -171,7 +172,7 @@
         } else if (type === "checkbox") {
             nextValue = checked;
         }
-        values.update((_v) => ({ ..._v, [name]: nextValue }));
+        values.update((_v) => setIn(_v, name, nextValue));
         if (validateOnBlur) {
             handleValidate($values);
         }

@@ -1,5 +1,6 @@
 <script lang="ts">
     // @ts-check
+    import { getIn } from "../../utils";
     import { getContext } from "svelte";
     import type { Writable } from "svelte/store";
     import { fade } from "svelte/transition";
@@ -12,8 +13,8 @@
     let formTouched: Writable<Object> = getContext("formTouched");
     let formErrors: Writable<Object> = getContext("formErrors");
 
-    $: touched = $formTouched[name];
-    $: error = $formErrors[name];
+    $: touched = getIn($formTouched, name);
+    $: error = getIn($formErrors, name);
     $: hasError = touched && error;
 </script>
 
