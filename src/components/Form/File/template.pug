@@ -1,5 +1,7 @@
 Controller({...$$props} let:value let:context let:hasError let:handleDrop let:handleDragLeave let:handleDragOver let:isDragged)
     FormGroup(class="file-field" name="{name}")
+        +if('label')
+            Label(name="{name}_label" label="{label}")
         +if('disabled')
             input(
                 name="{name}" 
@@ -45,5 +47,7 @@ Controller({...$$props} let:value let:context let:hasError let:handleDrop let:ha
                         +else()
                             ButtonIcon(icon="{folder}" pointerNone)
             slot(value!="{value.name}")
+        +if('fileRequirement && !hasError')
+            .file-requirement {fileRequirement}
         +if('!isLoading')
             ErrorMessage(class="relative" name="{name}")

@@ -39,6 +39,12 @@ label
         border-style: solid
         @include var(border-color, 'l4')
 
+.file-requirement
+    position: relative
+    margin-top: 8px
+    @include var(color, 'f4')
+    @include caption-font()
+
 .placeholder
     position: relative
     width: calc(100% - 48px)

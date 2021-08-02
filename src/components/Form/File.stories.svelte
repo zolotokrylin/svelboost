@@ -10,6 +10,8 @@
     argTypes={{
         name: { control: "text" },
         placeholder: { control: "text" },
+        label: { control: "text" },
+        fileRequirement: { control: "text" },
         value: { control: "text" },
         touched: { control: "boolean" },
         error: { control: "text" },
@@ -20,6 +22,8 @@
     args={{
         name: "file",
         placeholder: "Browse file",
+        label: "File label",
+        fileRequirement: ".PDF, .JPG and .PNG files allowed. Max 5MB",
         value: "",
         touched: true,
         maxSize: 1,

@@ -8,6 +8,8 @@ declare const propDef: {
         placeholder: string;
         options: any[];
         disabled?: boolean;
+        onChange: (option: any) => void;
+        class?: string;
     };
     events?: {
         [evt: string]: CustomEvent<any>;

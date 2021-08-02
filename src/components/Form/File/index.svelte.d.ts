@@ -6,6 +6,8 @@ declare const propDef: {
         name: any;
         placeholder: string;
         isLoading: boolean;
+        label?: string;
+        fileRequirement?: string;
         class?: string;
         accept?: string;
         disabled?: boolean;

@@ -21,11 +21,14 @@
     import ButtonIcon from "../../ButtonIcon/index.svelte";
     import CircularLoading from "../../CircularLoading/index.svelte";
     import { folder, x } from "../../Icons/solid";
+    import Label from "../Label/index.svelte";
     import ErrorMessage from "../ErrorMessage/index.svelte";
 
     export let name: any;
     export let placeholder: string;
     export let isLoading: boolean;
+    export let label: string = undefined;
+    export let fileRequirement: string = undefined;
 
     let className: string;
     export { className as class };
