@@ -14,6 +14,7 @@
     export let placeholder: string;
     export let options: any[];
     export let disabled: boolean = false;
+    export let onChange: (option: any) => void;
 
     let className: string = "";
     export { className as class };
@@ -29,8 +30,12 @@
     $: hasError = touched && error;
 
     let handleOnChange = (option: Object) => {
-        contextOptions.setFieldTouched(name, true, false);
-        contextOptions.setFieldValue(name, option);
+        if (onChange) {
+            onChange(option);
+        } else {
+            contextOptions.setFieldTouched(name, true, false);
+            contextOptions.setFieldValue(name, option);
+        }
     };
 </script>
 
