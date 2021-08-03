@@ -36,6 +36,7 @@ Controller({...$$props} let:value let:context let:hasError let:handleDrop let:ha
                         | {placeholder}
             +if('isLoading')
                 CircularLoading(
+                    class="circular-progress-block"
                     width="{24}"
                     height="{24}"
                     radius="{10}"
