@@ -8,6 +8,7 @@ mixin content
 
 +if('href')
     a(
+        {...$$restProps}
         class!="{['btn', typeClass, sizeClass].join(' ')}"
         disabled="{disabled}"
         href="{href}"
@@ -16,6 +17,7 @@ mixin content
         +content
     +else()
         button(
+            {...$$restProps}
             class!="{['btn', typeClass, sizeClass].join(' ')}"
             disabled="{disabled}"
             type="{btnType}"
