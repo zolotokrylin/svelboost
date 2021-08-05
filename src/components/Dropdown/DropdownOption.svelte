@@ -12,7 +12,7 @@
 
 <div class="dropdown-option" on:click={onClick}>
     <SelectorOption
-        class={className}
+        class="custom-option {className}"
         value={value}
         icon={icon}
         isOutlined={isOutlined}
@@ -25,6 +25,12 @@
     .dropdown-option
         position: relative
         display: block
+
+        :global(.custom-option)
+            padding: 0
+
+        :global(.custom-option:hover)
+            @include var(background-color, 'f2')
 
         & + :global(.dropdown-option)
             margin-top: 8px

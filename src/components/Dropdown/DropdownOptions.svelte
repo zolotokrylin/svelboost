@@ -5,7 +5,7 @@
     export let ref: HTMLElement;
     export let target: string;
 
-    let className: string;
+    let className: string = "";
     export { className as class };
 
     export let isShown: boolean = false;
