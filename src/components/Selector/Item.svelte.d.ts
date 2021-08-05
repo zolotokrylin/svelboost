@@ -3,8 +3,8 @@ export default class Item extends SvelteComponentTyped<ItemProps, ItemEvents, It
 }
 declare const propDef: {
     props?: {
-        isActive: boolean;
-        isSelected: boolean;
+        isActive?: boolean;
+        isSelected?: boolean;
         value: string;
         icon?: any;
         isOutlined?: boolean;
@@ -18,4 +18,4 @@ declare const propDef: {
 export declare type ItemProps = typeof propDef.props;
 export declare type ItemEvents = typeof propDef.events;
 export declare type ItemSlots = typeof propDef.slots;
-export {};
+export { };
