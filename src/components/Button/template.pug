@@ -1,6 +1,6 @@
 mixin content
     +if('icon')
-        Icon(icon="{icon}" width="{15}" height="{15}" colorInherit)
+        Icon(icon="{icon}" width="{15}" height="{15}" colorInherit isOutlined="{$$restProps.isOutlined}")
         +elseif('imageSrc')
             img(loading="lazy" src="{imageSrc}" alt="{imageAlt}")
     +if('label')
@@ -9,6 +9,7 @@ mixin content
 +if('href')
     a(
         {...$$restProps}
+        bind:this="{ref}"
         class!="{['btn', typeClass, sizeClass].join(' ')}"
         disabled="{disabled}"
         href="{href}"
@@ -18,6 +19,7 @@ mixin content
     +else()
         button(
             {...$$restProps}
+            bind:this="{ref}"
             class!="{['btn', typeClass, sizeClass].join(' ')}"
             disabled="{disabled}"
             type="{btnType}"

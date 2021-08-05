@@ -27,6 +27,12 @@
     export let type: Type = Type.PRIMARY;
     export let size: Size = Size.DEFAULT;
 
+    // Used for control DOM element from outside
+    let ref: HTMLButtonElement;
+    export function getRef() {
+        return ref;
+    }
+
     $: typeClass = `btn--${type}`;
     $: sizeClass = `btn--${size}`;
     $: btnType = isSubmitBtn ? "submit" : "button";
