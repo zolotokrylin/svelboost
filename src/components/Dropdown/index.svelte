@@ -1,7 +1,7 @@
 <script lang="ts">
     import { writable } from "svelte/store";
 
-    let className: string;
+    let className: string = "";
     export { className as class };
 
     let state = writable<boolean>(false);

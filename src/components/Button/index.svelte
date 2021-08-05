@@ -13,10 +13,10 @@
         ALTERNATE = "alternate",
     }
 
-    export let href: string;
+    export let href: string = undefined;
     export let label: string;
-    export let rel: string;
-    export let onClick: () => void;
+    export let rel: string = undefined;
+    export let onClick: () => void = () => {};
 
     export let icon: any = undefined;
     export let imageSrc: string = undefined;

@@ -14,7 +14,7 @@
     export let placeholder: string;
     export let options: any[];
     export let disabled: boolean = false;
-    export let onChange: (option: any) => void;
+    export let onChange: (option: any) => void = undefined;
 
     let className: string = "";
     export { className as class };

@@ -2,11 +2,11 @@
     import Icon from "../Icon/index.svelte";
 
     export let label: string;
-    export let icon: any;
+    export let icon: any = undefined;
     export let href: string;
     export let active: boolean;
 
-    let className: string;
+    let className: string = "";
     export { className as class };
 </script>
 

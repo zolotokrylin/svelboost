@@ -1,3 +1,4 @@
 import Dropdown from './index.svelte';
 import DropdownOptions from './DropdownOptions.svelte';
-export { Dropdown, DropdownOptions };
+import DropdownOption from './DropdownOption.svelte';
+export { Dropdown, DropdownOption, DropdownOptions };

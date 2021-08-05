@@ -30,7 +30,7 @@
     export let label: string = undefined;
     export let fileRequirement: string = undefined;
 
-    let className: string;
+    let className: string = "";
     export { className as class };
     export let accept: string = "image/png, image/jpeg";
     export let disabled: boolean = false;

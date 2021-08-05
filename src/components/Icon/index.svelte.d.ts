@@ -9,6 +9,7 @@ declare const propDef: {
         };
         width?: number;
         height?: number;
+        isOutlined?: boolean;
         colorInherit?: boolean;
     };
     events?: {

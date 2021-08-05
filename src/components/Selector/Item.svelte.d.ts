@@ -7,6 +7,7 @@ declare const propDef: {
         isSelected: boolean;
         value: string;
         icon?: any;
+        isOutlined?: boolean;
         class?: string;
     };
     events?: {

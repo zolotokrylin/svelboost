@@ -13,7 +13,7 @@ import CookieManager from './components/CookieManager';
 import WalletProvider from './components/WalletProvider/index.svelte';
 import MetamaskPopup from './components/MetamaskLogin/index.svelte';
 import State from './components/State/index.svelte';
-import { Dropdown, DropdownOptions } from './components/Dropdown';
+import { Dropdown, DropdownOption, DropdownOptions } from './components/Dropdown';
 
 import { focus, resize, clickOutside, portal } from './dom-actions';
 
@@ -31,6 +31,7 @@ export {
     MetamaskPopup,
     State,
     Dropdown,
+    DropdownOption,
     DropdownOptions,
     Selector,
     SelectorOption,
