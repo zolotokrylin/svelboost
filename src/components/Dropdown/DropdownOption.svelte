@@ -27,10 +27,11 @@
         display: block
 
         :global(.custom-option)
-            padding: 0
+            padding: 0!important
 
         :global(.custom-option:hover)
-            @include var(background-color, 'f2')
+            @include var(color, 'f3')
+            @include var(background-color, 'l2')
 
         & + :global(.dropdown-option)
             margin-top: 8px
