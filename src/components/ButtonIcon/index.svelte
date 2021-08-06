@@ -1,7 +1,7 @@
 <script lang="ts">
     import Icon from "../Icon/index.svelte";
 
-    export let onClick: () => void;
+    export let onClick: () => void = () => {};
     export let icon: any;
 
     export let pointerNone: boolean = false;

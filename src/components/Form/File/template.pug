@@ -1,5 +1,5 @@
 Controller({...$$props} let:value let:context let:hasError let:handleDrop let:handleDragLeave let:handleDragOver let:isDragged)
-    FormGroup(class="file-field" name="{name}")
+    FormGroup(class="file-field")
         +if('label')
             Label(name="{name}_label" label="{label}")
         +if('disabled')
