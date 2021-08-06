@@ -60,7 +60,7 @@
 >
     <div
         class="dropdown-options {className}"
-        transition:fade
+        transition:fade|local
         class:dropdown-options--left-aligned={align === Alignment.LEFT}
         class:dropdown-options--right-aligned={align === Alignment.RIGHT}
         class:dropdown-options--active={isShown}
