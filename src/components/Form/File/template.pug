@@ -29,7 +29,7 @@ Controller({...$$props} let:value let:context let:hasError let:handleDrop let:ha
             on:drop|preventDefault!="{handleDrop(getFilesFromDropEvent)}")
             span.placeholder
                 +if('value')
-                    | {value.name}
+                    | {value.name ? values.name : value}
                     +elseif('isDragged')
                         | Drop file here
                     +else()
@@ -47,7 +47,7 @@ Controller({...$$props} let:value let:context let:hasError let:handleDrop let:ha
                         ButtonIcon(icon="{x}" pointerNone)
                         +else()
                             ButtonIcon(icon="{folder}" pointerNone)
-            slot(value!="{value.name}")
+            slot(value!="{value.name ? value.name : value}")
         +if('fileRequirement && !hasError')
             .file-requirement {fileRequirement}
         +if('!isLoading')
