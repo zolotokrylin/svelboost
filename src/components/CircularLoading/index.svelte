@@ -8,11 +8,14 @@
     type Mode = "determinate" | "indeterminate";
     export let mode: Mode = "indeterminate";
     export let progress: number = 0;
+    export let progressColor: "accent" | "success" | "warning" = "accent";
 
     let className: string = "";
     export { className as class };
 
     let calculateStrokePercentage = (value: number, radius: number) => {
+        if (mode === "indeterminate") return {};
+
         let c = Math.PI * (radius * 2);
         let pct = ((100 - value) / 100) * c;
 
@@ -23,7 +26,11 @@
     };
 </script>
 
-<svg class="circular {className} circular-{mode}" width={width} height={height}>
+<svg
+    class="circular {className} circular-{mode} circular-{progressColor}"
+    width={width}
+    height={height}
+>
     <circle
         class="track"
         cx={width / 2}

@@ -1,0 +1,28 @@
+@import "../common-styles/utils"
+
+.popup-inner
+    position: relative
+    text-align: center
+
+    :global(.heading)
+        margin-bottom: toRem(8px)
+
+p
+    margin: 0 0 toRem(32px)
+    @include footnote-font()
+    @include var(color, 'f2')
+
+.icon
+    position: relative
+    margin: 0 auto
+    width: 100px
+    height: 100px
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center center
+
+    &.success
+        background-image: url("/success-tx.png")
+
+    &.failed
+        background-image: url("/failed-tx.png")

@@ -16,9 +16,18 @@
                 options: ["determinate", "indeterminate"],
             },
         },
+        progressColor: {
+            control: {
+                type: "select",
+                options: ["accent", "success", "warning"],
+            },
+        },
         progress: { control: "number" },
         strokeWidth: { control: "number" },
         strokeLimit: { control: "text" },
+    }}
+    args={{
+        progressColor: "accent",
     }}
 />
 
@@ -29,6 +38,16 @@
 </Template>
 
 <Story name="Default" args={{ mode: "indeterminate" }} />
+
+<Story
+    name="Success"
+    args={{ mode: "indeterminate", progressColor: "success" }}
+/>
+
+<Story
+    name="Warning"
+    args={{ mode: "indeterminate", progressColor: "warning" }}
+/>
 
 <Story
     name="Determinate"

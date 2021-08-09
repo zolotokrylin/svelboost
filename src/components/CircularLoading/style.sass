@@ -29,19 +29,24 @@
             display: none
 
         .path
-            stroke-dasharray: 1,200
-            stroke-dashoffset: 0
-            animation: dash 2s linear infinite
+            stroke-dasharray: 80px, 200px
+            animation: dash 2s ease-in-out infinite
 
     &-determinate
         transform: rotate(-90deg),
         .path
             transition: stroke-dasharray 0.3s linear
 
+    &-accent .path
+        @include var(stroke, 'primary-accent')
+    &-success .path
+        @include var(stroke, 'success')
+    &-warning .path
+        @include var(stroke, 'warning')
+
 .track
-    stroke-linecap: round
+    stroke-linecap: butt
     @include var(stroke, 'l6')
 
 .path
-    stroke-linecap: round
-    @include var(stroke, 'primary-accent')
+    stroke-linecap: butt

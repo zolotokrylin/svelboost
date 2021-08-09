@@ -73,8 +73,8 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "generate-types": "svelte-type-generator",
     "validate": "svelte-check",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook -s ./public",
     "chromatic": "chromatic --exit-once-uploaded"
   },
   "dependencies": {

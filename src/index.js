@@ -12,6 +12,7 @@ import CircularLoading from './components/CircularLoading/index.svelte';
 import CookieManager from './components/CookieManager';
 import WalletProvider from './components/WalletProvider/index.svelte';
 import MetamaskPopup from './components/MetamaskLogin/index.svelte';
+import TxPopup from './components/TxPopup/index.svelte';
 import State from './components/State/index.svelte';
 import { Dropdown, DropdownOption, DropdownOptions } from './components/Dropdown';
 
@@ -40,6 +41,7 @@ export {
     TableHead,
     TableRow,
     TableCell,
+    TxPopup,
     File,
     Form,
     Select as FormSelector,
