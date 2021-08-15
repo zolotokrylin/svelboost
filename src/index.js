@@ -19,7 +19,7 @@ import {
     Tabs,
     TabsHead,
     TabsHeadItem,
-    TabsHeadGroup
+    // TabsHeadGroup
 } from './components/Tabs';
 
 import { focus, resize, clickOutside, portal } from './dom-actions';
@@ -45,7 +45,7 @@ export {
     Tabs,
     TabsHead,
     TabsHeadItem,
-    TabsHeadGroup,
+    // TabsHeadGroup,
     Table,
     TableBody,
     TableHead,
