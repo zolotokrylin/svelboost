@@ -20,7 +20,7 @@ import {
     TabsHead,
     TabsHeadItem,
     TabsHeadGroup
-} from './components/Tabs/';
+} from './components/Tabs';
 
 import { focus, resize, clickOutside, portal } from './dom-actions';
 
