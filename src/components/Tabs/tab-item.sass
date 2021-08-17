@@ -1,0 +1,14 @@
+@import "../common-styles/utils"
+
+.tab-item
+    font-weight: 700;
+    @include var(color, 'f4')
+    opacity: 0.5
+    
+    &--active
+        border-bottom: 2px solid;
+        @include var(border-color, 'primary-accent')
+        opacity: 1
+    
+    &:not(:last-child)
+        margin-right: 16px;

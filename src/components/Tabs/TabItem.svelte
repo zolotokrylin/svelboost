@@ -23,3 +23,7 @@
         {label}
     </div>
 {/if}
+
+<style lang="sass" src="./tab-item.sass">
+
+</style>
