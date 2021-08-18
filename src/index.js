@@ -15,12 +15,7 @@ import MetamaskPopup from './components/MetamaskLogin/index.svelte';
 import TxPopup from './components/TxPopup/index.svelte';
 import State from './components/State/index.svelte';
 import { Dropdown, DropdownOption, DropdownOptions } from './components/Dropdown';
-import {
-    Tabs,
-    TabsHead,
-    TabsHeadItem,
-    // TabsHeadGroup
-} from './components/Tabs';
+import { Tabs } from './components/Tabs';
 
 import { focus, resize, clickOutside, portal } from './dom-actions';
 
@@ -43,9 +38,6 @@ export {
     Selector,
     SelectorOption,
     Tabs,
-    TabsHead,
-    TabsHeadItem,
-    // TabsHeadGroup,
     Table,
     TableBody,
     TableHead,

@@ -8,18 +8,17 @@
         onClick?: () => void;
     };
 
-    export let defaultActive: string = "0";
-    export let skipBorder: boolean = false;
+    export let defaultActiveItemIndex: number = 0;
     export let items: Item[];
 
     let className: string = "";
     export { className as class };
 
-    let tab = writable<string>(defaultActive);
-    $: $tab = defaultActive;
+    let tab = writable<number>(defaultActiveItemIndex);
+    $: tab.update(a=> defaultActiveItemIndex);
 
     let handleTabClick = (index: number, clbk: any) => {
-        tab.set(index.toString());
+        tab.set(index);
         if (clbk) clbk();
     };
 </script>

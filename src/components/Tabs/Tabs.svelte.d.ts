@@ -3,8 +3,7 @@ export default class Tabs extends SvelteComponentTyped<TabsProps, TabsEvents, Ta
 }
 declare const propDef: {
     props?: {
-        defaultActive?: string;
-        skipBorder?: boolean;
+        defaultActiveItemIndex?: number;
         items: {
             label: string;
             href: string;
