@@ -1,6 +1,5 @@
 <script lang="ts">
     import { writable } from "svelte/store";
-    import TabsHead from "./TabsHead.svelte";
     import TabItem from "./TabItem.svelte";
 
     type Item = {
@@ -26,15 +25,16 @@
 </script>
 
 <div class="tabs {className}">
-    <TabsHead skipBorder={skipBorder}>
-        {#each items as item, index}
-            <TabItem
-                {...$$restProps}
-                label={item.label}
-                href={item.href}
-                onClick={() => handleTabClick(index, item.onClick)}
-                isActive={$tab === index.toString()}
-            />
-        {/each}
-    </TabsHead>
+    {#each items as item, index}
+        <TabItem
+            {...$$restProps}
+            label={item.label}
+            href={item.href}
+            onClick={() => handleTabClick(index, item.onClick)}
+            isActive={$tab === index}
+        />
+    {/each}
 </div>
+
+<style lang="sass" src="./tabs.sass">
+</style>
