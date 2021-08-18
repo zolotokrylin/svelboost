@@ -1,0 +1,52 @@
+@import "../common-styles/utils"
+
+@keyframes circular-rotate
+    0%
+        transform: rotate(0deg)
+    100%
+        transform: rotate(360deg)
+
+@keyframes dash
+    0%
+        stroke-dasharray: 1px, 200px
+        stroke-dashoffset: 0
+
+    50%
+        stroke-dasharray: 100px, 200px
+        stroke-dashoffset: -15px
+
+    100%
+        stroke-dasharray: 100px, 200px
+        stroke-dashoffset: -125px
+
+.circular
+    position: relative
+
+    &-indeterminate
+        animation: circular-rotate 2s linear infinite
+
+        .track
+            display: none
+
+        .path
+            stroke-dasharray: 80px, 200px
+            animation: dash 2s ease-in-out infinite
+
+    &-determinate
+        transform: rotate(-90deg),
+        .path
+            transition: stroke-dasharray 0.3s linear
+
+    &-accent .path
+        @include var(stroke, 'primary-accent')
+    &-success .path
+        @include var(stroke, 'success')
+    &-warning .path
+        @include var(stroke, 'warning')
+
+.track
+    stroke-linecap: butt
+    @include var(stroke, 'l6')
+
+.path
+    stroke-linecap: butt

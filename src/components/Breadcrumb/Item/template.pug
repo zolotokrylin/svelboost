@@ -1,0 +1,4 @@
++if("item.href")
+    a.breadcrumb-item(href="{item.href}") {item.name}
+    +else()
+        .breadcrumb-item(class:with-max-width="{withMaxWidth}") {item.name}

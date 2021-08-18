@@ -1,0 +1,24 @@
+@import "../common-styles/utils"
+
+.table-cell
+    position: relative
+    text-align: left
+    border: 0
+
+    &--center
+        text-align: center
+
+    &--right
+        text-align: right
+
+th
+    padding: 15px 23px
+    height: 42px
+    @include caption-font()
+    @include var(color, 'f3')
+    @include var(background-color, 'l2')
+
+td
+    padding: 23px
+    @include font-details(toRem(14px),400, 1)
+    @include var(color, 'f3')

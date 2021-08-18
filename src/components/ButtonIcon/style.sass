@@ -1,0 +1,31 @@
+@import "../common-styles/utils"
+
+.btn-icon
+    position: relative
+    display: inline-flex
+    align-items: center
+    cursor: pointer
+    border: 0
+    padding: 8px
+    background-color: transparent
+    border-radius: 12px
+    filter: brightness(1)
+    transition: filter 0.3s ease-in-out
+    @include var(color, 'f1')
+    @include var(background-color, 'l1')
+
+    &.pointers-none
+        pointer-events: none
+
+    &--withBorder
+        padding: 7px
+        @include property(border,1px, solid, 'l4')
+
+    &:not(:disabled)
+        &.active,
+        &:hover,
+        &:focus
+            filter: brightness(.95)
+
+    &:not(:disabled):active
+        filter: brightness(.9)

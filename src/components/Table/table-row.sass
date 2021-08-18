@@ -1,0 +1,18 @@
+@import "../common-styles/utils"
+
+.table-row
+    position: relative
+    background-color: transparent
+    border: 0
+    line-height: 1
+    @include property(border-bottom, 1px ,solid, 'l4')
+
+    &--hoverable
+        transition: background-color .3s ease-in-out
+        @include var(background-color, 'l1')
+
+        &:hover
+            @include var(background-color, 'l2')
+
+        &:active
+            @include var(background-color, 'l3')

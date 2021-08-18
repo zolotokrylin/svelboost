@@ -1,0 +1,14 @@
+a.nav-item({...$$restProps}
+    href="{href}"
+    class="{className}"
+    class:nav-item-active="{active}"
+)
+    +if('icon')
+        Icon(
+            icon="{icon}"
+            isOutlined="{$$restProps.isOutlined}" 
+            width="{15}" 
+            height="{15}" 
+            colorInherit
+        )
+    span { label }

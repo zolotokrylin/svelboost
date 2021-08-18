@@ -1,0 +1,54 @@
+@use "sass:math"
+
+.container
+    position: relative
+    display: block
+    max-width: $container-max-width
+    width: 100%
+    margin: 0 auto
+    padding-right: math.div($gutter, 2)
+    padding-left: math.div($gutter, 2)
+
+    @include breakpoint($small)
+        max-width: 670px
+
+.row
+    position: relative
+    display: block
+    margin-right: -#{math.div($gutter, 2)}
+    margin-left: -#{math.div($gutter, 2)}
+
+    &:not(.flex)
+        @include clear-fix()
+
+.col
+    position: relative
+    min-height: 1px
+    float: left
+    padding-right: math.div($gutter, 2)
+    padding-left: math.div($gutter, 2)
+
+$list: xs, sm, md, lg
+$breakpoints: ( xs: "min-width:320px", sm: "min-width:768px", md: "min-width:992px", lg: "min-width:1200px")
+
+@each $item in $list
+    @for $i from 0 through 12
+        @media (map_get($breakpoints,$item))
+            .#{$item}-#{$i}
+                position: relative
+                padding-right: math.div($gutter, 2)
+                padding-left: math.div($gutter, 2)
+                width: getColumnWidth($i)
+
+            .left-#{$item}-#{$i}
+                margin-left: getColumnWidth($i)
+
+            .right-#{$item}-#{$i}
+                margin-right: getColumnWidth($i)
+
+    @media (map_get($breakpoints,$item))
+        .hide-#{$item}
+            display: none
+
+        .show-#{$item}
+            display: block

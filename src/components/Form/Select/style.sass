@@ -1,0 +1,8 @@
+@import "../../common-styles/utils"
+
+:global(.form-selector)
+    position: relative
+    display: block
+
+:global(.form-selector.with-error button)
+    @include var(border-color, 'alert', 1, !important)

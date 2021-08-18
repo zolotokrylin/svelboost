@@ -1,0 +1,54 @@
+// ***** Layout **** //
+$gutter: 30px !default;
+$base-font: 16px !default;
+$container-max-width: 1200px !default;
+
+// *** Breakpoints *** //
+$large: "(min-width: 1200px)";
+$medium: "(min-width:992px) and (max-width: 1199px)";
+$medium-up: "(min-width:992px)";
+$medium-down: "(max-width: 1199px)";
+$small: "(min-width:768px) and (max-width: 991px)";
+$small-down: "(max-width:991px)";
+$small-up: "(min-width:768px)";
+$phone: "(max-width: 479px)";
+$small-phones: "(max-width: 389px)";
+
+$default-border-radius: 5px !default; // border radius for buttons, links
+$block-radius: 10px !default; // border radius for blocks, images
+
+$light-colors: (
+    l1: #fff,
+    l2: #f5f5f6,
+    l3: #efeff0,
+    l4: #e8e8ea,
+    l5: #e2e3e5,
+    l6: #dfdfe1,
+    f1: #303543,
+    f2: #43495c,
+    f3: #53596b,
+    f4: #a9adb6,
+    "primary-accent": #0066ff,
+    "secondary-accent": #454545,
+    "alert": #ff0222,
+    "warning": #feb800,
+    "success": #04cd62,
+) !default;
+
+$dark-colors: (
+    l1: #fff,
+    l2: #f5f5f6,
+    l3: #efeff0,
+    l4: #e8e8ea,
+    l5: #e2e3e5,
+    l6: #dfdfe1,
+    f1: #303543,
+    f2: #43495c,
+    f3: #53596b,
+    f4: #a9adb6,
+    "primary-accent": #0066ff,
+    "secondary-accent": #454545,
+    "alert": #ff0222,
+    "warning": #feb800,
+    "success": #04cd62,
+) !default;

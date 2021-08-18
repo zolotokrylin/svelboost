@@ -1,0 +1,93 @@
+
+mixin metamask-missing
+    .icon
+    Heading(
+        class="title"
+        level="{3}"
+    ) MetaMask
+    p.description You’ll need to install MetaMask to continue. Once you have it installed, refresh the page.
+    .btns
+        Button(
+            type="alternate"
+            label="Refresh"
+            onClick="{reload}"
+        )
+        Button(
+            label="Install Metamask"
+            rel="_blank"
+            href="https://metamask.io/download.html"
+        )
+
+mixin wrong-chain
+    .icon
+    Heading(
+        class="title text-error"
+        level="{3}"
+    ) Wrong network
+    p.description 
+        | Please change your network to the {protocol} {' '}
+        b {networkName} {' '}
+        | network and refresh the page.
+    .btns
+        Button(
+            label="Try again"
+            onClick="{init}"
+        )
+
+mixin permission-denied
+    .icon
+    Heading(
+        class="title text-error"
+        level="{3}"
+    ) Authorization failed
+    p.description {appName}  needs access to your wallet, please login and authorize MetaMask to continue.
+    .btns
+        Button(
+            label="Try again"
+            onClick="{init}"
+        )
+
+mixin signature-denied
+    .icon
+    Heading(
+        class="title text-error"
+        level="{3}"
+    ) Signature failed
+    p.description {appName} needs access to your wallet, please login and authorize MetaMask to continue.
+    .btns
+        Button(
+            label="Try again"
+            onClick="{connect}"
+        )
+
+mixin loading-state
+    .icon.with-loading
+        CircularLoading(
+            class="circle-wrapper"
+            width="{70}"
+            height="{70}"
+            radius="{33}"
+        )
+    Heading(
+        class="title"
+        level="{3}"
+    ) MetaMask
+    p.description {appName} needs access to your wallet, please login and authorize MetaMask to continue.
+    .btns
+        Button(
+            type="alternate"
+            label="Dismiss"
+            onClick="{onDismiss}"
+        )
+
+.portal-wrapper
+    +if('error === errorCodes.PROVIDER_MISSING')
+        +metamask-missing
+    +if('error === errorCodes.WRONG_CHAIN')
+        +wrong-chain
+    +if('error === errorCodes.PERMISSIONS_DENIED')
+        +permission-denied
+    +if('error === errorCodes.SIGNATURE_DENIED')
+        +signature-denied
+    +if("error === ''")
+        +loading-state

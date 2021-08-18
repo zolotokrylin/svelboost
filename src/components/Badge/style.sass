@@ -1,0 +1,21 @@
+@import "../common-styles/utils"
+
+.badge
+    position: relative
+    display: inline-flex
+    text-align: center
+    padding: 4px 8px
+    white-space: nowrap
+    border-radius: 10px
+    transition: filter .3s ease-in-out
+    @include caption-font()
+    @include var(color, 'f1')
+
+    &-success
+        @include var(background-color, 'success')
+
+    &-warning
+        @include var(background-color, 'warning')
+
+    &-error
+        @include var(background-color, 'alert')

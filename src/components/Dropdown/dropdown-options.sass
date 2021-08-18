@@ -1,0 +1,25 @@
+@import "../common-styles/utils"
+
+.dropdown-options
+    position: absolute
+    top: calc(100% + 30px)
+    opacity: 0
+    padding: 7px
+    visibility: hidden
+    pointer-events: none
+    border-radius: 12px
+    transition: opacity 0.3s ease-in-out 0s, visibility 0s ease-in-out 0s, transform 0.3s ease-in-out 0s
+
+    &--left-aligned
+        left: 0
+
+    &--right-aligned
+        right: 0
+
+    &--active
+        opacity: 1
+        pointer-events: all
+        visibility: visible
+        opacity: 1
+        transform: translateY(-22px)
+        transition: opacity 0.3s ease-in-out 0s, visibility 0.15s ease-in-out 0s, transform 0.3s ease-in-out 0s

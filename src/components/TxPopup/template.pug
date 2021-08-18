@@ -1,0 +1,41 @@
+mixin confirm-tx
+    Heading(level="{3}") Confirm transaction
+    p Confirm transaction in your wallet
+    CircularLoading(
+        class="circle-wrapper"
+        width="{100}"
+        height="{100}"
+        radius="{48}"
+    )
+
+mixin pending-tx
+    Heading(level="{3}") {pendingTx.text}
+    p {pendingTx.description}
+    CircularLoading(
+        class="circle-wrapper"
+        progressColor="success"
+        width="{100}"
+        height="{100}"
+        radius="{48}"
+    )
+
+mixin success-tx
+    Heading(level="{3}") {successTx.text}
+    p {successTx.description}
+    .icon.success
+
+mixin failed-tx
+    Heading(level="{3}") {failedTx.text}
+    p {failedTx.description}
+    .icon.failed
+
+
+.popup-inner
+    +if('status === Status.STARTING')
+        +confirm-tx
+        +elseif('status === Status.PENDING')
+            +pending-tx
+        +elseif('status === Status.SUCCESS')
+            +success-tx
+        +elseif('status === Status.FAILURE')
+            +failed-tx

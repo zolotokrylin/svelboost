@@ -1,0 +1,77 @@
+@import "../common-styles/utils"
+
+.btn
+    position: relative
+    display: inline-flex
+    align-items: center
+    cursor: pointer
+    border: 0
+    background-color: transparent
+    border-radius: $block-radius
+    @include cta-font()
+
+    &:is(a)
+        text-decoration: none
+
+    img,
+    :global(svg)
+        position: relative
+        margin-right: 8px
+        width: 15px
+        height: 15px
+        vertical-align: top
+        display: inline-block
+
+    &--default
+        padding: 15px
+
+        &:not(&--alternate)
+            padding: 16px
+
+    &--small
+        padding: 7px 9px
+
+        &:not(&--alternate)
+            padding: 8px 10px
+
+    &--primary
+        @include var(color, 'l1')
+        @include var(background-color, 'primary-accent')
+
+    &--secondary
+        @include var(color, 'l1')
+        @include var(background-color, 'secondary-accent')
+
+    &--alternate
+        border-radius: 12px
+        @include var(color, 'f1')
+        @include var(background-color, 'l1')
+        @include property(border, 1px, solid, 'l6')
+
+    &--primary,
+    &--secondary,
+    &--alternate
+        transition: filter 0.3s ease-in-out
+        border-radius: 12px
+        filter: brightness(1)
+
+    &--primary,
+    &--secondary
+        &:not(:disabled)
+            &.active,
+            &:hover,
+            &:focus
+                filter: brightness(1.5)
+
+        &:not(:disabled):active
+            filter: brightness(.85)
+
+    &--alternate
+        &:not(:disabled)
+            &.active,
+            &:hover,
+            &:focus
+                filter: brightness(.95)
+
+        &:not(:disabled):active
+            filter: brightness(.9)

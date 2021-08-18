@@ -1,0 +1,17 @@
+{
+	"extends": "@tsconfig/svelte/tsconfig.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"allowJs": true,
+		"declaration": true,
+		"declarationDir": "src",
+		"emitDeclarationOnly": true,
+		"paths": {
+			"svelboost": [
+				"src/index"
+			]
+		}
+	},
+	"include": ["src/**/*"],
+	"exclude": ["node_modules/*"]
+}

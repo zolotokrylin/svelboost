@@ -1,0 +1,41 @@
+.selector(class="{className}" bind:this="{selectorRef}" use:clickOutside="{handleClickOutside}")
+    button.selector-button(
+        id="{id}"
+        disabled="{disabled}"
+        class:active="{$state.isOpen}"
+        type="button"
+        aria-haspopup="menu"
+		aria-expanded="{$state.isOpen}"
+        bind:this="{selectorButton}"
+        on:keydown="{handleKeyDown}"
+        on:click="{handleClick}"
+        on:mousedown="{handleMouseDown}"
+    )
+        span.value(class:empty="{!value}")
+            +if('value')
+                slot(name="button" item="{value}" isActive="{$state.isOpen}")
+                +else()
+                    | { placeholder}
+        slot(name="icon")
+            Icon(icon="{chevronDown}" width="{19}" height="{19}" colorInherit)
+    .selector-menu(
+        bind:this="{selectorMenu}"
+        aria-labelledby="{id}"
+        class:top-aligned="{isTopAligned}"
+        class:active="{$state.isOpen}"
+		role="menu"
+		tabIndex="-1"
+        on:blur="{handleMenuBlur}"
+		on:keydown="{handleKeyDown}")
+        +each('options as option, index')
+            .selector-menu--item(
+                bind:this="{refs[index]}"
+                on:click="{handleItemClick(option)}"
+                on:keydown!="{(ev) => handleItemKeyDown(ev, option)}"
+                tabIndex="-1"
+				role="menuitem")
+                slot(
+                    name="item" 
+                    item="{option}" 
+                    isSelected="{$state.selectionIndex === index}"
+                    isActive="{isItemActive(option, value)}")

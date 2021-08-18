@@ -1,0 +1,33 @@
+@import "../common-styles/utils"
+
+.option
+    position: relative
+    display: flex
+    cursor: pointer
+    align-items: center
+    text-decoration: none
+    justify-content: flex-start
+    border-radius: 10px
+    background-color: transparent
+    padding: 12px 16px
+    transition: background-color .3s ease-in-out, color .3s ease-in-out
+    @include var(color, 'f3')
+    @include var(background-color, 'l1')
+
+    :global(svg)
+        margin-right: 8px
+
+    span
+        position: relative
+        text-align: left
+        display: inline-block
+        @include cta-font(1.2)
+        @include truncate()
+
+    &:hover,
+    &-selected,
+    &-active
+        @include var(color, 'primary-accent')
+
+    &-selected
+        @include var(background-color, 'l2')
