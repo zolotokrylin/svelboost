@@ -3,14 +3,13 @@
 .tab-item
     font-weight: 700
     @include var(color, 'f4')
-    opacity: 0.5
     padding-bottom: 2px
     text-decoration: none
     
     &--active
         border-bottom: 2px solid
         @include var(border-color, 'primary-accent')
-        opacity: 1
+        @include var(color, 'f1')
     
     &:not(:last-child)
         margin-right: 16px
