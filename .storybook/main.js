@@ -8,6 +8,9 @@ module.exports = {
     "@storybook/addon-svelte-csf"
   ],
   "svelteOptions": {
-    "preprocess": require("svelte-preprocess")()
+    "preprocess": require("svelte-preprocess")({
+      replace: [[/<template(.+)\/>/gim, '<template$1></template>']],
+      pug: true,
+    })
   }
 }

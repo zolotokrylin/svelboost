@@ -3,7 +3,7 @@
 
     export let isActive: boolean = false;
     export let isSelected: boolean = false;
-    export let value: string;
+    export let value: string | undefined;
     export let icon: any = undefined;
     export let isOutlined: boolean = false;
 
@@ -25,7 +25,7 @@
             isOutlined={isOutlined}
         />
     {/if}
-    <span>{value}</span>
+    <span>{value ? value : "No options available"}</span>
 </div>
 
 <style lang="sass" src="./item.sass">
