@@ -175,7 +175,7 @@
                     selectionIndex: getActiveOptionIndex(value),
                 });
             } else {
-                updateState(openAtFirstItem);
+                updateState({ isOpen: true });
             }
         }
     };

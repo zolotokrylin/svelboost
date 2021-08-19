@@ -64,3 +64,10 @@
         error: "Field required",
     }}
 />
+
+<Story
+    name="Without options"
+    args={{
+        options: [],
+    }}
+/>

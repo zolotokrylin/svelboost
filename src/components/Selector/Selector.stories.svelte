@@ -35,4 +35,11 @@
     </div>
 </Template>
 
-<Story name="Default" />
+<Story name="Default string array" />
+
+<Story
+    name="Without options"
+    args={{
+        options: [],
+    }}
+/>
