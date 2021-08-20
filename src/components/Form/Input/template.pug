@@ -14,3 +14,5 @@ Controller(name="{name}" let:hasError let:value let:context let:handleInput)
             on:blur="{context.handleBlur}"
             on:focus="{context.handleFocus}"
             on:input="{handleInput}")
+        +if('withSlot')
+            slot

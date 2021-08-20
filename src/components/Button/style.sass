@@ -23,16 +23,10 @@
         display: inline-block
 
     &--default
-        padding: 15px
-
-        &:not(&--alternate)
-            padding: 16px
+        padding: 16px
 
     &--small
-        padding: 7px 9px
-
-        &:not(&--alternate)
-            padding: 8px 10px
+        padding: 8px 10px
 
     &--primary
         @include var(color, 'l1')
@@ -47,6 +41,12 @@
         @include var(color, 'f1')
         @include var(background-color, 'l1')
         @include property(border, 1px, solid, 'l6')
+
+        &.btn--small
+            padding: 7px 9px
+
+        &.btn--default
+            padding: 15px
 
     &--primary,
     &--secondary,

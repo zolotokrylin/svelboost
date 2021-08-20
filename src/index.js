@@ -6,7 +6,7 @@ import Heading from './components/Heading/index.svelte';
 import Icon from './components/Icon/index.svelte';
 import NavItem from './components/NavItem/index.svelte';
 import { Selector, SelectorOption } from './components/Selector';
-import { Form, Input, File, Select, types, validator } from './components/Form';
+import { Form, Input, InputWithLabel, File, Select, types, validator } from './components/Form';
 import { Table, TableBody, TableHead, TableRow, TableCell } from './components/Table';
 import CircularLoading from './components/CircularLoading/index.svelte';
 import CookieManager from './components/CookieManager';
@@ -48,6 +48,7 @@ export {
     Form,
     Select as FormSelector,
     Input,
+    InputWithLabel,
     types,
     validator,
     focus, resize, clickOutside, portal

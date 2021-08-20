@@ -15,6 +15,7 @@
 
     export let autofocus: boolean = false;
     export let disabled: boolean = false;
+    export let withSlot: boolean = false;
 </script>
 
 <template lang="pug" src="./template.pug" />
