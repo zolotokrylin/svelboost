@@ -11,8 +11,10 @@
         class="tab-item"
         class:tab-item--active={isActive}
         href={href}
-        on:click={onClick}>{label}</a
+        on:click={onClick}
     >
+        {label}
+    </a>
 {:else}
     <div
         {...$$restProps}
