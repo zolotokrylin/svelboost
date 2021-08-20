@@ -3,3 +3,15 @@
 .tabs
     position: relative
     margin-bottom: toRem(32px)
+    overflow-x: auto
+    scrollbar-width: none
+    -ms-overflow-style: none
+    -webkit-overflow-scrolling: touch
+
+    &::-webkit-scrollbar
+        display: none
+
+    &-wrapper
+        position: relative
+        display: flex
+        flex-direction: row

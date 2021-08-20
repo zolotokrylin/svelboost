@@ -1,5 +1,5 @@
 import { SvelteComponentTyped } from 'svelte';
-export default class Tabs extends SvelteComponentTyped<TabsProps, TabsEvents, TabsSlots> {
+export default class Index extends SvelteComponentTyped<IndexProps, IndexEvents, IndexSlots> {
 }
 declare const propDef: {
     props?: {
@@ -17,7 +17,7 @@ declare const propDef: {
     };
     slots?: {};
 };
-export declare type TabsProps = typeof propDef.props;
-export declare type TabsEvents = typeof propDef.events;
-export declare type TabsSlots = typeof propDef.slots;
+export declare type IndexProps = typeof propDef.props;
+export declare type IndexEvents = typeof propDef.events;
+export declare type IndexSlots = typeof propDef.slots;
 export {};

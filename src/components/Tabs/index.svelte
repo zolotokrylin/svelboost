@@ -1,7 +1,6 @@
 <script lang="ts">
     import { writable } from "svelte/store";
 
-    import TabHead from "./TabHead.svelte";
     import TabItem from "./TabItem.svelte";
 
     type Item = {
@@ -24,10 +23,12 @@
         tab.set(index);
         if (clbk) clbk();
     };
+
+    let style = maxWidth ? `width: ${maxWidth}px;` : "";
 </script>
 
-<div class="tabs {className}">
-    <TabHead maxWidth={maxWidth}>
+<div class="tabs {className}" style={style}>
+    <div class="tabs-wrapper">
         {#each items as item, index}
             <TabItem
                 {...$$restProps}
@@ -37,7 +38,7 @@
                 isActive={$tab === index}
             />
         {/each}
-    </TabHead>
+    </div>
 </div>
 
 <style lang="sass" src="./tabs.sass">
