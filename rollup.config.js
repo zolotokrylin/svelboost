@@ -6,6 +6,7 @@ import bundleSize from 'rollup-plugin-bundle-size';
 import svelte from 'rollup-plugin-svelte';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
+import url from '@rollup/plugin-url';
 import nodePolyfills from 'rollup-plugin-node-polyfills';
 import json from '@rollup/plugin-json';
 import pkg from './package.json';
@@ -65,6 +66,7 @@ export default {
 		json(),
 		commonjs(),
 		typescript(),
+		url(),
 		production && terser(),
 		production && analyze(),
 		production && bundleSize()

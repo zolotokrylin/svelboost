@@ -12,17 +12,10 @@ p
     @include footnote-font()
     @include var(color, 'f2')
 
-.icon
+img
     position: relative
     margin: 0 auto
     width: 100px
     height: 100px
-    background-size: contain
-    background-repeat: no-repeat
-    background-position: center center
-
-    &.success
-        background-image: url("/success-tx.png")
-
-    &.failed
-        background-image: url("/failed-tx.png")
+    object-fit: contain
+    object-position: center center

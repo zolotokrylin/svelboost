@@ -22,12 +22,12 @@ mixin pending-tx
 mixin success-tx
     Heading(level="{3}") {successTx.text}
     p {successTx.description}
-    .icon.success
+    img(loading="lazy" src="{successTxImage}" alt="success icon")
 
 mixin failed-tx
     Heading(level="{3}") {failedTx.text}
     p {failedTx.description}
-    .icon.failed
+    img(loading="lazy" src="{failedTxImage}" alt="success icon")
 
 
 .popup-inner

@@ -2,6 +2,9 @@
     import Heading from "../Heading/index.svelte";
     import CircularLoading from "../CircularLoading/index.svelte";
 
+    import failedTxImage from "./failed-tx.png";
+    import successTxImage from "./success-tx.png";
+
     type Tx = {
         text: string;
         description: string;

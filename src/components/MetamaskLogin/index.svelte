@@ -5,6 +5,8 @@
     import CircularLoading from "../CircularLoading/index.svelte";
     import { errorCodes } from "../WalletProvider/utils";
 
+    import metamaskImage from './metamask.png';
+
     export let init: () => Promise<void>;
     export let connect: () => Promise<void>;
     export let onDismiss: () => void;

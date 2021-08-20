@@ -1,6 +1,7 @@
 
 mixin metamask-missing
     .icon
+        img(loading="lazy" src="{metamaskImage}" alt="metamask icon")
     Heading(
         class="title"
         level="{3}"
@@ -20,6 +21,7 @@ mixin metamask-missing
 
 mixin wrong-chain
     .icon
+        img(loading="lazy" src="{metamaskImage}" alt="metamask icon")
     Heading(
         class="title text-error"
         level="{3}"
@@ -36,6 +38,7 @@ mixin wrong-chain
 
 mixin permission-denied
     .icon
+        img(loading="lazy" src="{metamaskImage}" alt="metamask icon")
     Heading(
         class="title text-error"
         level="{3}"
@@ -49,6 +52,7 @@ mixin permission-denied
 
 mixin signature-denied
     .icon
+        img(loading="lazy" src="{metamaskImage}" alt="metamask icon")
     Heading(
         class="title text-error"
         level="{3}"
@@ -62,6 +66,7 @@ mixin signature-denied
 
 mixin loading-state
     .icon.with-loading
+        img(loading="lazy" src="{metamaskImage}" alt="metamask icon")
         CircularLoading(
             class="circle-wrapper"
             width="{70}"

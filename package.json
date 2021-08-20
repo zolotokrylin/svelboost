@@ -7,8 +7,7 @@
   "types": "src/index.d.ts",
   "files": [
     "dist",
-    "src",
-    "public"
+    "src"
   ],
   "svelte": "src/index.js",
   "peerDependencies": {
@@ -23,6 +22,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "@rollup/plugin-typescript": "^8.2.1",
+    "@rollup/plugin-url": "^6.1.0",
     "@storybook/addon-actions": "^6.3.4",
     "@storybook/addon-essentials": "^6.3.4",
     "@storybook/addon-links": "^6.3.4",
