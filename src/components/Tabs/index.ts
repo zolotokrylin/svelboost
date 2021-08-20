@@ -1,5 +1,3 @@
 import Tabs from './Tabs.svelte';
 
-export {
-    Tabs
-}
+export default Tabs

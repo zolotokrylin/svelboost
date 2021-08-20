@@ -9,6 +9,7 @@ declare const propDef: {
             href: string;
             onClick?: () => void;
         }[];
+        maxWidth?: number;
         class?: string;
     } & SvelteAllProps;
     events?: {

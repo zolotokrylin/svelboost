@@ -6,6 +6,7 @@ declare const propDef: {
         /**
              * TableRow class
              */ class?: string;
+        hoverable?: boolean;
     };
     events?: {
         [evt: string]: CustomEvent<any>;

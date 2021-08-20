@@ -15,7 +15,7 @@ import { DropdownOption } from "./components/Dropdown";
 import { DropdownOptions } from "./components/Dropdown";
 import { Selector } from "./components/Selector";
 import { SelectorOption } from "./components/Selector";
-import { Tabs } from "./components/Tabs";
+import Tabs from "./components/Tabs";
 import { Table } from "./components/Table";
 import { TableBody } from "./components/Table";
 import { TableHead } from "./components/Table";

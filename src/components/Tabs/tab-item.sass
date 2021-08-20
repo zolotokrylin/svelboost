@@ -1,15 +1,25 @@
 @import "../common-styles/utils"
 
 .tab-item
-    font-weight: 700
+    position: relative
+    white-space: nowrap
+    display: inline-block
+    cursor: pointer
+    padding-bottom: 6px
+    transition: color .3s ease-in-out, border-color .3s ease-in-out
+    @include cta-font()
     @include var(color, 'f4')
-    padding-bottom: 2px
-    text-decoration: none
-    
+    @include property(border-bottom, 2px, solid, 'f4', 0)
+
+    &:is(a)
+        text-decoration: none
+
+    &:hover:not(&--active)
+        @include var(border-color, 'f4')
+
     &--active
-        border-bottom: 2px solid
-        @include var(border-color, 'primary-accent')
         @include var(color, 'f1')
-    
-    &:not(:last-child)
-        margin-right: 16px
+        @include var(border-color, 'primary-accent')
+
+    & + :global(.tab-item)
+        margin-left: 16px
