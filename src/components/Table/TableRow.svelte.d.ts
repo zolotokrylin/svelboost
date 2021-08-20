@@ -3,9 +3,7 @@ export default class TableRow extends SvelteComponentTyped<TableRowProps, TableR
 }
 declare const propDef: {
     props?: {
-        /**
-             * TableRow class
-             */ class?: string;
+        class?: string;
         hoverable?: boolean;
     };
     events?: {
@@ -18,4 +16,4 @@ declare const propDef: {
 export declare type TableRowProps = typeof propDef.props;
 export declare type TableRowEvents = typeof propDef.events;
 export declare type TableRowSlots = typeof propDef.slots;
-export {};
+export { };

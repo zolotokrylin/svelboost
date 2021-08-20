@@ -27,15 +27,28 @@
 		tabIndex="-1"
         on:blur="{handleMenuBlur}"
 		on:keydown="{handleKeyDown}")
-        +each('options as option, index')
-            .selector-menu--item(
-                bind:this="{refs[index]}"
-                on:click="{handleItemClick(option)}"
-                on:keydown!="{(ev) => handleItemKeyDown(ev, option)}"
-                tabIndex="-1"
-				role="menuitem")
-                slot(
-                    name="item" 
-                    item="{option}" 
-                    isSelected="{$state.selectionIndex === index}"
-                    isActive="{isItemActive(option, value)}")
+        +if('options && options.length')
+            +each('options as option, index')
+                .selector-menu--item(
+                    bind:this="{refs[index]}"
+                    on:click!="{() => handleItemClick(option)}"
+                    on:keydown!="{(ev) => handleItemKeyDown(ev, option)}"
+                    tabIndex="-1"
+                    role="menuitem")
+                    slot(
+                        name="item" 
+                        item="{option}" 
+                        isSelected="{$state.selectionIndex === index}"
+                        isActive="{isItemActive(option, value)}")
+            +else()
+                .selector-menu--item(
+                    bind:this="{refs[0]}"
+                    tabIndex="-1"
+                    on:click!="{() => handleItemClick('')}"
+                    role="menuitem")
+                    slot(
+                        name="item" 
+                        item="" 
+                        isSelected="{false}" 
+                        isActive="{false}"
+                    )
