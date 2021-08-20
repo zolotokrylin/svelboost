@@ -1,6 +1,6 @@
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-    import { Tabs } from "./";
+    import Tabs from "./";
 </script>
 
 <Meta
