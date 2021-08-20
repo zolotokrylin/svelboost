@@ -3,13 +3,10 @@ export default class Index extends SvelteComponentTyped<IndexProps, IndexEvents,
 }
 declare const propDef: {
     props?: {
-        type?: "text" | "password" | "email";
-        name: any;
-        placeholder: string;
-        label: string | undefined;
-        autofocus?: boolean;
-        disabled?: boolean;
-        withSlot?: boolean;
+        coin: {
+            symbol: string;
+            logoUrl: string;
+        };
     };
     events?: {
         [evt: string]: CustomEvent<any>;
