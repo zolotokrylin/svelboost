@@ -1,7 +1,7 @@
 <script lang="ts">
     export let maxWidth: number = undefined;
 
-    $: headStyle = maxWidth ? `width: ${maxWidth}px;` : "";
+    let headStyle = maxWidth ? `width: ${maxWidth}px;` : "";
 </script>
 
 <div class="tabs-head" style={headStyle}>
