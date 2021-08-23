@@ -24,6 +24,7 @@
 
     &:disabled
         cursor: not-allowed
+        @include var(color, 'f4')
 
     // size
     &--default
@@ -43,18 +44,21 @@
         @include var(color, 'l1')
         @include var(background-color, 'primary-accent')
 
+        &:disabled
+            @include var(background-color, 'l6')
+
     &--secondary
         @include var(color, 'l1')
         @include var(background-color, 'secondary-accent')
+
+        &:disabled
+            @include var(background-color, 'l6')
 
     &--alternate
         border-radius: 12px
         @include var(color, 'f1')
         @include var(background-color, 'l1')
         @include property(border, 1px, solid, 'l6')
-
-        &:disabled
-            @include var(color, 'f4')
 
     &--primary,
     &--secondary,
