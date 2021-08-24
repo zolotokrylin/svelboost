@@ -6,6 +6,7 @@
     import { signatureMessage, STATUS, errorCodes } from "./utils";
 
     export let chainId: string;
+    export let network: any;
 
     let instance;
 
@@ -125,6 +126,19 @@
         }
     };
 
+    let requestAddEthereumChain = async () => {
+        if (instance.currentProvider.request) {
+        } else {
+            return instance.currentProvider
+                .request({
+                    method: "wallet_addEthereumChain",
+                    params: [network],
+                })
+                .catch(rejectPermissionRequest);
+        }
+        return Promise.resolve();
+    };
+
     let initConnection = async () => {
         setState({ connectionStatus: STATUS.CONNECTING });
         if (!instance) {
@@ -148,8 +162,14 @@
                     .catch(rejectPermissionRequest);
             }
         } else {
-            setState({ connectionError: errorCodes.WRONG_CHAIN });
-            return Promise.reject($state.connectionError);
+            return requestAddEthereumChain()
+                .then(() => {
+                    return requestConnection();
+                })
+                .catch(() => {
+                    setState({ connectionError: errorCodes.WRONG_CHAIN });
+                    return Promise.reject($state.connectionError);
+                });
         }
     };
 
