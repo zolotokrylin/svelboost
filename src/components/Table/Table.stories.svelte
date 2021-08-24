@@ -27,7 +27,7 @@
             </TableRow>
         </TableHead>
         <TableBody>
-            <TableRow hoverable>
+            <TableRow hoverable onClick={()=>{}}>
                 {#each args.cells as _, i}
                     <TableCell index={i} label="cell {i}" />
                 {/each}
