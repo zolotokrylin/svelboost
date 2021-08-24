@@ -5,6 +5,7 @@ declare const propDef: {
     props?: {
         class?: string;
         hoverable?: boolean;
+        onClick?: () => void;
     };
     events?: {
         [evt: string]: CustomEvent<any>;

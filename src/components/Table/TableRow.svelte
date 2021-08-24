@@ -6,6 +6,7 @@
     export { className as class };
 
     export let hoverable: boolean = false;
+    export let onClick: () => void = () => {};
 
     $: hoverableClass = hoverable ? "table-row--hoverable" : "";
 </script>
