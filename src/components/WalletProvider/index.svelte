@@ -131,7 +131,13 @@
             return instance.currentProvider
                 .request({
                     method: "wallet_addEthereumChain",
-                    params: [network],
+                    params: [{
+                        chainId: network.chainId,
+                        chainName: network.name,
+                        nativeCurrency: network.nativeCurrency,
+                        rpcUrls: network.rpc,
+                        blockExplorerUrls: network.explorer.map(n => n.url),
+                    }],
                 })
                 .catch(rejectPermissionRequest);
         }
