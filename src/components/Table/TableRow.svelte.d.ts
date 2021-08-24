@@ -5,9 +5,7 @@ declare const propDef: {
     props?: {
         class?: string;
         hoverable?: boolean;
-        /**
-             * On Click Table Row
-             */ onClick?: () => void;
+        onClick?: () => void;
     };
     events?: {
         [evt: string]: CustomEvent<any>;
