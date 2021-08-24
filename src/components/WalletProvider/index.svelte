@@ -128,7 +128,6 @@
 
     let requestAddEthereumChain = async () => {
         if (instance.currentProvider.request) {
-        } else {
             return instance.currentProvider
                 .request({
                     method: "wallet_addEthereumChain",
@@ -152,25 +151,25 @@
     };
 
     let requestConnection = async () => {
-        if (parseInt($state.chainId) === parseInt(chainId)) {
-            setState({ connectionError: "" });
-            if (isMobile()) {
-                return requestAccountInfo().catch(rejectPermissionRequest);
-            } else {
-                return requestPermissions()
-                    .then(() => requestAccountInfo())
-                    .catch(rejectPermissionRequest);
-            }
-        } else {
-            return requestAddEthereumChain()
-                .then(() => {
-                    return requestConnection();
-                })
-                .catch(() => {
-                    setState({ connectionError: errorCodes.WRONG_CHAIN });
-                    return Promise.reject($state.connectionError);
-                });
-        }
+        return requestAddEthereumChain()
+            .then(async () => {
+                if (parseInt($state.chainId) === parseInt(chainId)) {
+                    setState({ connectionError: "" });
+                    if (isMobile()) {
+                        return requestAccountInfo().catch(
+                            rejectPermissionRequest
+                        );
+                    } else {
+                        return requestPermissions()
+                            .then(() => requestAccountInfo())
+                            .catch(rejectPermissionRequest);
+                    }
+                }
+            })
+            .catch(() => {
+                setState({ connectionError: errorCodes.WRONG_CHAIN });
+                return Promise.reject($state.connectionError);
+            });
     };
 
     let signatureSign = async (address, nonce) => {
