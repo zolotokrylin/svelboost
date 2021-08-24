@@ -14,6 +14,9 @@
     }}
     args={{
         cells: ["33%", "33%", "33%"],
+        onClick: () => {
+            alert("row clicked");
+        },
     }}
 />
 
@@ -27,7 +30,7 @@
             </TableRow>
         </TableHead>
         <TableBody>
-            <TableRow hoverable>
+            <TableRow hoverable onClick={args.onClick}>
                 {#each args.cells as _, i}
                     <TableCell index={i} label="cell {i}" />
                 {/each}
