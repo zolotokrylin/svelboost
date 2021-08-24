@@ -137,7 +137,7 @@
                             chainName: network.name,
                             nativeCurrency: network.nativeCurrency,
                             rpcUrls: network.rpc,
-                            blockExplorerUrls: network.explorer.map(
+                            blockExplorerUrls: network.explorers.map(
                                 (n) => n.url
                             ),
                         },
