@@ -9,11 +9,11 @@
 
     &--hoverable
         transition: background-color .3s ease-in-out
+        cursor: pointer
         @include var(background-color, 'l1')
 
         &:hover
             @include var(background-color, 'l2')
-            cursor: pointer
 
         &:active
             @include var(background-color, 'l3')
