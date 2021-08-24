@@ -26,6 +26,7 @@
         size: {
             control: { type: "select", options: ["small", "default", "large"] },
         },
+        disabled: { control: "boolean" },
         onClick: { action: "onClick" },
     }}
 />
@@ -42,6 +43,14 @@
 />
 
 <Story
+    name="Primary disabled"
+    args={{
+        label: "Primary Button",
+        disabled: true,
+    }}
+/>
+
+<Story
     name="Secondary"
     args={{
         type: "secondary",
@@ -50,10 +59,28 @@
 />
 
 <Story
+    name="Secondary disabled"
+    args={{
+        type: "secondary",
+        label: "Secondary Button",
+        disabled: true,
+    }}
+/>
+
+<Story
     name="Alternate"
     args={{
         type: "alternate",
         label: "Alternate Button",
+    }}
+/>
+
+<Story
+    name="Alternate disabled"
+    args={{
+        type: "alternate",
+        label: "Alternate Button",
+        disabled: true,
     }}
 />
 

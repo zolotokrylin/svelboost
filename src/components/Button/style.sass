@@ -22,19 +22,37 @@
         vertical-align: top
         display: inline-block
 
+    &:disabled
+        cursor: not-allowed
+        @include var(color, 'f4')
+
+    // size
     &--default
         padding: 16px
+
+        &.btn--alternate
+            padding: 15px
 
     &--small
         padding: 8px 10px
 
+        &.btn--alternate
+            padding: 7px 9px
+
+    // type
     &--primary
         @include var(color, 'l1')
         @include var(background-color, 'primary-accent')
 
+        &:disabled
+            @include var(background-color, 'l6')
+
     &--secondary
         @include var(color, 'l1')
         @include var(background-color, 'secondary-accent')
+
+        &:disabled
+            @include var(background-color, 'l6')
 
     &--alternate
         border-radius: 12px
@@ -42,16 +60,10 @@
         @include var(background-color, 'l1')
         @include property(border, 1px, solid, 'l6')
 
-        &.btn--small
-            padding: 7px 9px
-
-        &.btn--default
-            padding: 15px
-
     &--primary,
     &--secondary,
     &--alternate
-        transition: filter 0.3s ease-in-out
+        transition: filter 0.3s ease-in-out, color .3s ease-in-out
         border-radius: 12px
         filter: brightness(1)
 
