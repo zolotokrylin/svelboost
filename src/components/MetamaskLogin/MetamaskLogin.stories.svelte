@@ -31,7 +31,7 @@
 />
 
 <Template let:args>
-    <div class="flex flex-center">
+    <div class="flex flex-center" style="width:350px">
         <MetamaskLogin {...args} />
     </div>
 </Template>

@@ -85,7 +85,7 @@ mixin loading-state
             onClick="{onDismiss}"
         )
 
-.portal-wrapper
+.popup-inner
     +if('error === errorCodes.PROVIDER_MISSING')
         +metamask-missing
     +if('error === errorCodes.WRONG_CHAIN')

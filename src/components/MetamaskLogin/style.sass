@@ -3,7 +3,7 @@
 .icon
     position: relative
     display: block
-    margin: 0 auto 1.5rem
+    margin: 0 auto toRem(24px)
     width: 72px
     height: 72px
     border-radius: 50%
@@ -25,17 +25,15 @@ img
     object-fit: contain
     object-position: center center
 
-.portal-wrapper
+.popup-inner
     text-align: center
-    max-width: 350px
-    padding: 1.5rem 1.5rem .875rem
 
     :global(.title)
-        margin-bottom: .8rem
+        margin-bottom: toRem(8px)
 
 .description
     position: relative
-    margin: 0 auto 1.5rem
+    margin: 0 auto toRem(24px)
     @include var(color, 'f2')
     @include footnote-font()
 
@@ -45,4 +43,4 @@ img
     justify-content: center
 
 .btns :global(.btn)
-    margin: .625rem
+    margin: toRem(5px)
