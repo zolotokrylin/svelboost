@@ -3,7 +3,8 @@ export default class Index extends SvelteComponentTyped<IndexProps, IndexEvents,
 }
 declare const propDef: {
     props?: {
-        chainId: string
+        chainId: string;
+        network: any
     };
     events?: {
         [evt: string]: CustomEvent<any>;

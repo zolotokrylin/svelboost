@@ -6,6 +6,7 @@
     import { signatureMessage, STATUS, errorCodes } from "./utils";
 
     export let chainId: string;
+    export let network: any;
 
     let instance;
 
@@ -125,6 +126,28 @@
         }
     };
 
+    let requestAddEthereumChain = async () => {
+        if (instance.currentProvider.request) {
+            return instance.currentProvider
+                .request({
+                    method: "wallet_addEthereumChain",
+                    params: [
+                        {
+                            chainId: Web3.utils.toHex(network.chainId),
+                            chainName: network.name,
+                            nativeCurrency: network.nativeCurrency,
+                            rpcUrls: network.rpc,
+                            blockExplorerUrls: network.explorers.map(
+                                (n) => n.url
+                            ),
+                        },
+                    ],
+                })
+                .catch(rejectPermissionRequest);
+        }
+        return Promise.resolve();
+    };
+
     let initConnection = async () => {
         setState({ connectionStatus: STATUS.CONNECTING });
         if (!instance) {
@@ -138,19 +161,25 @@
     };
 
     let requestConnection = async () => {
-        if (parseInt($state.chainId) === parseInt(chainId)) {
-            setState({ connectionError: "" });
-            if (isMobile()) {
-                return requestAccountInfo().catch(rejectPermissionRequest);
-            } else {
-                return requestPermissions()
-                    .then(() => requestAccountInfo())
-                    .catch(rejectPermissionRequest);
-            }
-        } else {
-            setState({ connectionError: errorCodes.WRONG_CHAIN });
-            return Promise.reject($state.connectionError);
-        }
+        return requestAddEthereumChain()
+            .then(async () => {
+                if (parseInt($state.chainId) === parseInt(chainId)) {
+                    setState({ connectionError: "" });
+                    if (isMobile()) {
+                        return requestAccountInfo().catch(
+                            rejectPermissionRequest
+                        );
+                    } else {
+                        return requestPermissions()
+                            .then(() => requestAccountInfo())
+                            .catch(rejectPermissionRequest);
+                    }
+                }
+            })
+            .catch(() => {
+                setState({ connectionError: errorCodes.WRONG_CHAIN });
+                return Promise.reject($state.connectionError);
+            });
     };
 
     let signatureSign = async (address, nonce) => {
