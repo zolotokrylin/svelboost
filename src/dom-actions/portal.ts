@@ -44,7 +44,7 @@ export default function portal(node: PortalElement, target: Target) {
         },
         destroy() {
             document.body.classList.remove(node.classList[0] + "-injected");
-            if (node.parentNode) {
+            if (node.parentNode && targetEl) {
                 targetEl.removeChild(node)
             }
         }
