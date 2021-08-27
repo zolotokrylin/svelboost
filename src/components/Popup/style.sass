@@ -1,0 +1,39 @@
+@import "../common-styles/utils"
+
+.popup
+    &-absolute
+        position: absolute
+        display: flex
+        width: 350px
+        flex-direction: column
+
+        &.withProgress
+            margin-top: 33px
+
+    &-wrapper
+        position: fixed
+        display: flex
+        align-items: center
+        justify-content: center
+        top: 0
+        left: 0
+        width: 100%
+        height: 100vh
+        z-index: 10
+        overflow: hidden
+        overflow-y: auto
+        transition: opacity .3s ease-in-out
+        @include var(background-color, 'f1', .5)
+
+        @include breakpoint($phone)
+            display: block
+            margin-top: 80px
+
+    &-progress
+        position: absolute
+        display: flex
+        justify-content: center
+        width: 100%
+        left: 0
+        bottom: calc(100% + 8px)
+        padding: 23px

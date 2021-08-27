@@ -13,6 +13,7 @@ import CookieManager from './components/CookieManager';
 import WalletProvider from './components/WalletProvider/index.svelte';
 import MetamaskPopup from './components/MetamaskLogin/index.svelte';
 import TxPopup from './components/TxPopup/index.svelte';
+import { Popup, PopupBody, PopupHeader } from './components/Popup';
 import State from './components/State/index.svelte';
 import { Dropdown, DropdownOption, DropdownOptions } from './components/Dropdown';
 import Tabs from './components/Tabs/index.svelte';
@@ -46,6 +47,9 @@ export {
     TxPopup,
     File,
     Form,
+    Popup,
+    PopupBody,
+    PopupHeader,
     Select as FormSelector,
     Input,
     InputWithLabel,
