@@ -1,6 +1,7 @@
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
     import MetamaskLogin from "./index.svelte";
+    import { Popup } from "../Popup";
 </script>
 
 <Meta
@@ -31,9 +32,9 @@
 />
 
 <Template let:args>
-    <div class="flex flex-center" style="width:350px">
+    <Popup isShown={true}>
         <MetamaskLogin {...args} />
-    </div>
+    </Popup>
 </Template>
 
 <Story

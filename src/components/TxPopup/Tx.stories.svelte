@@ -1,6 +1,7 @@
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
     import Tx from "./index.svelte";
+    import { Popup } from "../Popup";
 </script>
 
 <Meta
@@ -19,13 +20,15 @@
                 options: [0, 1, 2, 3],
             },
         },
+        btnLabel: { control: "string" },
+        btnOnClick: { action: "btnOnClick" },
     }}
 />
 
 <Template let:args>
-    <div class="flex flex-center">
+    <Popup isShown={true}>
         <Tx {...args} />
-    </div>
+    </Popup>
 </Template>
 
 <Story name="Default" />
@@ -48,6 +51,21 @@
         successTx: {
             text: "NFT minted",
             description: "Your NFT has been minted successfully",
+        },
+    }}
+/>
+
+<Story
+    name="Success State with button"
+    args={{
+        status: 2,
+        successTx: {
+            text: "NFT minted",
+            description: "Your NFT has been minted successfully",
+        },
+        btnLabel: "Continue",
+        btnOnClick: () => {
+            alert("btn clicked");
         },
     }}
 />

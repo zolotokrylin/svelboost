@@ -3,6 +3,7 @@
         name: string;
         href?: string;
     };
+    export let isActive: boolean = item?.href?.length > 0;
     export let withMaxWidth: boolean = false;
 </script>
 

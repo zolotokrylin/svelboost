@@ -1,5 +1,6 @@
 <script lang="ts">
-    import Heading from "../Heading/index.svelte";
+    import { PopupHeader, PopupBody } from "../Popup";
+    import Button from "../Button/index.svelte";
     import CircularLoading from "../CircularLoading/index.svelte";
 
     import failedTxImage from "./failed-tx.png";
@@ -21,6 +22,27 @@
     export let successTx: Tx;
     export let failedTx: Tx;
     export let status: Status;
+
+    const confirmTx: Tx = {
+        text: "Confirm transaction",
+        description: "Confirm transaction in your wallet",
+    };
+
+    export let btnLabel: string = undefined;
+    export let btnOnClick: string = undefined;
+
+    function getPopupHeaderProps(status: Status) {
+        switch (status) {
+            case Status.STARTING:
+                return confirmTx;
+            case Status.PENDING:
+                return pendingTx;
+            case Status.SUCCESS:
+                return successTx;
+            case Status.FAILURE:
+                return failedTx;
+        }
+    }
 </script>
 
 <template lang="pug" src="./template.pug" />

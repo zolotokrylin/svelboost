@@ -1,4 +1,6 @@
 +if("item.href")
-    a.breadcrumb-item(href="{item.href}") {item.name}
+    a.breadcrumb-item.breadcrumb-item--active(href="{item.href}") {item.name}
     +else()
-        .breadcrumb-item(class:with-max-width="{withMaxWidth}") {item.name}
+        .breadcrumb-item(
+            class:breadcrumb-item--active="{isActive}"
+            class:with-max-width="{withMaxWidth}") {item.name}

@@ -9,6 +9,8 @@
     argTypes={{
         class: { control: "text" },
         items: { control: "object" },
+        icon: { control: "object" },
+        progressStep: { control: "number" },
         maxWidth: { control: "number" },
     }}
     args={{
@@ -30,3 +32,20 @@
 </Template>
 
 <Story name="Default" />
+
+<Story
+    name="Without link"
+    args={{
+        items: [
+            {
+                name: "Label",
+                href: "",
+            },
+            {
+                name: "Label 2",
+                href: "",
+            },
+        ],
+        progressStep: 1,
+    }}
+/>

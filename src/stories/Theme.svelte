@@ -27,6 +27,7 @@
 
 <div class="main {theme}">
     <slot />
+    <div id="layers" />
 </div>
 
 <style lang="sass" global>

@@ -1,0 +1,12 @@
++if('isShown')
+    .popup-wrapper(use:portal="{'#layers'}")
+        .popup.popup-absolute.text-center(
+            class:withProgress="{steps}"
+            class="{className}" use:clickOutside="{onClickedOutside}")
+            +if('steps')
+                .popup.popup-progress
+                    Breadcrumb(
+                        items="{steps}"
+                        progressStep="{currentStep}"
+                    )
+            slot
