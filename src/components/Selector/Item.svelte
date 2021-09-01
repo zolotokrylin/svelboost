@@ -5,6 +5,8 @@
     export let isSelected: boolean = false;
     export let value: string | undefined;
     export let icon: any = undefined;
+    export let imgSrc: string = undefined;
+    export let imgAlt: string = undefined;
     export let isOutlined: boolean = false;
 
     let className: string = "";
@@ -24,6 +26,9 @@
             colorInherit
             isOutlined={isOutlined}
         />
+    {/if}
+    {#if imgSrc}
+        <img loading="lazy" src={imgSrc} alt={imgAlt} />
     {/if}
     <span>{value ? value : "No options available"}</span>
 </div>

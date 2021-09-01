@@ -5,8 +5,10 @@ declare const propDef: {
     props?: {
         isActive?: boolean;
         isSelected?: boolean;
-        value: string;
+        value: string | undefined;
         icon?: any;
+        imgSrc?: string;
+        imgAlt?: string;
         isOutlined?: boolean;
         class?: string;
     };
@@ -18,4 +20,4 @@ declare const propDef: {
 export declare type ItemProps = typeof propDef.props;
 export declare type ItemEvents = typeof propDef.events;
 export declare type ItemSlots = typeof propDef.slots;
-export { };
+export {};

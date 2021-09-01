@@ -27,6 +27,8 @@
             <svelte:fragment slot="item" let:item let:isActive let:isSelected>
                 <SelectorOption
                     value={item.name ? item.name : item}
+                    imgAlt="image"
+                    imgSrc={item.imgSrc}
                     isActive={isActive}
                     isSelected={isSelected}
                 />
@@ -41,5 +43,15 @@
     name="Without options"
     args={{
         options: [],
+    }}
+/>
+
+<Story
+    name="With img"
+    args={{
+        options: [
+            { name: "Option 1", imgSrc: "https://via.placeholder.com/150" },
+            { name: "Option 2", imgSrc: "https://via.placeholder.com/150" },
+        ],
     }}
 />

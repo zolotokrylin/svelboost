@@ -5,6 +5,8 @@ declare const propDef: {
     props?: {
         value: string;
         icon?: any;
+        imgSrc?: string;
+        imgAlt?: string;
         isOutlined?: boolean;
         onClick: () => void;
         class?: string;
