@@ -128,24 +128,35 @@
 
     let requestAddEthereumChain = async (newNetwork: any) => {
         if (instance.currentProvider.request) {
-            return instance.currentProvider
-                .request({
-                    method: "wallet_addEthereumChain",
-                    params: [
-                        {
-                            chainId: Web3.utils.toHex(newNetwork.chainId),
-                            chainName: newNetwork.name,
-                            nativeCurrency: newNetwork.nativeCurrency,
-                            rpcUrls: newNetwork.rpc,
-                            blockExplorerUrls: newNetwork.explorers.map(
-                                (n) => n.url
-                            ),
-                        },
-                    ],
-                })
-                .catch(rejectPermissionRequest);
+            try {
+                return instance.currentProvider.request({
+                    method: "wallet_switchEthereumChain",
+                    params: [{ chainId: Web3.utils.toHex(newNetwork.chainId) }],
+                });
+            } catch (error) {
+                if (error.code === 4902) {
+                    try {
+                        return instance.currentProvider.request({
+                            method: "wallet_addEthereumChain",
+                            params: [parseChain(newNetwork)],
+                        });
+                    } catch (addError) {
+                        return rejectPermissionRequest;
+                    }
+                }
+            }
         }
         return Promise.resolve();
+    };
+
+    let parseChain = (newNetwork: any) => {
+        return {
+            chainId: Web3.utils.toHex(newNetwork.chainId),
+            chainName: newNetwork.name,
+            nativeCurrency: newNetwork.nativeCurrency,
+            rpcUrls: newNetwork.rpc,
+            blockExplorerUrls: newNetwork.explorers.map((n) => n.url),
+        };
     };
 
     let initConnection = async () => {
