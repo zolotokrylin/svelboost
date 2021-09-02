@@ -126,18 +126,18 @@
         }
     };
 
-    let requestAddEthereumChain = async () => {
+    let requestAddEthereumChain = async (newNetwork: any) => {
         if (instance.currentProvider.request) {
             return instance.currentProvider
                 .request({
                     method: "wallet_addEthereumChain",
                     params: [
                         {
-                            chainId: Web3.utils.toHex(network.chainId),
-                            chainName: network.name,
-                            nativeCurrency: network.nativeCurrency,
-                            rpcUrls: network.rpc,
-                            blockExplorerUrls: network.explorers.map(
+                            chainId: Web3.utils.toHex(newNetwork.chainId),
+                            chainName: newNetwork.name,
+                            nativeCurrency: newNetwork.nativeCurrency,
+                            rpcUrls: newNetwork.rpc,
+                            blockExplorerUrls: newNetwork.explorers.map(
                                 (n) => n.url
                             ),
                         },
@@ -161,7 +161,7 @@
     };
 
     let requestConnection = async () => {
-        return requestAddEthereumChain()
+        return requestAddEthereumChain(network)
             .then(async () => {
                 if (parseInt($state.chainId) === parseInt(chainId)) {
                     setState({ connectionError: "" });
@@ -214,4 +214,4 @@
     });
 </script>
 
-<slot />
+<slot switchChain={requestAddEthereumChain} />
