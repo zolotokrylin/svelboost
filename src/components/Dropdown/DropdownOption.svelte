@@ -3,6 +3,9 @@
 
     export let value: string;
     export let icon: any = undefined;
+
+    export let imgSrc: string = undefined;
+    export let imgAlt: string = undefined;
     export let isOutlined: boolean = false;
     export let onClick: () => void;
 
@@ -15,6 +18,8 @@
         class="custom-option {className}"
         value={value}
         icon={icon}
+        imgSrc={imgSrc}
+        imgAlt={imgAlt}
         isOutlined={isOutlined}
     />
 </div>

@@ -207,6 +207,7 @@
         state,
         initConnection,
         clearConnection,
+        requestAddEthereumChain,
         signatureSign,
         errorCodes,
         statuses: STATUS,
