@@ -129,19 +129,19 @@
     let requestAddEthereumChain = async (newNetwork: any) => {
         if (instance.currentProvider.request) {
             try {
-                return instance.currentProvider.request({
+                await instance.currentProvider.request({
                     method: "wallet_switchEthereumChain",
                     params: [{ chainId: Web3.utils.toHex(newNetwork.chainId) }],
                 });
             } catch (error) {
                 if (error.code === 4902) {
                     try {
-                        return instance.currentProvider.request({
+                        await instance.currentProvider.request({
                             method: "wallet_addEthereumChain",
                             params: [parseChain(newNetwork)],
                         });
                     } catch (addError) {
-                        return rejectPermissionRequest;
+                        return rejectPermissionRequest();
                     }
                 }
             }
