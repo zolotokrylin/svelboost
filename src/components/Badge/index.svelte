@@ -1,5 +1,5 @@
 <script lang="ts">
-    type Status = "warning" | "error" | "success";
+    type Status = "warning" | "error" | "success" | "info";
 
     export let status: Status;
     export let label: string;

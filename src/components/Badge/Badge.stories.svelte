@@ -10,7 +10,7 @@
         status: {
             control: {
                 type: "select",
-                options: ["success", "error", "warning"],
+                options: ["success", "error", "warning", "info"],
             },
         },
         class: { control: "text" },
@@ -41,5 +41,11 @@
     name="Error"
     args={{
         status: "error",
+    }}
+/>
+<Story
+    name="Info"
+    args={{
+        status: "info",
     }}
 />
