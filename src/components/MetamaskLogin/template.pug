@@ -20,17 +20,22 @@ mixin metamask-missing
         )
 
 mixin wrong-chain
-    .icon
-        img(loading="lazy" src="{metamaskImage}" alt="metamask icon")
+    .icon.popup__icon
+        Icon(icon="{exclamation}" width="{60}" height="{60}" colorInherit)
     Heading(
-        class="title text-error"
+        class="title"
         level="{3}"
     ) Wrong network
     p.description 
-        | Please change your network to the {protocol} {' '}
+        | You are using a wrong network. Please connect to 
         b {networkName} {' '}
-        | network and refresh the page.
+        | to continue.
     .btns
+        Button(
+            label="How to?"
+            onClick="{init}"
+            type="alternate"
+        )
         Button(
             label="Try again"
             onClick="{init}"

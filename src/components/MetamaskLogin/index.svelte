@@ -4,7 +4,8 @@
     import Button from "../Button/index.svelte";
     import CircularLoading from "../CircularLoading/index.svelte";
     import { errorCodes } from "../WalletProvider/utils";
-
+    import Icon from "../Icon/index.svelte";
+    import { exclamation } from "../Icons/solid";
     import metamaskImage from './metamask.png';
 
     export let init: () => Promise<void>;
