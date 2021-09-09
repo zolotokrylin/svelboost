@@ -1,0 +1,41 @@
+@import "../../common-styles/utils"
+
+input
+    position: relative
+    display: block
+    width: 100%
+    height: 50px
+    margin: 0
+    padding: 15px
+    text-align: left
+    border-radius: 10px
+    transition: box-shadow .3s ease-in-out, border-color .3s ease-in-out
+    @include var(color, 'f1')
+    @include paragraph-font(18px)
+    @include property(border, 1px, solid, 'primary-accent', 0)
+    @include boxShadowV2((1: (offset: "0 0 0 1000px", key: "l2")), inset)
+
+    @include placeholder
+        font: inherit
+        opacity: 1
+        @include var(color, 'f4')
+
+    &:hover
+        @include boxShadowV2((1: (offset: "0 0 0 1000px", key: "l3")), inset)
+
+    &.with-error
+        @include var(border-color, 'alert')
+
+    &:focus,
+    &:focus:hover
+        @include var(border-color, 'primary-accent')
+        @include boxShadowV2((1: (offset: "0 0 0 1000px", key: "l2")), inset)
+
+    &:disabled
+        cursor: not-allowed
+
+    &:-webkit-autofill
+        @include var(-webkit-text-fill-color, 'f1')
+
+    &:-webkit-autofill:hover
+        @include var(-webkit-text-fill-color, 'f1')
