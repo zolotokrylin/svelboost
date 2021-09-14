@@ -144,6 +144,7 @@
                         return rejectPermissionRequest();
                     }
                 }
+                return Promise.reject(error);
             }
         }
         return Promise.resolve();
@@ -172,25 +173,26 @@
     };
 
     let requestConnection = async () => {
-        return requestAddEthereumChain(network)
-            .then(async () => {
-                if (parseInt($state.chainId) === parseInt(chainId)) {
-                    setState({ connectionError: "" });
-                    if (isMobile()) {
-                        return requestAccountInfo().catch(
-                            rejectPermissionRequest
-                        );
-                    } else {
-                        return requestPermissions()
-                            .then(() => requestAccountInfo())
-                            .catch(rejectPermissionRequest);
-                    }
-                }
-            })
-            .catch(() => {
+         await requestAddEthereumChain(network).catch((_) => {
+            if (parseInt($state.chainId) !== parseInt(chainId)) {
                 setState({ connectionError: errorCodes.WRONG_CHAIN });
                 return Promise.reject($state.connectionError);
-            });
+            }
+        });
+
+        if (parseInt($state.chainId) === parseInt(chainId)) {
+            setState({ connectionError: "" });
+            if (isMobile()) {
+                return requestAccountInfo().catch(rejectPermissionRequest);
+            } else {
+                return requestPermissions()
+                    .then(() => requestAccountInfo())
+                    .catch(rejectPermissionRequest);
+            }
+        } else {
+            setState({ connectionError: errorCodes.WRONG_CHAIN });
+            return Promise.reject($state.connectionError);
+        }
     };
 
     let signatureSign = async (address, nonce) => {

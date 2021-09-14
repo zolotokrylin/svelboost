@@ -57,3 +57,10 @@
         error: "provider-missing",
     }}
 />
+
+<Story
+    name="Wrong chain state"
+    args={{
+        error: "wrong-chain",
+    }}
+/>
