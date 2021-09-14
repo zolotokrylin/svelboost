@@ -15,6 +15,7 @@
     export let error: string;
     export let appName: string;
     export let networkName: string = "main";
+    export let protocol: string = "Ethereum";
     export let switchChainUri: string =
         "https://metamask.zendesk.com/hc/en-us/articles/360043227612-How-to-add-a-custom-network-RPC"; // TODO: replace it when will be an article
 

@@ -173,7 +173,7 @@
     };
 
     let requestConnection = async () => {
-         await requestAddEthereumChain(network).catch((_) => {
+        await requestAddEthereumChain(network).catch((_) => {
             if (parseInt($state.chainId) !== parseInt(chainId)) {
                 setState({ connectionError: errorCodes.WRONG_CHAIN });
                 return Promise.reject($state.connectionError);
@@ -227,4 +227,4 @@
     });
 </script>
 
-<slot switchChain={requestAddEthereumChain} />
+<slot switchChain={requestAddEthereumChain} state={$state} />

@@ -21,6 +21,7 @@
                 options: [
                     "",
                     "provider-missing",
+                    "connection-failed",
                     "wrong-chain",
                     "permission-denied",
                     "signature-denied",
@@ -62,5 +63,12 @@
     name="Wrong chain state"
     args={{
         error: "wrong-chain",
+    }}
+/>
+
+<Story
+    name="Connection failed"
+    args={{
+        error: "connection-failed",
     }}
 />

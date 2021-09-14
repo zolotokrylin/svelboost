@@ -3,6 +3,7 @@ export declare const errorCodes: {
     PROVIDER_LOCKED: string;
     PROVIDER_MISSING: string;
     WRONG_CHAIN: string;
+    CONNECTION_FAILED: string;
     PERMISSIONS_DENIED: string;
     SIGNATURE_DENIED: string;
 };

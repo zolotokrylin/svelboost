@@ -27,7 +27,30 @@ mixin wrong-chain
     ) Wrong network
     p.description 
         | You are using a wrong network. Please connect to 
-        b {networkName} {' '}
+        b {protocol} {networkName} {' '}
+        | to continue.
+    .btns
+        Button(
+            target="_blank"
+            label="How to?"
+            href="{switchChainUri}"
+            type="alternate"
+        )
+        Button(
+            label="Try again"
+            onClick="{init}"
+        )
+
+mixin connection-failed
+    .icon.text-warning.pt9
+        Icon(icon="{exclamation}" width="{52}" height="{52}" colorInherit)
+    Heading(
+        class="title"
+        level="{3}"
+    ) Connection failed
+    p.description 
+        | Manualy configure and switch to {' '}
+        b {protocol} {networkName} {' '}
         | to continue.
     .btns
         Button(
@@ -95,6 +118,8 @@ mixin loading-state
         +metamask-missing
     +if('error === errorCodes.WRONG_CHAIN')
         +wrong-chain
+    +if('error === errorCodes.CONNECTION_FAILED')
+        +connection-failed
     +if('error === errorCodes.PERMISSIONS_DENIED')
         +permission-denied
     +if('error === errorCodes.SIGNATURE_DENIED')
