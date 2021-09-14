@@ -4,6 +4,7 @@ export const errorCodes = {
     PROVIDER_LOCKED: "provider-locked",
     PROVIDER_MISSING: "provider-missing",
     WRONG_CHAIN: "wrong-chain",
+    CONNECTION_FAILED: "connection-failed",
     PERMISSIONS_DENIED: "permission-denied",
     SIGNATURE_DENIED: "signature-denied",
 };
