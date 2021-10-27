@@ -2,7 +2,9 @@ import { SvelteComponentTyped } from 'svelte';
 export default class Index extends SvelteComponentTyped<IndexProps, IndexEvents, IndexSlots> {
 }
 declare const propDef: {
-    props?: {};
+    props?: {
+        class?: string;
+    };
     events?: {
         [evt: string]: CustomEvent<any>;
     };
