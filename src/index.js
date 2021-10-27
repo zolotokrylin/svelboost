@@ -3,7 +3,7 @@ import ButtonIcon from './components/ButtonIcon/index.svelte';
 import Breadcrumb from './components/Breadcrumb/index.svelte';
 import Badge from './components/Badge/index.svelte';
 import Heading from './components/Heading/index.svelte';
-import Paragragh from './components/Paragraph/index.svelte';
+import Paragraph from './components/Paragraph/index.svelte';
 import Icon from './components/Icon/index.svelte';
 import NavItem from './components/NavItem/index.svelte';
 import { Selector, SelectorOption } from './components/Selector';
@@ -28,7 +28,7 @@ export {
     ButtonIcon,
     Icon,
     Heading,
-    Paragragh,
+    Paragraph,
     NavItem,
     CircularLoading,
     CookieManager,
