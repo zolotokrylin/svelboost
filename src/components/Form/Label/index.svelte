@@ -4,11 +4,9 @@
     export let label: string;
 </script>
 
-{#if label}
-    <label class="input-label" for="{name}_field_input">
-        {label}
-    </label>
-{/if}
+<label class="input-label" for="{name}_field_input">
+    {label}
+</label>
 
 <style lang="sass" src="./style.sass">
 
