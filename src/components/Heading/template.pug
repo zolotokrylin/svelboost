@@ -1,6 +1,6 @@
 mixin content
     +if('level === 1')
-        h1(class="heading {hoverableClass} {displyClass} {asLink ? '' : className}")
+        h1(class="heading {hoverableClass} {displayClass} {asLink ? '' : className}")
             slot
         +elseif('level === 2')
             h2(class="heading {hoverableClass} {asLink ? '' : className}")
