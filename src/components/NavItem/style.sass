@@ -14,17 +14,24 @@
     @include var(background-color, 'l1')
 
     :global(svg)
-        margin-right: 8px
+        margin-right: toRem(8px)
 
     span
         position: relative
         display: inline-flex
         @include cta-font(1.1)
 
+    .badge
+        margin-left: toRem(8px)
+        top: 1px
+        @include caption-font()
+        @include var(color, 'f4')
+
     &:hover,
     &:active
         @include var(color, 'primary-accent')
+        @include var(background-color, 'l2')
 
     &-active
-        @include var(color, 'primary-accent')
-        @include var(background-color, 'l2')
+        @include var(color, 'l1')
+        @include var(background-color, 'primary-accent')

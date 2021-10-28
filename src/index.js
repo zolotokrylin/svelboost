@@ -6,6 +6,8 @@ import Heading from './components/Heading/index.svelte';
 import Paragraph from './components/Paragraph/index.svelte';
 import Icon from './components/Icon/index.svelte';
 import NavItem from './components/NavItem/index.svelte';
+import MetaTags from './components/MetaTags/index.svelte';
+import JSONLD from './components/MetaTags/JsonLd.svelte';
 import { Selector, SelectorOption } from './components/Selector';
 import { Form, Input, InputWithLabel, File, Select, types, validator } from './components/Form';
 import { Table, TableBody, TableHead, TableRow, TableCell } from './components/Table';
@@ -52,6 +54,8 @@ export {
     Popup,
     PopupBody,
     PopupHeader,
+    MetaTags,
+    JSONLD,
     Select as FormSelector,
     Input,
     InputWithLabel,
