@@ -81,3 +81,19 @@
 	text-overflow: ellipsis
 	overflow: hidden
 	white-space: nowrap
+
+@mixin linear-gradient($direction, $color-stop-1, $color-stop-1-percent, $color-stop-1-start, $color-stop-2, $color-stop-2-percent, $color-stop-2-start)
+	@if $color-stop-1-percent != 1
+		@if $color-stop-2-percent != 1
+			background-image: linear-gradient($direction, rgba(map_get($light-colors, $color-stop-1), $color-stop-1-percent) $color-stop-1-start, rgba(map_get($light-colors, $color-stop-2), $color-stop-2-percent) $color-stop-2-start)
+			background-image: linear-gradient($direction, rgba(var(--#{$color-stop-1}--rgb, map_get($light-colors, $color-stop-1)), $color-stop-1-percent) $color-stop-1-start, rgba(var(--#{$color-stop-2}--rgb, map_get($light-colors, $color-stop-2)), $color-stop-2-percent) $color-stop-2-start)
+		@else
+			background-image: linear-gradient($direction, rgba(map_get($light-colors, $color-stop-1), $color-stop-1-percent) $color-stop-1-start, map_get($light-colors, $color-stop-2) $color-stop-2-start)
+			background-image: linear-gradient($direction, rgba(var(--#{$color-stop-1}--rgb, map_get($light-colors, $color-stop-1)), $color-stop-1-percent) $color-stop-1-start, var(--#{$color-stop-2}, map_get($light-colors, $color-stop-2)) $color-stop-2-start)
+	@else
+		@if $color-stop-2-percent != 1
+			background-image: linear-gradient($direction, map_get($light-colors, $color-stop-1) $color-stop-1-start, rgba(map_get($light-colors, $color-stop-2), $color-stop-2-percent) $color-stop-2-start)
+			background-image: linear-gradient($direction, var(--#{$color-stop-1}, map_get($light-colors, $color-stop-1)) $color-stop-1-start, rgba(var(--#{$color-stop-2}--rgb, map_get($light-colors, $color-stop-2)), $color-stop-2-percent) $color-stop-2-start)
+		@else
+			background-image: linear-gradient($direction, map_get($light-colors, $color-stop-1) $color-stop-1-start, map_get($light-colors, $color-stop-2) $color-stop-2-start)
+			background-image: linear-gradient($direction, var(--#{$color-stop-1}, map_get($light-colors, $color-stop-1)) $color-stop-1-start, var(--#{$color-stop-2}, map_get($light-colors, $color-stop-2)) $color-stop-2-start)

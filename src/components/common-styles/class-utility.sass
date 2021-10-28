@@ -7,6 +7,12 @@
 .text-success
     @include var(color, 'success', 1, !important)
 
+.text-primary
+    @include var(color, 'primary-accent', 1, !important)
+
+.text-main
+    @include var(color, 'l1', 1, !important)
+
 .underline-not
     text-decoration: none
 
@@ -17,3 +23,25 @@
     box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, .1)
     @include property(border, 1px, solid, 'l4')
     @include var(background-color, 'l1')
+
+// Margins utils
+.mb8
+    margin-bottom: toRem(8px)!important
+.mb16
+    margin-bottom: toRem(16px)!important
+.mb24
+    margin-bottom: toRem(24px)!important
+.mb32
+    margin-bottom: toRem(32px)!important
+.mb60
+    margin-bottom: toRem(60px)!important
+.mb80
+    margin-bottom: toRem(80px)!important
+
+// Position utils
+.pa
+    position: absolute!important
+.pr
+    position: relative!important
+.pf
+    position: fixed!important
