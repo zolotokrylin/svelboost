@@ -5,7 +5,7 @@ export default class Form extends SvelteComponentTyped<FormProps, FormEvents, Fo
 declare const propDef: {
     props?: {
         enableReinitialize?: boolean;
-        formBag: () => BagState;
+        formBag?: () => BagState;
         initialErrors?: Object;
         initialTouched?: Object;
         initialValues?: Object;
