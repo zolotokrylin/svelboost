@@ -12,6 +12,7 @@ declare const propDef: {
         class?: string;
         active?: boolean;
         badge?: string;
+        isDisabled?: boolean;
     };
     events?: {
         [evt: string]: CustomEvent<any>;

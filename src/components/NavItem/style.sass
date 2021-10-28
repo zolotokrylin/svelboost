@@ -27,8 +27,11 @@
         @include caption-font()
         @include var(color, 'f4')
 
-    &:hover,
-    &:active
+    &-disabled
+        pointer-events: none
+
+    &:hover:not(&-disabled),
+    &:active:not(&-disabled)
         @include var(color, 'primary-accent')
         @include var(background-color, 'l2')
 

@@ -13,6 +13,7 @@
         badge: { control: "text" },
         icon: { control: "object" },
         active: { control: "boolean" },
+        isDisabled: { control: "boolean" },
     }}
 />
 
@@ -38,6 +39,16 @@
         label: "Dashboard",
         icon: home,
         active: true,
+    }}
+/>
+
+<Story
+    name="Disabled"
+    args={{
+        href: "/",
+        label: "Dashboard",
+        icon: home,
+        isDisabled: true,
     }}
 />
 
