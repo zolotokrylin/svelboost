@@ -173,12 +173,17 @@
     };
 
     let requestConnection = async () => {
-        await requestAddEthereumChain(network).catch((_) => {
+        await requestAddEthereumChain(network).catch((err) => {
+            if (err.code === 4902) {
+                return requestConnection();
+            }
+
             if (parseInt($state.chainId) !== parseInt(chainId)) {
                 setState({ connectionError: errorCodes.WRONG_CHAIN });
                 return Promise.reject($state.connectionError);
             }
         });
+        await getChainId(instance);
 
         if (parseInt($state.chainId) === parseInt(chainId)) {
             setState({ connectionError: "" });
