@@ -42,21 +42,26 @@
     padding-left: math.div($gutter, 2)
 
 @each $item in $list
-    @for $i from 0 through 12
-        @media (map_get($breakpoints,$item))
+    @media (map_get($breakpoints,$item))
+        @for $i from 0 through 11
             .#{$item}-#{$i}
-                position: relative
-                padding-right: math.div($gutter, 2)
-                padding-left: math.div($gutter, 2)
                 width: getColumnWidth($i)
 
             .left-#{$item}-#{$i}
                 margin-left: getColumnWidth($i)
 
+            .left-#{$item}-#{$i}_5
+                margin-left: getColumnWidth($i + .5)
+
             .right-#{$item}-#{$i}
                 margin-right: getColumnWidth($i)
 
-    @media (map_get($breakpoints,$item))
+            .right-#{$item}-#{$i}_5
+                margin-right: getColumnWidth($i + .5)
+
+        .#{$item}-12
+            width: getColumnWidth(12)
+
         .hide-#{$item}
             display: none
 
