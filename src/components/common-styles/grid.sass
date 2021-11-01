@@ -12,7 +12,10 @@
     @media #{$small-up} and #{$large-down}
         margin-right: 0
 
-    @include breakpoint($medium)
+    @include breakpoint($large)
+        max-width: calc(100% - #{map-get($side-menu-width, lg)})
+
+    @media #{$tablet-up} and #{$medium-down}
         max-width: calc(100% - #{map-get($side-menu-width, md)})
 
     @include breakpoint($small)
