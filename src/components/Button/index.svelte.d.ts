@@ -16,17 +16,18 @@ export default class Index extends SvelteComponentTyped<IndexProps, IndexEvents,
 }
 declare const propDef: {
     props?: {
-        href?: string;
         label: string;
+        onClick: () => void;
+        type?: Type;
+        size?: Size;
+        class?: string;
+        href?: string;
         rel?: string;
         icon?: any;
         imageSrc?: string;
         imageAlt?: string;
-        disabled: boolean;
-        isSubmitBtn: boolean;
-        type: Type
-        size: Size;
-        onClick: () => void;
+        isSubmitBtn?: boolean;
+        disabled?: boolean;
     };
     events?: {
         [evt: string]: CustomEvent<any>;

@@ -10,7 +10,7 @@
     enum Type {
         PRIMARY = "primary",
         SECONDARY = "secondary",
-        ALTERNATE = "alternate",
+        ALTERNATE = "alternate"
     }
 
     export let href: string = undefined;
@@ -26,6 +26,9 @@
     export let isSubmitBtn: boolean = false;
     export let type: Type = Type.PRIMARY;
     export let size: Size = Size.DEFAULT;
+
+    let className: string = "";
+    export { className as class };
 
     // Used for control DOM element from outside
     let ref: HTMLButtonElement;
