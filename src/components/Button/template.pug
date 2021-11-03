@@ -5,6 +5,7 @@ mixin content
             img(loading="lazy" src="{imageSrc}" alt="{imageAlt}")
     +if('label')
         | { label}
+    slot
 
 +if('href')
     a(
