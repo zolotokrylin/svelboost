@@ -97,3 +97,12 @@
 		@else
 			background-image: linear-gradient($direction, map_get($light-colors, $color-stop-1) $color-stop-1-start, map_get($light-colors, $color-stop-2) $color-stop-2-start)
 			background-image: linear-gradient($direction, var(--#{$color-stop-1}, map_get($light-colors, $color-stop-1)) $color-stop-1-start, var(--#{$color-stop-2}, map_get($light-colors, $color-stop-2)) $color-stop-2-start)
+
+@mixin withQuery($query, $display: initial)
+	&-mobile
+		display: none!important
+	@media (#{$query})
+		&-desktop
+			display: none!important
+		&-mobile
+			display: #{$display}!important
