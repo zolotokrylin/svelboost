@@ -1,14 +1,14 @@
 .flex
     display: flex
 
-    &-reverse
-        flex-direction: row-reverse
-
     &-middle
         align-items: center
 
     &-bottom
         align-items: flex-end
+
+    &-top
+        align-items: flex-start
 
     &-center
         justify-content: center
@@ -28,6 +28,12 @@
     &-row
         flex-direction: row
 
+    &-reverse
+        flex-direction: row-reverse
+
+    &-wrap
+        flex-wrap: wrap
+
 // text utils
 .text-center
     text-align: center
@@ -37,6 +43,9 @@
 
 .text-default
     text-align: left
+
+.truncate
+    @include truncate()
 
 // Margins utils
 .mb8
