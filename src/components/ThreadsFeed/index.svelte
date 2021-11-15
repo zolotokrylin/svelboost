@@ -19,7 +19,7 @@
     }
 
     export let limit: number = 5;
-    export let sortBy: SortBy = SortBy.CREATED_AT;
+    export let sortBy: SortBy = SortBy.NET_UP_VOTES;
     export let sortOrder: SortOrder = SortOrder.DESC;
     export let sortByVotesStartingFrom: number = 0;
 
