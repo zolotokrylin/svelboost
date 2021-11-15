@@ -1,0 +1,25 @@
++if('loading')
+    | loading
+    +else()
+        .thread-item
+            Title(title="{item.title}")
+            +if('cover')
+                Cover(
+                    src="{cover}"
+                    alt="{item.title}"
+                )
+            +if('content')
+                Content(
+                    content="{content}"
+                )
+            .thread-item-btns
+                .thread-item-cta
+                    | {item.votesCount.up}
+                .thread-item-cta
+                    | {item.votesCount.down}
+                .thread-item-cta
+                    | {item.postedIn.allReplies.totalCount}
+                .thread-item-cta
+                    | Share {item.postedIn.messageSlug}
+                .thread-item-cta
+                    | Follow 
