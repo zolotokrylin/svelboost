@@ -19,7 +19,7 @@
     }
 
     export let limit: number = 5;
-    export let sortBy: SortBy = SortBy.NET_UP_VOTES;
+    export let sortBy: SortBy = SortBy.CREATED_AT;
     export let sortOrder: SortOrder = SortOrder.DESC;
     export let sortByVotesStartingFrom: number = 0;
 
@@ -67,7 +67,7 @@
     <ThreadItem loading={true} />
 {:else if response.data !== null}
     {#each response.data.edges as item}
-        <ThreadItem item={item?.node} />
+        <ThreadItem item={item.node} />
     {/each}
 {:else}
     <div>Failed to load feed</div>

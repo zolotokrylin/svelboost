@@ -21,7 +21,7 @@ export type Input = {
 }
 
 let query = `
-query community($slug: String, input: CommunityPostedMessagesConnectionInput!) {
+query community($slug: String!, $input: CommunityPostedMessagesConnectionInput!) {
     community(slug: $slug) {
         postedMessages(input: $input) {
             edges {
@@ -42,8 +42,8 @@ query community($slug: String, input: CommunityPostedMessagesConnectionInput!) {
                             name
                         }
                         allReplies(input: {
-                            pageInfo: {first: 1}
-                            sortBy: CREATED_AT
+                            pageInfo: {first: 1},
+                            sortBy: CREATED_AT,
                             sortDesc: true
                         }) {
                             totalCount
@@ -56,7 +56,7 @@ query community($slug: String, input: CommunityPostedMessagesConnectionInput!) {
     }
 }`
 
-export function getFeed(input: Input) {
+export async function getFeed(input: Input) {
     return axios({
         url: input.endpoint,
         method: "POST",
@@ -64,5 +64,5 @@ export function getFeed(input: Input) {
             query: query,
             variables: input.variables
         }
-    })
+    }).then(res => res.data)
 }

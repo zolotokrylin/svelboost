@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Paragraph from "../../../Paragraph/index.svelte";
+    import Paragraph from "../../../Paragraph/P.svelte";
 
     export let content: {
         type: string;

@@ -32,19 +32,16 @@ export const getVideoCover = (href: string) => {
     }
 }
 
+let youtubeWithWatchRegex = /^(http:\/\/|https:\/\/)(youtu\.be|www\.youtube\.com|youtube\.com)(\/watch)([^\s]+)/gmi;
+let youtubeRegex = /^(http:\/\/|https:\/\/)(youtu\.be|www\.youtube\.com|youtube\.com)([\w\/-]+)([^\s]+)/gmi;
+let vimeoRegex = /^(http:\/\/|https:\/\/)(player\.vimeo\.com|vimeo\.com)([\w\/-]+)([^\s]+)/gmi;
+
 export const getEmbedSource = (href: string) => {
-    let isYoutubeWithWatch = new RegExp(/^(http:\/\/|https:\/\/)(youtu\.be|www\.youtube\.com|youtube\.com)(\/watch)([^\s]+)/, "gmi");
-    let isYoutube = new RegExp(/^(http:\/\/|https:\/\/)(youtu\.be|www\.youtube\.com|youtube\.com)([\w\/-]+)([^\s]+)/, "gmi");
-    let isVimeo = new RegExp(/^(http:\/\/|https:\/\/)(player\.vimeo\.com|vimeo\.com)([\w\/-]+)([^\s]+)/, "gmi");
-
-    if (isYoutubeWithWatch.test(href)) {
-        return "youtube";
-    }
-    if (isYoutube.test(href)) {
+    if (youtubeRegex.test(href) || youtubeWithWatchRegex.test(href)) {
         return "youtube";
     }
 
-    if (isVimeo.test(href)) {
+    if (vimeoRegex.test(href)) {
         return "vimeo";
     }
 
@@ -52,21 +49,18 @@ export const getEmbedSource = (href: string) => {
 }
 
 const getEmbedId = (href: string) => {
-    let isYoutubeWithWatch = new RegExp(/^(http:\/\/|https:\/\/)(youtu\.be|www\.youtube\.com|youtube\.com)(\/watch)([^\s]+)/, "gmi");
-    let isYoutube = new RegExp(/^(http:\/\/|https:\/\/)(youtu\.be|www\.youtube\.com|youtube\.com)([\w\/-]+)([^\s]+)/, "gmi");
-    let isVimeo = new RegExp(/^(http:\/\/|https:\/\/)(player\.vimeo\.com|vimeo\.com)([\w\/-]+)([^\s]+)/, "gmi");
     let source = getEmbedSource(href);
 
-    if (isYoutubeWithWatch.test(href)) {
+    if (youtubeWithWatchRegex.test(href)) {
         return [source, `${href.slice(href.indexOf("v") + 2, href.indexOf("v") + 13)}`];
     }
 
-    if (isYoutube.test(href)) {
+    if (youtubeRegex.test(href)) {
         let list = href.split("/");
         return [source, list[3]];
     }
 
-    if (isVimeo.test(href)) {
+    if (vimeoRegex.test(href)) {
         let list = href.split("/");
         return [source, list[4]];
     }
