@@ -4,7 +4,7 @@ mixin content
         +elseif('imageSrc')
             img(loading="lazy" src="{imageSrc}" alt="{imageAlt}")
     +if('label')
-        | { label}
+        | {label}
     slot
 
 +if('href')
