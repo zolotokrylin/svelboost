@@ -6,11 +6,24 @@
     max-width: $container-max-width
     width: 100%
     margin: 0 auto
-    padding-right: math.div($gutter, 2)
-    padding-left: math.div($gutter, 2)
+    padding-right: $container-padding
+    padding-left: $container-padding
+
+    @media #{$small-up} and #{$large-down}
+        margin-right: 0
+
+    @include breakpoint($large)
+        max-width: calc(100% - #{map-get($side-menu-width, lg)})
+
+    @media #{$tablet-up} and #{$medium-down}
+        max-width: calc(100% - #{map-get($side-menu-width, md)})
 
     @include breakpoint($small)
-        max-width: 670px
+        max-width: calc(100% - #{map-get($side-menu-width, sm)})
+
+    @include breakpoint($xs)
+        padding-right: #{math.div($gutter, 2)}
+        padding-left: #{math.div($gutter, 2)}
 
 .row
     position: relative
@@ -28,25 +41,27 @@
     padding-right: math.div($gutter, 2)
     padding-left: math.div($gutter, 2)
 
-$list: xs, sm, md, lg
-$breakpoints: ( xs: "min-width:320px", sm: "min-width:768px", md: "min-width:992px", lg: "min-width:1200px")
-
 @each $item in $list
-    @for $i from 0 through 12
-        @media (map_get($breakpoints,$item))
+    @media (map_get($breakpoints,$item))
+        @for $i from 0 through 11
             .#{$item}-#{$i}
-                position: relative
-                padding-right: math.div($gutter, 2)
-                padding-left: math.div($gutter, 2)
                 width: getColumnWidth($i)
 
             .left-#{$item}-#{$i}
                 margin-left: getColumnWidth($i)
 
+            .left-#{$item}-#{$i}_5
+                margin-left: getColumnWidth($i + .5)
+
             .right-#{$item}-#{$i}
                 margin-right: getColumnWidth($i)
 
-    @media (map_get($breakpoints,$item))
+            .right-#{$item}-#{$i}_5
+                margin-right: getColumnWidth($i + .5)
+
+        .#{$item}-12
+            width: getColumnWidth(12)
+
         .hide-#{$item}
             display: none
 

@@ -1,22 +1,22 @@
 @import "../common-styles/utils"
 
 h1
-    @include font-details(toRem(40px),500, 1)
+    @include font-details(toRem(40px),500, 1.3)
 
 h2
-    @include font-details(toRem(32px),500, 1)
+    @include font-details(toRem(32px),500, 1.3)
 
 h3
-    @include font-details(toRem(28px),500, 1)
+    @include font-details(toRem(28px),500, 1.3)
 
 h4
-    @include font-details(toRem(24px),500, 1)
+    @include font-details(toRem(24px),500, 1.3)
 
 h5
-    @include font-details(toRem(20px),500, 1)
+    @include font-details(toRem(20px),500, 1.3)
 
 h6
-    @include font-details(toRem(16px),500, 1)
+    @include font-details(toRem(16px),500, 1.3)
 
 a
     text-decoration: none
@@ -33,4 +33,4 @@ a
             @include var(color,'primary-accent')
 
     &--isDisplay
-        font-size: 40px
+        @include font-details(toRem(56px),300, 1.1)

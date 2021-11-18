@@ -10,6 +10,10 @@
         &.withProgress
             margin-top: 33px
 
+        @include breakpoint($phone)
+            width: 290px
+            left: calc(50% - 145px)
+
     &-wrapper
         position: fixed
         display: flex
@@ -27,7 +31,7 @@
 
         @include breakpoint($phone)
             display: block
-            margin-top: 80px
+            padding-top: 80px
 
     &-progress
         position: absolute

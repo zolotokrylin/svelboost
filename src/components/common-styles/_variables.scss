@@ -1,16 +1,41 @@
 // ***** Layout **** //
-$gutter: 30px !default;
-$base-font: 16px !default;
+$gutter: 32px !default;
 $container-max-width: 1200px !default;
+$container-padding: $gutter + 8px !default;
+$base-font: 16px !default;
+$list: xs, sm, tb, md, lg, xl !default;
+$breakpoints: (
+    xs: "min-width:320px",
+    sm: "min-width:768px",
+    tb: "min-width:992px",
+    md: "min-width:1200px",
+    lg: "min-width:1440px",
+    xl: "min-width:1680px",
+) !default;
+
+$side-menu-width: (
+    sm: "100px",
+    md: "180px",
+    lg: "240px",
+) !default;
 
 // *** Breakpoints *** //
-$large: "(min-width: 1200px)";
-$medium: "(min-width:992px) and (max-width: 1199px)";
-$medium-up: "(min-width:992px)";
-$medium-down: "(max-width: 1199px)";
+$xlarge: "(min-width: 1680px)";
+$large: "(min-width: 1440px) and (max-width: 1679px)";
+$large-down: "(max-width: 1679px)";
+$medium: "(min-width:1200px) and (max-width: 1439px)";
+$medium-up: "(min-width:1200px)";
+$medium-down: "(max-width: 1439px)";
+
+$tablet: "(min-width:992px) and (max-width: 1199px)";
+$tablet-up: "(min-width:992px)";
+$tablet-down: "(max-width: 1199px)";
+
 $small: "(min-width:768px) and (max-width: 991px)";
-$small-down: "(max-width:991px)";
 $small-up: "(min-width:768px)";
+$small-down: "(max-width:991px)";
+
+$xs: "(max-width:767px)";
 $phone: "(max-width: 479px)";
 $small-phones: "(max-width: 389px)";
 
@@ -33,6 +58,8 @@ $light-colors: (
     "alert": #ff0222,
     "warning": #feb800,
     "success": #04cd62,
+    "purple": #9c7cc2,
+    "transparent": rgba(0, 0, 0, 0),
 ) !default;
 
 $dark-colors: (
@@ -51,4 +78,6 @@ $dark-colors: (
     "alert": #ff0222,
     "warning": #feb800,
     "success": #04cd62,
+    "purple": #9c7cc2,
+    "transparent": rgba(0, 0, 0, 0),
 ) !default;

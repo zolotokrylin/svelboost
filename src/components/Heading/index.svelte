@@ -19,8 +19,7 @@
     export let href: string = undefined;
 
     $: hoverableClass = isHoverable ? "heading--isHoverable" : "";
-
-    $: displyClass = isDisplay ? "heading--isDisplay" : "";
+    $: displayClass = isDisplay ? "heading--isDisplay" : "";
 </script>
 
 <template lang="pug" src="./template.pug" />

@@ -1,14 +1,14 @@
 .flex
     display: flex
 
-    &-reverse
-        flex-direction: row-reverse
-
     &-middle
         align-items: center
 
     &-bottom
         align-items: flex-end
+
+    &-top
+        align-items: flex-start
 
     &-center
         justify-content: center
@@ -28,8 +28,53 @@
     &-row
         flex-direction: row
 
+    &-reverse
+        flex-direction: row-reverse
+
+    &-wrap
+        flex-wrap: wrap
+
+// text utils
 .text-center
     text-align: center
 
 .text-right
     text-align: right
+
+.text-default
+    text-align: left
+
+.truncate
+    @include truncate()
+
+// Margins utils
+.mb8
+    margin-bottom: toRem(8px)!important
+.mb16
+    margin-bottom: toRem(16px)!important
+.mb24
+    margin-bottom: toRem(24px)!important
+.mb32
+    margin-bottom: toRem(32px)!important
+.mb40
+    margin-bottom: toRem(40px)!important
+.mb48
+    margin-bottom: toRem(48px)!important
+.mb56
+    margin-bottom: toRem(56px)!important
+.mb64
+    margin-bottom: toRem(64px)!important
+.mb72
+    margin-bottom: toRem(72px)!important
+.mb80
+    margin-bottom: toRem(80px)!important
+.pb80
+    padding-bottom: toRem(80px)!important
+
+// Position utils
+.pa
+    position: absolute!important
+.pr
+    position: relative!important
+.pf
+    position: fixed!important

@@ -4,13 +4,14 @@ mixin content
         +elseif('imageSrc')
             img(loading="lazy" src="{imageSrc}" alt="{imageAlt}")
     +if('label')
-        | { label}
+        | {label}
+    slot
 
 +if('href')
     a(
         {...$$restProps}
         bind:this="{ref}"
-        class!="{['btn', typeClass, sizeClass].join(' ')}"
+        class!="{['btn', typeClass, sizeClass, className].join(' ')}"
         disabled="{disabled}"
         href="{href}"
         rel="{rel}"
@@ -20,7 +21,7 @@ mixin content
         button(
             {...$$restProps}
             bind:this="{ref}"
-            class!="{['btn', typeClass, sizeClass].join(' ')}"
+            class!="{['btn', typeClass, sizeClass, className].join(' ')}"
             disabled="{disabled}"
             type="{btnType}"
             on:click="{onClick}"

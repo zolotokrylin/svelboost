@@ -10,13 +10,15 @@
     argTypes={{
         label: { control: "text" },
         href: { control: "text" },
+        badge: { control: "text" },
         icon: { control: "object" },
         active: { control: "boolean" },
+        isDisabled: { control: "boolean" },
     }}
 />
 
 <Template let:args>
-    <div style="background-color: black; max-width: 160px; padding: 15px">
+    <div style="background-color: black; max-width: 200px; padding: 15px">
         <NavItem {...args} />
     </div>
 </Template>
@@ -37,5 +39,26 @@
         label: "Dashboard",
         icon: home,
         active: true,
+    }}
+/>
+
+<Story
+    name="Disabled"
+    args={{
+        href: "/",
+        label: "Dashboard",
+        icon: home,
+        isDisabled: true,
+    }}
+/>
+
+<Story
+    name="With badge"
+    args={{
+        href: "/",
+        label: "Dashboard",
+        icon: home,
+        active: true,
+        badge: "Beta",
     }}
 />
