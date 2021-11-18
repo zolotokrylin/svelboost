@@ -36,6 +36,7 @@
 
 {#if type === Type.TD}
     <td
+        {...$$restProps}
         class="table-cell"
         class:table-cell--left={align === "left"}
         class:table-cell--center={align === "center"}
@@ -47,6 +48,7 @@
     </td>
 {:else}
     <th
+        {...$$restProps}
         class="table-cell"
         class:table-cell--left={align === "left"}
         class:table-cell--center={align === "center"}
