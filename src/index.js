@@ -20,6 +20,7 @@ import { Popup, PopupBody, PopupHeader } from './components/Popup';
 import State from './components/State/index.svelte';
 import { Dropdown, DropdownOption, DropdownOptions } from './components/Dropdown';
 import Tabs from './components/Tabs/index.svelte';
+import Tooltip from './components/Tooltip/index.svelte';
 
 import { focus, resize, clickOutside, portal } from './dom-actions';
 
@@ -48,6 +49,7 @@ export {
     TableHead,
     TableRow,
     TableCell,
+    Tooltip,
     TxPopup,
     File,
     Form,
