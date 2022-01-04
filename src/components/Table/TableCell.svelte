@@ -32,11 +32,17 @@
     };
 
     export let align: "center" | "right" | "left" = "left";
+
+    // Used for control DOM element from outside
+    export let forwardRef: HTMLTableCellElement = undefined;
+    export let forwardAction: any;
 </script>
 
 {#if type === Type.TD}
     <td
         {...$$restProps}
+        use:forwardAction
+        bind:this={forwardRef}
         class="table-cell"
         class:table-cell--left={align === "left"}
         class:table-cell--center={align === "center"}
@@ -49,6 +55,8 @@
 {:else}
     <th
         {...$$restProps}
+        use:forwardAction
+        bind:this={forwardRef}
         class="table-cell"
         class:table-cell--left={align === "left"}
         class:table-cell--center={align === "center"}
