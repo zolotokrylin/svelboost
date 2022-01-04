@@ -4,7 +4,7 @@
 
     // Used for control DOM element from outside
     export let forwardRef: HTMLParagraphElement = undefined;
-    export let forwardAction: any;
+    export let forwardAction: any = () => {};
 </script>
 
 <p use:forwardAction bind:this={forwardRef} class={className}>

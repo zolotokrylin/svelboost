@@ -35,7 +35,7 @@
         modifiers: [...defaultModifiers, ...modifiers],
     };
 
-    let isShown: boolean = true;
+    let isShown: boolean = false;
     let onMouseEnter = (ev: Event) => {
         isShown = true;
     };

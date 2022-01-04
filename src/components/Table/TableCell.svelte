@@ -35,7 +35,7 @@
 
     // Used for control DOM element from outside
     export let forwardRef: HTMLTableCellElement = undefined;
-    export let forwardAction: any;
+    export let forwardAction: any = () => {};
 </script>
 
 {#if type === Type.TD}

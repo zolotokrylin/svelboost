@@ -20,7 +20,7 @@
 
     // Used for control DOM element from outside
     export let forwardRef: HTMLHeadingElement = undefined;
-    export let forwardAction: any;
+    export let forwardAction: any = () => {};
 
     $: hoverableClass = isHoverable ? "heading--isHoverable" : "";
     $: displayClass = isDisplay ? "heading--isDisplay" : "";

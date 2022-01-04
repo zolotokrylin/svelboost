@@ -32,7 +32,7 @@
 
     // Used for control DOM element from outside
     export let forwardRef: HTMLButtonElement = undefined;
-    export let forwardAction: any;
+    export let forwardAction: any = () => {};
 
     export function getRef() {
         return forwardRef;
