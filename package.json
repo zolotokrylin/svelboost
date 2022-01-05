@@ -5,6 +5,7 @@
   "module": "dist/svelboost.es.js",
   "jsnext:main": "dist/svelboost.es.js",
   "types": "src/index.d.ts",
+  "type": "module",
   "files": [
     "dist",
     "src"
