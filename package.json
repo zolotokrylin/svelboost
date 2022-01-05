@@ -4,13 +4,12 @@
   "main": "compiled/svelboost.js",
   "module": "compiled/svelboost.es.js",
   "jsnext:main": "compiled/svelboost.es.js",
-  "types": "dist/index.d.ts",
+  "types": "src/index.d.ts",
   "files": [
-    "dist",
     "compiled",
     "src"
   ],
-  "svelte": "dist/index.js",
+  "svelte": "src/index.js",
   "peerDependencies": {
     "svelte": "^3.38.3"
   },
