@@ -1,6 +1,7 @@
 button(
+    use:forwardAction
     type="button"
-    bind:this="{ref}"
+    bind:this="{forwardRef}"
     class:pointers-none="{pointerNone}"
     class!="{['btn-icon', withBorderClass, className].join(' ')}"
     disabled="{disabled}"
