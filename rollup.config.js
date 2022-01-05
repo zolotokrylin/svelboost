@@ -23,6 +23,7 @@ export default {
 			format: 'es',
 			sourcemap: true,
 			name,
+			inlineDynamicImports: true,
 			globals: {
 				'web3': 'Web3',
 				'universal-cookie': 'Cookies',
@@ -34,6 +35,7 @@ export default {
 			format: 'cjs',
 			sourcemap: true,
 			name,
+			inlineDynamicImports: true,
 			globals: {
 				'web3': 'Web3',
 				'universal-cookie': 'Cookies',
