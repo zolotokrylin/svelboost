@@ -24,21 +24,25 @@ export default {
 			sourcemap: true,
 			name,
 			globals: {
-				'web3': 'Web3'
+				'web3': 'Web3',
+				'universal-cookie': 'Cookies',
+				'@walletconnect/utils/dist/cjs': 'cjs'
 			}
 		},
 		{
 			file: pkg.main,
-			format: 'umd',
+			format: 'cjs',
 			sourcemap: true,
 			name,
 			globals: {
-				'web3': 'Web3'
+				'web3': 'Web3',
+				'universal-cookie': 'Cookies',
+				'@walletconnect/utils/dist/cjs': 'cjs'
 			}
 		}
 	],
 	context: 'this',
-	external: ['web3'],
+	external: ['web3', 'universal-cookie', '@walletconnect/utils/dist/cjs', 'lodash-es', 'svelte', 'svelte/store'],
 	plugins: [
 		svelte({
 			compilerOptions: {
