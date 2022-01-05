@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-    export enum Level {
+    enum Level {
         H1 = 1,
         H2,
         H3,

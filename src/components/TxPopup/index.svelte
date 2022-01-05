@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
-    export type Tx = {
+    type Tx = {
         text: string;
         description: string;
     };
 
-    export enum Status {
+    enum Status {
         STARTING = 0,
         PENDING = 1,
         SUCCESS = 2,

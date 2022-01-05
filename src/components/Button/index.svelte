@@ -1,11 +1,11 @@
 <script context="module" lang="ts">
-    export enum Size {
+    enum Size {
         LARGE = "large",
         DEFAULT = "default",
         SMALL = "small",
     }
 
-    export enum Type {
+    enum Type {
         PRIMARY = "primary",
         SECONDARY = "secondary",
         ALTERNATE = "alternate",

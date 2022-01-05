@@ -1,7 +1,7 @@
 <script lang="ts">
     import { setContext, onMount } from "svelte";
     import { writable } from "svelte/store";
-    import { isMobile } from "@walletconnect/browser-utils/dist/esm/browser";
+    import { isMobile } from "../utils";
     import { signatureMessage, STATUS, errorCodes } from "./utils";
 
     export let chainId: string;
