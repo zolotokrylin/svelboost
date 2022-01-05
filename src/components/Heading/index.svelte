@@ -1,5 +1,5 @@
-<script lang="ts">
-    enum Level {
+<script context="module" lang="ts">
+    export enum Level {
         H1 = 1,
         H2,
         H3,
@@ -7,7 +7,9 @@
         H5,
         H6,
     }
+</script>
 
+<script lang="ts">
     export let level: Level = Level.H1;
 
     let className: string = "";

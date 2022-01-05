@@ -1,3 +1,17 @@
+<script context="module" lang="ts">
+    export type Tx = {
+        text: string;
+        description: string;
+    };
+
+    export enum Status {
+        STARTING = 0,
+        PENDING = 1,
+        SUCCESS = 2,
+        FAILURE = 3,
+    }
+</script>
+
 <script lang="ts">
     import { PopupHeader, PopupBody } from "../Popup";
     import Button from "../Button/index.svelte";
@@ -5,18 +19,6 @@
 
     import failedTxImage from "./failed-tx.png";
     import successTxImage from "./success-tx.png";
-
-    type Tx = {
-        text: string;
-        description: string;
-    };
-
-    enum Status {
-        STARTING = 0,
-        PENDING = 1,
-        SUCCESS = 2,
-        FAILURE = 3,
-    }
 
     export let pendingTx: Tx;
     export let successTx: Tx;

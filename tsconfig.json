@@ -4,7 +4,7 @@
 		"baseUrl": ".",
 		"allowJs": true,
 		"declaration": true,
-		"declarationDir": "src",
+		"declarationDir": "dist",
 		"emitDeclarationOnly": true,
 		"paths": {
 			"svelboost": [

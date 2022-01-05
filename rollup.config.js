@@ -14,70 +14,73 @@ import pkg from './package.json';
 const production = !process.env.ROLLUP_WATCH;
 
 const { name } = pkg;
+const external = ['web3', 'universal-cookie', '@walletconnect/utils/dist/cjs', 'lodash-es', 'svelte', 'svelte/store'];
 
-export default {
-	input: 'src/index.js',
-	output: [
-		{
-			file: pkg.module,
-			format: 'es',
-			sourcemap: true,
-			name,
-			inlineDynamicImports: true,
-			globals: {
-				'web3': 'Web3',
-				'universal-cookie': 'Cookies',
-				'@walletconnect/utils/dist/cjs': 'cjs'
-			}
-		},
-		{
-			file: pkg.main,
-			format: 'cjs',
-			sourcemap: true,
-			name,
-			inlineDynamicImports: true,
-			globals: {
-				'web3': 'Web3',
-				'universal-cookie': 'Cookies',
-				'@walletconnect/utils/dist/cjs': 'cjs'
-			}
-		}
-	],
-	context: 'this',
-	external: ['web3', 'universal-cookie', '@walletconnect/utils/dist/cjs', 'lodash-es', 'svelte', 'svelte/store'],
-	plugins: [
-		svelte({
-			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production,
-				// generate: production ? 'dom' : 'ssr',
-				hydratable: true
+export default [
+	{
+		input: 'src/index.js',
+		output: [
+			{
+				file: pkg.module,
+				format: 'es',
+				sourcemap: true,
+				name,
+				inlineDynamicImports: true,
+				globals: {
+					'web3': 'Web3',
+					'universal-cookie': 'Cookies',
+					'@walletconnect/utils/dist/cjs': 'cjs'
+				}
 			},
-			preprocess: autoPreprocess({
-				replace: [[/<template(.+)\/>/gim, '<template$1></template>']],
-				pug: true,
-				preserve: ['ld+json'],
-				sass: {
-					includePaths: ['src'],
+			{
+				file: pkg.main,
+				format: 'cjs',
+				sourcemap: true,
+				name,
+				inlineDynamicImports: true,
+				globals: {
+					'web3': 'Web3',
+					'universal-cookie': 'Cookies',
+					'@walletconnect/utils/dist/cjs': 'cjs'
+				}
+			}
+		],
+		context: 'this',
+		external,
+		plugins: [
+			svelte({
+				compilerOptions: {
+					// enable run-time checks when not in production
+					dev: !production,
+					// generate: production ? 'dom' : 'ssr',
+					hydratable: true
 				},
-				postcss: {
-					plugins: [require('autoprefixer')],
-				},
-				sourceMap: !production
+				preprocess: autoPreprocess({
+					replace: [[/<template(.+)\/>/gim, '<template$1></template>']],
+					pug: true,
+					preserve: ['ld+json'],
+					sass: {
+						includePaths: ['src'],
+					},
+					postcss: {
+						plugins: [require('autoprefixer')],
+					},
+					sourceMap: !production
+				}),
+				emitCss: false
 			}),
-			emitCss: false
-		}),
-		nodePolyfills(),
-		resolve(),
-		json(),
-		commonjs(),
-		typescript(),
-		url(),
-		production && terser(),
-		production && analyze(),
-		production && bundleSize()
-	],
-	watch: {
-		clearScreen: false
+			nodePolyfills(),
+			resolve(),
+			json(),
+			commonjs(),
+			typescript(),
+			url(),
+			production && terser(),
+			production && analyze(),
+			production && bundleSize()
+		],
+		watch: {
+			clearScreen: false
+		}
 	}
-};
+];
