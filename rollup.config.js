@@ -7,7 +7,6 @@ import svelte from 'rollup-plugin-svelte';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import url from '@rollup/plugin-url';
-import nodePolyfills from 'rollup-plugin-node-polyfills';
 import json from '@rollup/plugin-json';
 import pkg from './package.json';
 
@@ -53,7 +52,7 @@ export default [
 					// enable run-time checks when not in production
 					dev: !production,
 					// generate: production ? 'dom' : 'ssr',
-					hydratable: true
+					hydratable: true,
 				},
 				preprocess: autoPreprocess({
 					replace: [[/<template(.+)\/>/gim, '<template$1></template>']],
@@ -69,8 +68,9 @@ export default [
 				}),
 				emitCss: false
 			}),
-			nodePolyfills(),
-			resolve(),
+			resolve({
+				preferBuiltins: false
+			}),
 			json(),
 			commonjs(),
 			typescript(),
