@@ -52,7 +52,7 @@
 </script>
 
 <slot ref={handleRef} {isShown} />
-{#if isShown}
+{#if isShown && tip}
     <div
         transition:fade|local
         class="tooltip {className}"
