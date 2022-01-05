@@ -48,3 +48,14 @@ glob('src/**/*.js', {}, (_, files) => {
         fs.copyFileSync(path.join(BASE, file), path.join(outFolder, filename));
     });
 });
+
+process.chdir(BASE);
+
+glob('src/**/*.ts', {}, (_, files) => {
+    files.forEach((file) => {
+        const outFolder = path.join(BASE, path.dirname(file.replace('src', 'dist')));
+        const filename = path.basename(file);
+        fs.mkdirSync(outFolder, { recursive: true });
+        fs.copyFileSync(path.join(BASE, file), path.join(outFolder, filename));
+    });
+});
