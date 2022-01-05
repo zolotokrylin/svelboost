@@ -14,7 +14,7 @@ import pkg from './package.json';
 const production = !process.env.ROLLUP_WATCH;
 
 const { name } = pkg;
-const external = ['web3', 'universal-cookie', '@walletconnect/utils/dist/cjs', 'lodash-es', 'svelte', 'svelte/store'];
+const external = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})];
 
 export default [
 	{
