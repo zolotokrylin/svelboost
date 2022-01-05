@@ -33,10 +33,6 @@ export function createPopperActions<
 
     const initPopper = () => {
         if (referenceNode && contentNode) {
-            if (referenceHandlers) {
-                referenceNode.addEventListener('mouseenter', referenceHandlers.onMouseEnter);
-                referenceNode.addEventListener('mouseleave', referenceHandlers.onMouseLeave);
-            }
             popperInstance = createPopper(referenceNode, contentNode, options);
         }
     };
@@ -48,14 +44,30 @@ export function createPopperActions<
         }
     };
 
+    const addReferenceEvents = (node: HTMLElement, handlers: any) => {
+        if (node && handlers) {
+            node.addEventListener('mouseenter', handlers.onMouseEnter);
+            node.addEventListener('mouseleave', handlers.onMouseLeave);
+        }
+    }
+
+    const removeReferenceEvents = (node: HTMLElement, handlers: any) => {
+        if (node && handlers) {
+            node.removeEventListener('mouseenter', handlers.onMouseEnter);
+            node.removeEventListener('mouseleave', handlers.onMouseLeave);
+        }
+    }
+
     const referenceAction: ReferenceAction = (node, handlers) => {
         referenceHandlers = handlers;
         referenceNode = node;
 
+        addReferenceEvents(node, handlers);
         initPopper();
         return {
             destroy() {
                 destroyPopper();
+                removeReferenceEvents(referenceNode, referenceHandlers);
             },
         };
     };
