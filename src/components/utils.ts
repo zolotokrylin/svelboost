@@ -1,5 +1,5 @@
-let _set = require("lodash-es/set").default;
-let _get = require("lodash-es/get").default;
+import { default as _set } from "lodash-es/set";
+import { default as _get } from "lodash-es/get";
 
 
 export const objectToStyle = (object: Record<string, any>): string => {
