@@ -2,7 +2,7 @@
     import Web3 from "web3";
     import { setContext, onMount } from "svelte";
     import { writable } from "svelte/store";
-    import { isMobile } from "@walletconnect/utils/dist/cjs";
+    import { isMobile } from "@walletconnect/browser-utils/dist/cjs";
     import { signatureMessage, STATUS, errorCodes } from "./utils";
 
     export let chainId: string;
