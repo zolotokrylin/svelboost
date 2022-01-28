@@ -1,21 +1,21 @@
 mixin content
     +if('level === 1')
-        h1(class="heading {hoverableClass} {displayClass} {asLink ? '' : className}")
+        h1(use:forwardAction bind:this="{forwardRef}" class="heading {hoverableClass} {displayClass} {asLink ? '' : className}")
             slot
         +elseif('level === 2')
-            h2(class="heading {hoverableClass} {asLink ? '' : className}")
+            h2(use:forwardAction bind:this="{forwardRef}" class="heading {hoverableClass} {asLink ? '' : className}")
                 slot
         +elseif('level === 3')
-            h3(class="heading {hoverableClass} {asLink ? '' : className}")
+            h3(use:forwardAction bind:this="{forwardRef}" class="heading {hoverableClass} {asLink ? '' : className}")
                 slot
         +elseif('level === 4')
-            h4(class="heading {hoverableClass} {asLink ? '' : className}")
+            h4(use:forwardAction bind:this="{forwardRef}" class="heading {hoverableClass} {asLink ? '' : className}")
                 slot
         +elseif('level === 5')
-            h5(class="heading {hoverableClass} {asLink ? '' : className}")
+            h5(use:forwardAction bind:this="{forwardRef}" class="heading {hoverableClass} {asLink ? '' : className}")
                 slot
         +elseif('level === 6')
-            h6(class="heading {hoverableClass} {asLink ? '' : className}")
+            h6(use:forwardAction bind:this="{forwardRef}" class="heading {hoverableClass} {asLink ? '' : className}")
                 slot
 
 +if('asLink')

@@ -1,9 +1,13 @@
 <script lang="ts">
     let className: string = "";
     export { className as class };
+
+    // Used for control DOM element from outside
+    export let forwardRef: HTMLParagraphElement = undefined;
+    export let forwardAction: any = () => {};
 </script>
 
-<p class={className}>
+<p use:forwardAction bind:this={forwardRef} class={className}>
     <slot />
 </p>
 

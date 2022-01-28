@@ -7,9 +7,11 @@
     export let pointerNone: boolean = false;
 
     // Used for control DOM element from outside
-    let ref: HTMLButtonElement;
+    export let forwardRef: HTMLButtonElement = null;
+    export let forwardAction: any = () => {};
+
     export function getRef() {
-        return ref;
+        return forwardRef;
     }
 
     export let disabled: boolean = false;
