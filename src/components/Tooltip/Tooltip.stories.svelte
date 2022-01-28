@@ -43,7 +43,7 @@
 
 <Template let:args id="svelteComponent">
     <Tooltip {...args} let:ref>
-        <Button forwardAction={ref}>Tooltip</Button>
+        <Button class={args.class} forwardAction={ref}>Tooltip</Button>
     </Tooltip>
 </Template>
 

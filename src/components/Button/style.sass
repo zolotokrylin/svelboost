@@ -22,7 +22,7 @@
         vertical-align: top
         display: inline-block
 
-    &:disabled
+    &:disabled, &.disabled
         cursor: not-allowed
         @include var(color, 'f4')
 
@@ -44,14 +44,14 @@
         @include var(color, 'l1')
         @include var(background-color, 'primary-accent')
 
-        &:disabled
+        &:disabled, &.disabled
             @include var(background-color, 'l6')
 
     &--secondary
         @include var(color, 'l1')
         @include var(background-color, 'secondary-accent')
 
-        &:disabled
+        &:disabled, &.disabled
             @include var(background-color, 'l6')
 
     &--alternate
@@ -69,21 +69,21 @@
 
     &--primary,
     &--secondary
-        &:not(:disabled)
+        &:not(:disabled,.disabled)
             &.active,
             &:hover,
             &:focus
                 filter: brightness(1.5)
 
-        &:not(:disabled):active
+        &:not(:disabled, .disabled):active
             filter: brightness(.85)
 
     &--alternate
-        &:not(:disabled)
+        &:not(:disabled, .disabled)
             &.active,
             &:hover,
             &:focus
                 filter: brightness(.95)
 
-        &:not(:disabled):active
+        &:not(:disabled, .disabled):active
             filter: brightness(.9)
