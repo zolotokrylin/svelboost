@@ -8,6 +8,7 @@
     title="Example/Button"
     component={Button}
     argTypes={{
+        class: { control: "text" },
         label: { control: "text" },
         href: { control: "text" },
         icon: { control: "object" },
