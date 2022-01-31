@@ -29,16 +29,16 @@
         actions: BagState
     ) => Record<string, any> | void = () => {};
 
-    let values: Writable<Record<string, any>> = writable(initialValues);
+    const values: Writable<Record<string, any>> = writable(initialValues);
     setContext("formValues", values);
 
-    let touched: Writable<Record<string, any>> = writable(initialTouched);
+    const touched: Writable<Record<string, any>> = writable(initialTouched);
     setContext("formTouched", touched);
 
-    let errors: Writable<Record<string, any>> = writable(initialErrors);
+    const errors: Writable<Record<string, any>> = writable(initialErrors);
     setContext("formErrors", errors);
 
-    let markers: Writable<Record<string, any>> = writable({});
+    const markers: Writable<Record<string, any>> = writable({});
     setContext("formMarkers", markers);
 
     let isValid: boolean;
