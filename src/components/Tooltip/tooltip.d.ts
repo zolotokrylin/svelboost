@@ -1,4 +1,4 @@
-import { Instance, OptionsGeneric, Modifier } from '@popperjs/core';
+import type { Instance, OptionsGeneric, Modifier } from '@popperjs/core';
 export declare type PopperOptions<TModifier> = Partial<OptionsGeneric<TModifier>> | undefined;
 export declare type ReferenceAction = (node: HTMLElement, handlers: any) => {
     destroy(): void;
