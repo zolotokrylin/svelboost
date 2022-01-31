@@ -1,11 +1,4 @@
-<script lang="ts">
-    import { PopupHeader, PopupBody } from "../Popup";
-    import Button from "../Button/index.svelte";
-    import CircularLoading from "../CircularLoading/index.svelte";
-
-    import failedTxImage from "./failed-tx.png";
-    import successTxImage from "./success-tx.png";
-
+<script context="module" lang="ts">
     type Tx = {
         text: string;
         description: string;
@@ -17,6 +10,15 @@
         SUCCESS = 2,
         FAILURE = 3,
     }
+</script>
+
+<script lang="ts">
+    import { PopupHeader, PopupBody } from "../Popup";
+    import Button from "../Button/index.svelte";
+    import CircularLoading from "../CircularLoading/index.svelte";
+
+    import failedTxImage from "./failed-tx.png";
+    import successTxImage from "./success-tx.png";
 
     export let pendingTx: Tx;
     export let successTx: Tx;

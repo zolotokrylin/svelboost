@@ -2,18 +2,16 @@
     import { setContext } from "svelte";
     import { writable } from "svelte/store";
     import type { Writable } from "svelte/store";
-    import { setIn } from "../utils";
     import type { BagState, CustomMouseEvent, InputPropertyFn } from "./types";
-
-    let merge = require("lodash-es/merge").default;
-    let mapValues = require("lodash-es/mapValues").default;
-    let isEmpty = require("lodash-es/isEmpty").default;
-    let isEqual = require("lodash-es/isEqual").default;
-    let pick = require("lodash-es/pick").default;
-    let pickBy = require("lodash-es/pickBy").default;
-    let minBy = require("lodash-es/minBy").default;
-    let toPairs = require("lodash-es/toPairs").default;
-    let keys = require("lodash-es/keys").default;
+    import { default as merge } from "lodash-es/merge";
+    import { default as mapValues } from "lodash-es/mapValues";
+    import { default as isEmpty } from "lodash-es/isEmpty";
+    import { default as isEqual } from "lodash-es/isEqual";
+    import { default as pick } from "lodash-es/pick";
+    import { default as pickBy } from "lodash-es/pickBy";
+    import { default as minBy } from "lodash-es/minBy";
+    import { default as toPairs } from "lodash-es/toPairs";
+    import { default as keys } from "lodash-es/keys";
 
     export let enableReinitialize: boolean = false;
     export let formBag: () => BagState;
@@ -29,16 +27,16 @@
         actions: BagState
     ) => Record<string, any> | void = () => {};
 
-    let values: Writable<Record<string, any>> = writable(initialValues);
+    const values: Writable<Record<string, any>> = writable(initialValues);
     setContext("formValues", values);
 
-    let touched: Writable<Record<string, any>> = writable(initialTouched);
+    const touched: Writable<Record<string, any>> = writable(initialTouched);
     setContext("formTouched", touched);
 
-    let errors: Writable<Record<string, any>> = writable(initialErrors);
+    const errors: Writable<Record<string, any>> = writable(initialErrors);
     setContext("formErrors", errors);
 
-    let markers: Writable<Record<string, any>> = writable({});
+    const markers: Writable<Record<string, any>> = writable({});
     setContext("formMarkers", markers);
 
     let isValid: boolean;
@@ -71,7 +69,7 @@
     }
 
     const setFieldError = (field: string, errMsg: string | undefined): void =>
-        errors.update((_er) => setIn(_er, field, errMsg));
+        errors.update((_er) => ({ ..._er, [field]: errMsg }));
     const setErrors = (fields: Object): void => errors.set(fields);
 
     let validateOnBlur = true;
@@ -80,7 +78,7 @@
         isTouched: boolean,
         shouldValidate: boolean = validateOnBlur
     ): void => {
-        touched.update((_t) => setIn(_t, field, isTouched));
+        touched.update((_t) => ({ ..._t, [field]: isTouched }));
         if (isTouched && shouldValidate) {
             handleValidate($values);
         }
@@ -97,7 +95,7 @@
         value: any,
         shouldValidate: boolean = validateOnBlur
     ): void => {
-        values.update((_v) => setIn(_v, field, value));
+        values.update((_v) => ({ ..._v, [field]: value }));
         if (shouldValidate) {
             handleValidate($values);
         }
@@ -148,7 +146,7 @@
     }
 
     function handleBlur({ target: { name } }: CustomMouseEvent): void {
-        touched.update((_t) => setIn(_t, name, true));
+        touched.update((_t) => ({ ..._t, [name]: true }));
         if (validateOnBlur) {
             handleValidate($values);
         }
@@ -156,7 +154,7 @@
 
     function handleFocus({ target: { name, value } }: CustomMouseEvent): void {
         if (value.length === 0) {
-            touched.update((_t) => setIn(_t, name, undefined));
+            touched.update((_t) => ({ ..._t, [name]: undefined }));
         }
     }
 
@@ -172,7 +170,7 @@
         } else if (type === "checkbox") {
             nextValue = checked;
         }
-        values.update((_v) => setIn(_v, name, nextValue));
+        values.update((_v) => ({ ..._v, [name]: nextValue }));
         if (validateOnBlur) {
             handleValidate($values);
         }
@@ -265,8 +263,8 @@
     errors={$errors}
     touched={$touched}
     values={$values}
-    isSubmitting={isSubmitting}
-    handleSubmit={handleSubmit}
+    {isSubmitting}
+    {handleSubmit}
     props={{
         errors: $errors,
         touched: $touched,

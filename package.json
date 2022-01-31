@@ -1,5 +1,5 @@
 {
-  "name": "svelte-app",
+  "name": "svelboost",
   "version": "1.0.0",
   "main": "dist/svelboost.js",
   "module": "dist/svelboost.es.js",
@@ -31,7 +31,6 @@
     "@storybook/svelte": "^6.3.4",
     "@tsconfig/svelte": "^2.0.1",
     "@types/node": "^14.11.1",
-    "@walletconnect/client": "^1.3.6",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.9.2",
@@ -52,9 +51,6 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-copy": "^3.4.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-node-polyfills": "^0.2.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-svelte": "^7.1.0",
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.26.10",
@@ -67,19 +63,22 @@
     "svelte-type-generator": "^1.1.0",
     "ts-loader": "^8.0.4",
     "tslib": "^2.0.1",
-    "typescript": "^4.3.2",
-    "universal-cookie": "4.0.4"
+    "typescript": "^4.3.2"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production rollup -c",
+    "build": "cross-env NODE_ENV=production rollup -c && npm run generate-types",
     "generate-types": "svelte-type-generator",
     "validate": "svelte-check",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "chromatic": "chromatic --exit-once-uploaded"
+    "chromatic": "chromatic --exit-once-uploaded",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "web3": "1.4.0",
+    "detect-browser": "5.3.0",
+    "@walletconnect/client": "^1.3.6",
+    "universal-cookie": "4.0.4",
     "lodash-es": "4.17.15",
     "@popperjs/core": "^2.11.0"
   }

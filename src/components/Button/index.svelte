@@ -1,6 +1,4 @@
-<script lang="ts">
-    import Icon from "../Icon/index.svelte";
-
+<script context="module" lang="ts">
     enum Size {
         LARGE = "large",
         DEFAULT = "default",
@@ -12,6 +10,10 @@
         SECONDARY = "secondary",
         ALTERNATE = "alternate",
     }
+</script>
+
+<script lang="ts">
+    import Icon from "../Icon/index.svelte";
 
     export let href: string = undefined;
     export let label: string;

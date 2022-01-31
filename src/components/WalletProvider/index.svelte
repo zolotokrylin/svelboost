@@ -1,14 +1,14 @@
 <script lang="ts">
-    import Web3 from "web3";
     import { setContext, onMount } from "svelte";
     import { writable } from "svelte/store";
-    import { isMobile } from "@walletconnect/utils/dist/cjs";
+    import { isMobile } from "../utils";
     import { signatureMessage, STATUS, errorCodes } from "./utils";
 
     export let chainId: string;
     export let network: any;
 
     let instance;
+    let Web3;
 
     let noop = () => {};
 
@@ -26,7 +26,8 @@
     let setState = (exp) =>
         state.update((prevState) => ({ ...prevState, ...exp }));
 
-    onMount(() => {
+    onMount(async () => {
+        Web3 = (await import("web3")).default;
         identifyProvider(window);
 
         return () => {

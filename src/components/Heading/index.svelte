@@ -1,4 +1,4 @@
-<script lang="ts">
+<script context="module" lang="ts">
     enum Level {
         H1 = 1,
         H2,
@@ -7,7 +7,9 @@
         H5,
         H6,
     }
+</script>
 
+<script lang="ts">
     export let level: Level = Level.H1;
 
     let className: string = "";
