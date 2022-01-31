@@ -4,16 +4,15 @@
     import type { Writable } from "svelte/store";
     import { setIn } from "../utils";
     import type { BagState, CustomMouseEvent, InputPropertyFn } from "./types";
-
-    let merge = require("lodash-es/merge").default;
-    let mapValues = require("lodash-es/mapValues").default;
-    let isEmpty = require("lodash-es/isEmpty").default;
-    let isEqual = require("lodash-es/isEqual").default;
-    let pick = require("lodash-es/pick").default;
-    let pickBy = require("lodash-es/pickBy").default;
-    let minBy = require("lodash-es/minBy").default;
-    let toPairs = require("lodash-es/toPairs").default;
-    let keys = require("lodash-es/keys").default;
+    import { default as merge } from "lodash-es/merge";
+    import { default as mapValues } from "lodash-es/mapValues";
+    import { default as isEmpty } from "lodash-es/isEmpty";
+    import { default as isEqual } from "lodash-es/isEqual";
+    import { default as pick } from "lodash-es/pick";
+    import { default as pickBy } from "lodash-es/pickBy";
+    import { default as minBy } from "lodash-es/minBy";
+    import { default as toPairs } from "lodash-es/toPairs";
+    import { default as keys } from "lodash-es/keys";
 
     export let enableReinitialize: boolean = false;
     export let formBag: () => BagState;
@@ -265,8 +264,8 @@
     errors={$errors}
     touched={$touched}
     values={$values}
-    isSubmitting={isSubmitting}
-    handleSubmit={handleSubmit}
+    {isSubmitting}
+    {handleSubmit}
     props={{
         errors: $errors,
         touched: $touched,
