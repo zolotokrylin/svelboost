@@ -1,9 +1,5 @@
-import {
-    createPopper,
-    Instance,
-    OptionsGeneric,
-    Modifier,
-} from '@popperjs/core';
+import { createPopper } from '@popperjs/core';
+import type { Instance, OptionsGeneric, Modifier } from '@popperjs/core';
 
 export type PopperOptions<TModifier> =
     | Partial<OptionsGeneric<TModifier>>
