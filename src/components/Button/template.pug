@@ -10,7 +10,8 @@ mixin content
 +if('href')
     a(
         {...$$restProps}
-        bind:this="{ref}"
+        use:forwardAction
+        bind:this="{forwardRef}"
         class!="{['btn', typeClass, sizeClass, className].join(' ')}"
         disabled="{disabled}"
         href="{href}"
@@ -20,7 +21,8 @@ mixin content
     +else()
         button(
             {...$$restProps}
-            bind:this="{ref}"
+            use:forwardAction
+            bind:this="{forwardRef}"
             class!="{['btn', typeClass, sizeClass, className].join(' ')}"
             disabled="{disabled}"
             type="{btnType}"

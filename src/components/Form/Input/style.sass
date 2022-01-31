@@ -31,7 +31,7 @@ input
         @include var(border-color, 'primary-accent')
         @include boxShadowV2((1: (offset: "0 0 0 1000px", key: "l2")), inset)
 
-    &:disabled
+    &:disabled, &.disabled
         cursor: not-allowed
 
     &:-webkit-autofill

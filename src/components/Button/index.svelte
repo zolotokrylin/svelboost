@@ -33,9 +33,11 @@
     export { className as class };
 
     // Used for control DOM element from outside
-    let ref: HTMLButtonElement;
+    export let forwardRef: HTMLButtonElement = undefined;
+    export let forwardAction: any = () => {};
+
     export function getRef() {
-        return ref;
+        return forwardRef;
     }
 
     $: typeClass = `btn--${type}`;

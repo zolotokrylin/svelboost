@@ -11,14 +11,19 @@
     };
 
     let { svg, paths } = icon;
+
+    export let forwardRef: SVGSVGElement = null;
+    export let forwardAction: any = () => {};
 </script>
 
 <svg
+    bind:this={forwardRef}
+    use:forwardAction
     class:icon-outline={isOutlined}
     class:color-inherited={colorInherit}
     {...svg}
-    width={width}
-    height={height}
+    {width}
+    {height}
 >
     {#each paths as pathProps}
         <path {...pathProps} />
