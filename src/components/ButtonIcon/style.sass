@@ -21,6 +21,10 @@
         padding: 7px
         @include property(border,1px, solid, 'l4')
 
+    &:disabled, &.disabled
+        cursor: not-allowed
+        @include var(color, 'f4')
+
     &:not(:disabled, .disabled)
         &.active,
         &:hover,
