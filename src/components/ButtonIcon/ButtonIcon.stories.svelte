@@ -11,6 +11,7 @@
         icon: { control: "object" },
         withBorder: { control: "boolean" },
         onClick: { action: "onClick" },
+        type: { control: { type: "select", options: ["default", "primary"] } },
     }}
     args={{
         icon: home,
@@ -22,6 +23,8 @@
 </Template>
 
 <Story name="Default" />
+
+<Story name="Primary" args={{ type: "primary" }} />
 
 <Story
     name="With Border"
