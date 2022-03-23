@@ -5,6 +5,7 @@
     export let icon: any;
 
     export let pointerNone: boolean = false;
+    export let type: "default" | "primary" = "default";
 
     // Used for control DOM element from outside
     export let forwardRef: HTMLButtonElement = null;
@@ -21,6 +22,7 @@
     export { className as class };
 
     $: withBorderClass = withBorder ? "btn-icon--withBorder" : "";
+    $: typeClass = `btn-icon--${type}`;
 </script>
 
 <svelte:options accessors />
