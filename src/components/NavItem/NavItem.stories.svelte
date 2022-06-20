@@ -14,6 +14,7 @@
         icon: { control: "object" },
         active: { control: "boolean" },
         isDisabled: { control: "boolean" },
+        disabledBackground: { control: "boolean" },
     }}
 />
 
@@ -29,6 +30,16 @@
         href: "/",
         label: "Dashboard",
         icon: home,
+    }}
+/>
+
+<Story
+    name="Without background"
+    args={{
+        href: "/",
+        label: "Dashboard",
+        icon: home,
+        disabledBackground: true,
     }}
 />
 
