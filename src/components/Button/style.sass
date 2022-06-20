@@ -30,13 +30,15 @@
     &--default
         padding: 16px
 
-        &.btn--alternate
+        &.btn--alternate,
+        &.btn--secondary
             padding: 15px
 
     &--small
         padding: 8px 10px
 
-        &.btn--alternate
+        &.btn--alternate,
+        &.btn--secondary
             padding: 7px 9px
 
     // type
@@ -48,8 +50,10 @@
             @include var(background-color, 'l6')
 
     &--secondary
-        @include var(color, 'l1')
-        @include var(background-color, 'secondary-accent')
+        border-radius: 12px
+        @include var(color, 'f1')
+        @include var(background-color, 'l1')
+        @include property(border, 1px, solid, 'f1')
 
         &:disabled, &.disabled
             @include var(background-color, 'l6')
@@ -63,17 +67,28 @@
     &--primary,
     &--secondary,
     &--alternate
-        transition: filter 0.3s ease-in-out, color .3s ease-in-out
+        transition: filter 0.3s ease-in-out, color .3s ease-in-out,background-color .3s ease-in-out
         border-radius: 12px
         filter: brightness(1)
 
-    &--primary,
+    &--primary
+        &:not(:disabled,.disabled)
+            &.active,
+            &:hover,
+            &:focus
+                filter: brightness(1.5)
+
+        &:not(:disabled, .disabled):active
+            filter: brightness(.85)
+
     &--secondary
         &:not(:disabled,.disabled)
             &.active,
             &:hover,
             &:focus
                 filter: brightness(1.5)
+                @include var(color, 'l1')
+                @include var(background-color, 'f1')
 
         &:not(:disabled, .disabled):active
             filter: brightness(.85)
