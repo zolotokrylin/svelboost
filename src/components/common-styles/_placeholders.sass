@@ -13,6 +13,9 @@
 @mixin caption-font($lineHeight: 1)
     @include font-details(toRem(12px),600, $lineHeight)
 
+@mixin subtitle-font($lineHeight: 1.36)
+    @include font-details(toRem(20px),400, $lineHeight)
+
 @keyframes rotate-circle
     from
         transform: rotate(0deg)
