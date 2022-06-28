@@ -7,7 +7,6 @@
     text-decoration: none
     justify-content: flex-start
     border-radius: 10px
-    background-color: transparent
     padding: 12px 16px
     transition: background-color .3s ease-in-out, color .3s ease-in-out
     @include var(color, 'f3')
@@ -29,6 +28,17 @@
 
     &-disabled
         pointer-events: none
+
+    &-no-background
+        padding: 0
+        background-color: transparent!important
+        @include var(color, 'f1')
+
+        &.nav-item-active
+            @include var(color, 'primary-accent')
+
+        span
+            @include cta-font(1.94)
 
     &:hover:not(&-disabled),
     &:active:not(&-disabled)

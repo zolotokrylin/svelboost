@@ -8,6 +8,7 @@
 
     export let badge: string = undefined;
     export let isDisabled: boolean = false;
+    export let disabledBackground: boolean = false;
 
     let className: string = "";
     export { className as class };
